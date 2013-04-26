@@ -1,0 +1,1 @@
+This is Ludum Dare #26 entry from "LDears" team
