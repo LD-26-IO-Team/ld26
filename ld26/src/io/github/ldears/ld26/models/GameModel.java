@@ -88,7 +88,12 @@ public class GameModel implements InputEventHandler {
 		int tiledY = player.pos.y / TILE_SIZE;
 		Tile ofInterest = data[tiledX][tiledY];
 		GameObject c = ofInterest.getContent();
-		return c.getAction(player.inventory.isFull());
+
+		if (c != null) {
+			return c.getAction(player.inventory.isFull());
+		} else {
+			return Action.NONE;
+		}
 	}
 
 	public Item getInventoryItem() {
