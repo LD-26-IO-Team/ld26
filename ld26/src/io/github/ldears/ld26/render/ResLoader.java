@@ -28,6 +28,8 @@ public class ResLoader {
 
 	public final TextureRegion darkBox;
 
+//	public final TextureAtlas.AtlasRegion[] objects;
+
 	public ResLoader() {
 		font = initFont();
 

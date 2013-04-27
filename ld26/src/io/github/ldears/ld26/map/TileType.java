@@ -6,6 +6,7 @@ package io.github.ldears.ld26.map;
 public enum TileType {
 
 	EMPTY(""),
+
 	CEIL("ceil"),
 	WALL_LEFT("wall_left"),
 	WALL_RIGHT("wall_right"),
@@ -14,6 +15,7 @@ public enum TileType {
 	WALL_MC("wall_middle_ceil"),
 	WALL_MIDDLE("wall_middle"),
 	WALL_X("wall_x"),
+
 	INNER_DOOR_TOP("inner_door_top"),
 	INNER_DOOR_BOTTOM("inner_door_bottom");
 

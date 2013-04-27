@@ -13,10 +13,13 @@ public abstract class GameObject {
 	int tiledX;
 	int tiledY;
 
-	protected GameObject(int x, int y, String name) {
+	public ObjectType type;
+
+	protected GameObject(int x, int y, String name, ObjectType type) {
 		this.tiledX = x;
 		this.tiledY = y;
 		this.name = name;
+		this.type = type;
 	}
 
 	public boolean contains(Point p) {
