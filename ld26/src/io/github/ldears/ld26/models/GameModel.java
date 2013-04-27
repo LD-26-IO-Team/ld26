@@ -131,7 +131,6 @@ public class GameModel implements InputEventHandler {
 				direction ^= 2;
 				break;
 			case X:
-				System.out.println("Here");
 				Action action = getAvailableAction();
 				exec(action);
 				break;
@@ -158,6 +157,7 @@ public class GameModel implements InputEventHandler {
 			c.add(player.inventory.poke());
 			break;
 		case GET_ITEM:
+			
 			Container c1 = (Container)getCurrentObject();
 			player.inventory.add(c1.poke());
 			break;

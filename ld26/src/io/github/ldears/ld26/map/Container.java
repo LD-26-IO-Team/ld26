@@ -37,7 +37,7 @@ public class Container extends GameObject {
 	}
 
 	public boolean add(Item i) {
-		if (items.size() < volume - 1) {
+		if (items.size() < volume) {
 			items.add(i);
 			return true;
 		} else
