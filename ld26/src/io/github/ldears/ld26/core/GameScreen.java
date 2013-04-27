@@ -1,5 +1,6 @@
 package io.github.ldears.ld26.core;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
@@ -109,6 +110,9 @@ public class GameScreen implements Screen, InputProcessor {
 	@Override
 	public boolean keyDown(int key) {
 		switch (key) {
+			case Input.Keys.ESCAPE:
+				Gdx.app.exit();
+				break;
 			case Input.Keys.LEFT:
 				model.handleEvent(InputEventHandler.InputEvent.LEFT_DOWN);
 				break;
