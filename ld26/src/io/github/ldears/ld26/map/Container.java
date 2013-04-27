@@ -80,7 +80,7 @@ public class Container extends GameObject {
 	}
 
 	public boolean isFull() {
-		return volume == items.size();
+		return items.size() == volume;
 	}
 
 	public boolean isEmpty() {

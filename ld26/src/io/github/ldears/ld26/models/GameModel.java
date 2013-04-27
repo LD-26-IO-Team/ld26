@@ -45,6 +45,7 @@ public class GameModel implements InputEventHandler {
 
 	public void update(float dt) {
 		time += dt;
+		System.out.println(getAvailableAction());
 		int tiledX = player.pos.x / TILE_SIZE;
 		int tiledY = player.pos.y / TILE_SIZE;
 		int tiledRX = (player.pos.x + TileType.PLAYER_WIDTH) / TILE_SIZE;
@@ -84,11 +85,15 @@ public class GameModel implements InputEventHandler {
 	}
 
 	public Action getAvailableAction() {
+		return getCurrentObject().getAction(player.inventory.isFull());
+	}
+	
+	public GameObject getCurrentObject() {
 		int tiledX = player.pos.x / TILE_SIZE;
 		int tiledY = player.pos.y / TILE_SIZE;
 		Tile ofInterest = data[tiledX][tiledY];
 		GameObject c = ofInterest.getContent();
-		return c.getAction(player.inventory.isFull());
+		return c;
 	}
 
 	public Item getInventoryItem() {
@@ -98,22 +103,26 @@ public class GameModel implements InputEventHandler {
 	@Override
 	public void handleEvent(InputEvent event) {
 		switch (event) {
-		case LEFT_DOWN:
-			direction |= 1;
-			break;
-		case LEFT_UP:
-			direction ^= 1;
-			break;
-		case RIGHT_DOWN:
-			direction |= 2;
-			break;
-		case RIGHT_UP:
-			direction ^= 2;
-			break;
-		case X:
-			break;
-		case Z:
-			break;
+			case LEFT_DOWN:
+				direction |= 1;
+				break;
+			case LEFT_UP:
+				direction ^= 1;
+				break;
+			case RIGHT_DOWN:
+				direction |= 2;
+				break;
+			case RIGHT_UP:
+				direction ^= 2;
+				break;
+			case X:
+				Action ac = getAvailableAction();
+				if (ac != null) {
+					
+				}
+				break;
+			case Z:
+				break;
 		}
 
 		System.out.println("GameModel: " + event + " received");
