@@ -96,6 +96,10 @@ public class GameModel implements InputEventHandler {
 		}
 	}
 
+	public PlayerDirection getPlayerDirection() {
+		return null;
+	}
+
 	public Item getInventoryItem() {
 		return player.inventory.poke();
 	}
