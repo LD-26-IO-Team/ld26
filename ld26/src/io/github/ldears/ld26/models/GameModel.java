@@ -2,6 +2,7 @@ package io.github.ldears.ld26.models;
 
 import io.github.ldears.ld26.events.InputEventHandler;
 import io.github.ldears.ld26.map.Container;
+import io.github.ldears.ld26.map.Door;
 import io.github.ldears.ld26.map.GameObject;
 import io.github.ldears.ld26.map.Item;
 import io.github.ldears.ld26.map.Tile;
@@ -45,7 +46,7 @@ public class GameModel implements InputEventHandler {
 
 	public void update(float dt) {
 		time += dt;
-		System.out.println(getAvailableAction());
+//		System.out.println(getAvailableAction());
 		int tiledX = player.pos.x / TILE_SIZE;
 		int tiledY = player.pos.y / TILE_SIZE;
 		int tiledRX = (player.pos.x + TileType.PLAYER_WIDTH) / TILE_SIZE;
@@ -138,7 +139,19 @@ public class GameModel implements InputEventHandler {
 	}
 
 	private void exec(Action action) {
-		// TODO Auto-generated method stub
-		
+		switch(action) {
+		case USE_DOOR:
+			Door d = (Door)getCurrentObject();
+			int tiledX = d.getPairedDoor().coordinates().x;
+			int tiledY = d.getPairedDoor().coordinates().y;
+			setPlayerSpawn(tiledX, tiledY);
+			break;
+		case CLOSE_WINDOW:
+		case OPEN_WINDOW:
+		case DROP_ITEM:
+		case GET_ITEM:
+		case NONE:
+			break;
+		}
 	}
 }
