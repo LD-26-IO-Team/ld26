@@ -121,12 +121,14 @@ public class GameModel implements InputEventHandler {
 			return PlayerDirection.LEFT;
 	}
 
-	public Item getInventoryItem() {
+	public Item removeInventoryItem() {
 		return player.inventory.poke();
 	}
 
-	public Container getInventory() {
-		return player.inventory;
+	public Item getInventoryItem() {
+		Item i = player.inventory.poke();
+		player.inventory.add(i);
+		return i;
 	}
 
 	@Override
