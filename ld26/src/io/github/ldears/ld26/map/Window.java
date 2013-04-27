@@ -21,7 +21,7 @@ public class Window extends GameObject {
 	}
 
 	@Override
-	public Action getAction() {
+	public Action getAction(boolean has) {
 		if (closed) return Action.OPEN_WINDOW;
 		else return Action.CLOSE_WINDOW;
 	}

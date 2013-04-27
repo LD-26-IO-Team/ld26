@@ -23,8 +23,6 @@ public class GameModel implements InputEventHandler {
 		int velocity = TILE_SIZE;
 	}
 	
-	// Work here with model
-
 	public GameModel() {
 		player = new Player();
 		player.inventory = new Container(0, 0, "inventory", 1, 0, 0, true);
@@ -48,6 +46,7 @@ public class GameModel implements InputEventHandler {
 
 	public Tile[][] getTileMap() {
 		return data;
+
 	}
 
 	public Action getAvailableAction() {
