@@ -111,10 +111,10 @@ public class Renderer {
 	private static int BOX_Y = SCREEN_HEIGHT - 15;
 	private static int BOX_PADDING = 5;
 
-	private static String TEXT_INV = "Inventory: n/a\n";
-	private static String TEXT_DOOR = "Press [x] to use door\n";
-	private static String TEXT_GET_ITEM = "Press [x] to get item\n";
-	private static String TEXT_DROP_ITEM = "Press [x] to drop item\n";
+	private static String TEXT_INV = "Inventory:";
+	private static String TEXT_DOOR = "Press [x] to use door";
+	private static String TEXT_GET_ITEM = "Press [x] to get item";
+	private static String TEXT_DROP_ITEM = "Press [x] to drop item";
 
 	private String text;
 	private Action prevAction;
@@ -123,6 +123,8 @@ public class Renderer {
 		Action newAction = model.getAvailableAction();
 
 		if (newAction != prevAction) {
+			System.out.println(newAction);
+
 			switch (newAction) {
 				case USE_DOOR:
 					updateText(TEXT_DOOR);
@@ -139,27 +141,42 @@ public class Renderer {
 			}
 		}
 
+		Item invItem = model.getInventoryItem();
+		ItemType itemType = (invItem != null) ? invItem.itemType : null;
+
 		BitmapFont.TextBounds bounds = resLoader.font.getMultiLineBounds(text);
 
 		int boxWidth = (int) (bounds.width + 2 * BOX_PADDING);
 		int boxHeight = (int) (bounds.height + 2 * BOX_PADDING);
+
+		if (itemType != null) {
+			if (text.isEmpty()) boxWidth += INV_ICON_WIDTH;
+
+			boxHeight += INV_ICON_HEIGHT + BOX_PADDING;
+		}
 
 		hudBatch.begin();
 
 		hudBatch.setColor(1, 1, 1, 0.5f);
 		hudBatch.draw(resLoader.darkBox, BOX_X, BOX_Y - boxHeight, boxWidth, boxHeight);
 
-		hudBatch.setColor(1, 1, 1, 1);
-		resLoader.font.drawMultiLine(hudBatch, text, BOX_X + BOX_PADDING, BOX_Y - BOX_PADDING);
+		if (bounds.width != 0 ) {
+			hudBatch.setColor(1, 1, 1, 1);
+			resLoader.font.drawMultiLine(hudBatch, text, BOX_X + BOX_PADDING, BOX_Y - BOX_PADDING);
+		}
+
+		if (itemType != null) {
+			hudBatch.draw(resLoader.items[itemType.ordinal()], BOX_X + BOX_PADDING, BOX_Y - boxHeight + BOX_PADDING, INV_ICON_WIDTH, INV_ICON_HEIGHT);
+		}
 
 		hudBatch.end();
 	}
 
 	private void updateText(String text) {
 		StringBuilder sb = new StringBuilder();
-		sb.append(TEXT_INV);
 
-		if (text != null) { sb.append(text); }
+		if (text != null) { sb.append(text).append("\n"); }
+//		sb.append(TEXT_INV);
 
 		this.text = sb.toString();
 	}
