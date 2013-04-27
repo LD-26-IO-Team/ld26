@@ -8,8 +8,6 @@ public interface InputEventHandler {
 	public void handleEvent(InputEvent event);
 
 	public static enum InputEvent {
-		TEST
-
-		// Events
+		LEFT_DOWN, LEFT_UP, RIGHT_DOWN, RIGHT_UP, Z, X;
 	}
 }

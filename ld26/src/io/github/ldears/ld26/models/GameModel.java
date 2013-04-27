@@ -1,9 +1,10 @@
 package io.github.ldears.ld26.models;
 
 import io.github.ldears.ld26.events.InputEventHandler;
-import io.github.ldears.ld26.events.ReactionEventHandler;
+import io.github.ldears.ld26.map.Item;
+import io.github.ldears.ld26.map.Tile;
 
-import static io.github.ldears.ld26.events.ReactionEventHandler.ReactionEvent;
+import java.awt.geom.Point2D;
 
 /**
  * @author dector
@@ -12,14 +13,36 @@ public class GameModel implements InputEventHandler {
 
 	// Work here with model
 
-	/**
-	 * Call reactionHandler.handleEvent(ReactionEvent.XXX)
-	 * to process some gameplay reaction at screen
-	 */
-	private ReactionEventHandler reactionHandler;
+	public GameModel(int width, int height) {
+//		this.reactionHandler = reactionHandler;
+	}
 
-	public GameModel(ReactionEventHandler reactionHandler) {
-		this.reactionHandler = reactionHandler;
+	public void setPlayerSpawn(int x, int y) {
+
+	}
+
+	public void init(Tile[][] tiles) {
+
+	}
+
+	public void update() {
+
+	}
+
+	public Point2D getPlayerPosition() {
+		return null;
+	}
+
+	public Tile[][] getTileMap() {
+		return null;
+	}
+
+	public Action getAvailableAction() {
+		return null;
+	}
+
+	public Item getInventoryItem() {
+		return null;
 	}
 
 	@Override
@@ -27,6 +50,6 @@ public class GameModel implements InputEventHandler {
 
 		// TODO MOCKUP
 		System.out.println("GameModel: " + event + " received");
-		reactionHandler.handleEvent(ReactionEvent.TEST);
+//		reactionHandler.handleEvent(ReactionEvent.TEST);
 	}
 }

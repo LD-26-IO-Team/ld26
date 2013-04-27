@@ -3,7 +3,6 @@ package io.github.ldears.ld26.core;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
-import io.github.ldears.ld26.events.ReactionEventHandler;
 import io.github.ldears.ld26.models.GameModel;
 
 import static io.github.ldears.ld26.events.InputEventHandler.InputEvent;
