@@ -4,10 +4,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import io.github.ldears.ld26.events.InputEventHandler;
-import io.github.ldears.ld26.map.Container;
-import io.github.ldears.ld26.map.Door;
-import io.github.ldears.ld26.map.Tile;
-import io.github.ldears.ld26.map.TileType;
+import io.github.ldears.ld26.map.*;
 import io.github.ldears.ld26.models.GameModel;
 import io.github.ldears.ld26.render.Renderer;
 
@@ -62,6 +59,13 @@ public class GameScreen implements Screen, InputProcessor {
 
 				tileMap[2][1].setContent(door1);
 				tileMap[2][4].setContent(door2);
+			}
+
+			{
+				Item bottle = new Item(8, 1, "bottle");
+				bottle.itemType = ItemType.BOTTLE;
+
+				((Container) (tileMap[8][1].getContent())).add(bottle);
 			}
 
 			model.setPlayerSpawn(1, 1);

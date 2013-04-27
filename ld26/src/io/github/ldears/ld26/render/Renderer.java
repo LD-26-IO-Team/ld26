@@ -5,12 +5,12 @@ import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import io.github.ldears.ld26.map.Tile;
-import io.github.ldears.ld26.map.TileType;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import io.github.ldears.ld26.map.*;
 import io.github.ldears.ld26.models.Action;
 import io.github.ldears.ld26.models.GameModel;
 
-import java.awt.*;
+import java.awt.Point;
 
 /**
  * @author dector
@@ -74,11 +74,27 @@ public class Renderer {
 		int mapHeight = tileMap[0].length;
 		for (int x = 0; x < mapWidth; x++) {
 			for (int y = 0; y < mapHeight; y++) {
-				TileType tile = tileMap[x][y].type;
+				Tile tile = tileMap[x][y];
+				TileType type = tile.type;
 
-				if (tile != TileType.EMPTY) {
-					batch.draw(resLoader.tiles[tile.index],
-							x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+				int absX = x * TILE_SIZE;
+				int absY = y * TILE_SIZE;
+
+				if (type != TileType.EMPTY) {
+					batch.draw(resLoader.tiles[type.index], absX, absY, TILE_SIZE, TILE_SIZE);
+				}
+
+
+				if (tile.getContent() != null && tile.getContent().type == ObjectType.CONTAINER) {
+					Container container = (Container) tile.getContent();
+
+					for (Item item : container.getContents()) {
+						TextureAtlas.AtlasRegion[] spriteHolder = (container.isTransparent())
+								? resLoader.items
+								: resLoader.itemsPacked;
+
+						batch.draw(spriteHolder[item.itemType.ordinal()], absX, absY);
+					}
 				}
 			}
 		}
@@ -97,6 +113,8 @@ public class Renderer {
 
 	private static String TEXT_INV = "Inventory: n/a\n";
 	private static String TEXT_DOOR = "Press [x] to use door\n";
+	private static String TEXT_GET_ITEM = "Press [x] to get item\n";
+	private static String TEXT_DROP_ITEM = "Press [x] to drop item\n";
 
 	private String text;
 	private Action prevAction;
@@ -108,6 +126,12 @@ public class Renderer {
 			switch (newAction) {
 				case USE_DOOR:
 					updateText(TEXT_DOOR);
+					break;
+				case GET_ITEM:
+					updateText(TEXT_GET_ITEM);
+					break;
+				case DROP_ITEM:
+					updateText(TEXT_DROP_ITEM);
 					break;
 				default:
 					updateText(null);

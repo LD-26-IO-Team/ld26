@@ -20,7 +20,7 @@ public enum TileType {
 	INNER_DOOR_BOTTOM("inner_door_bottom"),
 
 	DOOR_TOP("door_top"),
-	DOOR_BOTTOM("door_bottom"),;
+	DOOR_BOTTOM("door_bottom");
 
 	public static final int PLAYER_WIDTH 		= 2*16;
 	public static final int WALL_MIDDLE_WIDTH 	= 8;

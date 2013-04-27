@@ -86,4 +86,8 @@ public class Container extends GameObject {
 	public boolean isEmpty() {
 		return items.size() == 0;
 	}
+
+	public boolean isTransparent() {
+		return transparent;
+	}
 }
