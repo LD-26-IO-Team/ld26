@@ -1,11 +1,13 @@
 package io.github.ldears.ld26.core;
 
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
+import io.github.ldears.ld26.map.Tile;
+import io.github.ldears.ld26.map.TileType;
 import io.github.ldears.ld26.models.GameModel;
+import io.github.ldears.ld26.render.Renderer;
 
-import static io.github.ldears.ld26.events.InputEventHandler.InputEvent;
+import static io.github.ldears.ld26.map.TileType.*;
 
 /**
  * @author dector
@@ -18,9 +20,33 @@ public class GameScreen implements Screen, InputProcessor {
 
 	public GameScreen() {
 		model = new GameModel();
-		model.init(null);
 
-		renderer = new Renderer(model);
+		// TODO mockup
+		{
+			TileType[][] tileTypeMap = {
+					{ WALL_LEFT, CEIL, CEIL, CEIL, CEIL, CEIL, CEIL, CEIL, CEIL, CEIL, WALL_RIGHT },
+					{ WALL_LEFT, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, WALL_RIGHT },
+					{ WALL_LEFT, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, WALL_RIGHT },
+					{ WALL_LEFT, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, WALL_RIGHT },
+					{ WALL_LEFT, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, WALL_RIGHT },
+					{ WALL_LEFT, CEIL, CEIL, CEIL, CEIL, CEIL, CEIL, CEIL, CEIL, CEIL, WALL_RIGHT },
+					{ WALL_LEFT, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, WALL_RIGHT },
+					{ WALL_LEFT, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, WALL_RIGHT },
+					{ EMPTY, CEIL, CEIL, CEIL, CEIL, CEIL, CEIL, CEIL, CEIL, CEIL, EMPTY }
+			};
+
+			Tile[][] tileMap = new Tile[tileTypeMap.length][tileTypeMap[0].length];
+			for (int i = 0; i < tileMap.length; i++) {
+				for (int j = 0; j < tileMap[0].length; j++) {
+					tileMap[i][j] = new Tile();
+					tileMap[i][j].type = tileTypeMap[i][j];
+				}
+			}
+
+			model.init(tileMap);
+			renderer = new Renderer(model);
+		}
+
 	}
 
 	@Override

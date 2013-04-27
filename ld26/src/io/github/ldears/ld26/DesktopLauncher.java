@@ -4,7 +4,7 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import io.github.ldears.ld26.core.GameImpl;
 
-import static io.github.ldears.ld26.core.Renderer.*;
+import static io.github.ldears.ld26.render.Renderer.*;
 
 /**
  * @author dector
