@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import io.github.ldears.ld26.map.*;
 import io.github.ldears.ld26.models.Action;
 import io.github.ldears.ld26.models.GameModel;
+import io.github.ldears.ld26.models.PlayerDirection;
 
 import java.awt.Point;
 
@@ -107,7 +108,8 @@ public class Renderer {
 			}
 		}
 
-		Animation player = resLoader.player[model.getPlayerDirection().ordinal()];
+		PlayerDirection playerDir = model.getPlayerDirection();
+		Animation player = resLoader.player[playerDir.ordinal()];
 
 		// Draw player
 		batch.draw(player.getKeyFrame(time, true), ppos.x, ppos.y, TILE_SIZE, TILE_SIZE * 2);

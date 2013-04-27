@@ -9,101 +9,220 @@ player
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
+  index: 0
+player
+  rotate: false
+  xy: 1, 19
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
   index: 1
-player_left
+player
+  rotate: false
+  xy: 1, 19
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 2
+player
+  rotate: false
+  xy: 1, 19
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 3
+player
+  rotate: false
+  xy: 1, 19
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 4
+player
+  rotate: false
+  xy: 1, 19
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 5
+player
+  rotate: false
+  xy: 1, 19
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 6
+player
+  rotate: false
+  xy: 1, 19
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 7
+player
+  rotate: false
+  xy: 1, 19
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 8
+player
+  rotate: false
+  xy: 1, 19
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 9
+player
   rotate: false
   xy: 19, 19
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
-  index: 1
+  index: 10
 player_left
   rotate: false
   xy: 37, 19
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
-  index: 2
-player_right
-  rotate: false
-  xy: 55, 19
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
   index: 0
-player_right
+player_left
   rotate: false
   xy: 55, 19
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
-  index: 5
-player_right
+  index: 1
+player_left
   rotate: false
   xy: 73, 19
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
-  index: 1
-player_right
+  index: 2
+player_left
+  rotate: false
+  xy: 73, 19
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 4
+player_left
   rotate: false
   xy: 91, 19
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
-  index: 10
-player_right
+  index: 3
+player_left
   rotate: false
   xy: 109, 19
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
-  index: 2
-player_right
-  rotate: false
-  xy: 109, 19
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: 4
-player_right
+  index: 5
+player_left
   rotate: false
   xy: 127, 19
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
-  index: 3
-player_right
+  index: 6
+player_left
   rotate: false
   xy: 145, 19
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
-  index: 6
-player_right
-  rotate: false
-  xy: 163, 19
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
   index: 7
-player_right
+player_left
   rotate: false
-  xy: 163, 19
+  xy: 145, 19
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 9
+player_left
+  rotate: false
+  xy: 163, 19
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 8
 player_right
   rotate: false
   xy: 181, 19
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
+  index: 0
+player_right
+  rotate: false
+  xy: 181, 19
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 5
+player_right
+  rotate: false
+  xy: 199, 19
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 1
+player_right
+  rotate: false
+  xy: 217, 19
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 2
+player_right
+  rotate: false
+  xy: 217, 19
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 4
+player_right
+  rotate: false
+  xy: 235, 19
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 3
+player_right
+  rotate: false
+  xy: 253, 19
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 6
+player_right
+  rotate: false
+  xy: 271, 19
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 7
+player_right
+  rotate: false
+  xy: 271, 19
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 9
+player_right
+  rotate: false
+  xy: 289, 19
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
   index: 8
 ~~door
   rotate: false
-  xy: 199, 19
+  xy: 307, 19
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
@@ -117,7 +236,7 @@ bottle_full
   index: -1
 bottle_packed
   rotate: false
-  xy: 217, 35
+  xy: 325, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -131,7 +250,7 @@ ceil
   index: -1
 dark
   rotate: false
-  xy: 235, 35
+  xy: 343, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -145,70 +264,70 @@ door_bottom
   index: -1
 door_top
   rotate: false
-  xy: 55, 1
+  xy: 361, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 inner_door_bottom
   rotate: false
-  xy: 73, 1
+  xy: 55, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 inner_door_top
   rotate: false
-  xy: 91, 1
+  xy: 379, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_corner_left_bottom
   rotate: false
-  xy: 109, 1
+  xy: 73, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_corner_right_bottom
   rotate: false
-  xy: 127, 1
+  xy: 397, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_left
   rotate: false
-  xy: 145, 1
+  xy: 91, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_middle
   rotate: false
-  xy: 163, 1
+  xy: 415, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_middle_ceil
   rotate: false
-  xy: 181, 1
+  xy: 109, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_right
   rotate: false
-  xy: 199, 1
+  xy: 433, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_x
   rotate: false
-  xy: 217, 17
+  xy: 127, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
