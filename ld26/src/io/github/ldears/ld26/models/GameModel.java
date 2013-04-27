@@ -13,6 +13,7 @@ import java.awt.Point;
 
 /**
  * @author dector
+ * @author wizzardich
  */
 public class GameModel implements InputEventHandler {
 	private Tile[][] data;
@@ -46,7 +47,7 @@ public class GameModel implements InputEventHandler {
 
 	public void update(float dt) {
 		time += dt;
-//		System.out.println(getAvailableAction());
+		// System.out.println(getAvailableAction());
 		int tiledX = player.pos.x / TILE_SIZE;
 		int tiledY = player.pos.y / TILE_SIZE;
 		int tiledRX = (player.pos.x + TileType.PLAYER_WIDTH) / TILE_SIZE;
@@ -60,7 +61,8 @@ public class GameModel implements InputEventHandler {
 					if (data[tiledX + 1][tiledY].type == TileType.WALL_RIGHT)
 						return;
 				if (data[tiledRX][tiledY].type == TileType.WALL_MIDDLE)
-					if (playerRX + dist > tiledRX * TILE_SIZE + (TILE_SIZE - TileType.WALL_MIDDLE_WIDTH) / 2)
+					if (playerRX + dist > tiledRX * TILE_SIZE
+							+ (TILE_SIZE - TileType.WALL_MIDDLE_WIDTH) / 2)
 						return;
 				player.pos.move(playerX + dist, player.pos.y);
 
@@ -70,7 +72,8 @@ public class GameModel implements InputEventHandler {
 					if (data[tiledX - 1][tiledY].type == TileType.WALL_LEFT)
 						return;
 				if (data[tiledX][tiledY].type == TileType.WALL_MIDDLE)
-					if (playerX - dist < tiledX * TILE_SIZE + (TILE_SIZE + TileType.WALL_MIDDLE_WIDTH) / 2)
+					if (playerX - dist < tiledX * TILE_SIZE
+							+ (TILE_SIZE + TileType.WALL_MIDDLE_WIDTH) / 2)
 						return;
 				player.pos.move(player.pos.x - dist, player.pos.y);
 			}
@@ -93,28 +96,35 @@ public class GameModel implements InputEventHandler {
 			return Action.NONE;
 		}
 	}
-	
+
 	public GameObject getCurrentObject() {
 		int tiledX = player.pos.x / TILE_SIZE;
 		int tiledY = player.pos.y / TILE_SIZE;
 		int tiledRX = (player.pos.x + TileType.PLAYER_WIDTH) / TILE_SIZE;
-		if (tiledRX * TILE_SIZE - player.pos.x < 
-				player.pos.x + TileType.PLAYER_WIDTH - tiledRX * TILE_SIZE) tiledX = tiledRX;
+		if (tiledRX * TILE_SIZE - player.pos.x < player.pos.x
+				+ TileType.PLAYER_WIDTH - tiledRX * TILE_SIZE)
+			tiledX = tiledRX;
 		Tile ofInterest = data[tiledX][tiledY];
-		GameObject c = ofInterest.getContent();
-		return c;
+		Tile ofInterest2 = data[tiledX][tiledY + 1];
+		if ((ofInterest.type == TileType.EMPTY)
+				&& (ofInterest2.type != TileType.EMPTY))
+			return ofInterest2.getContent();
+		return ofInterest.getContent();
 	}
 
 	public PlayerDirection getPlayerDirection() {
-		if (((direction & 3) == 3) || ((direction & 3) == 0)) return PlayerDirection.STAND;
-		else if ((direction & 2) != 0) return PlayerDirection.RIGHT;
-		else return PlayerDirection.LEFT;
+		if (((direction & 3) == 3) || ((direction & 3) == 0))
+			return PlayerDirection.STAND;
+		else if ((direction & 2) != 0)
+			return PlayerDirection.RIGHT;
+		else
+			return PlayerDirection.LEFT;
 	}
 
 	public Item getInventoryItem() {
 		return player.inventory.poke();
 	}
-	
+
 	public Container getInventory() {
 		return player.inventory;
 	}
@@ -122,33 +132,33 @@ public class GameModel implements InputEventHandler {
 	@Override
 	public void handleEvent(InputEvent event) {
 		switch (event) {
-			case LEFT_DOWN:
-				direction |= 1;
-				break;
-			case LEFT_UP:
-				direction ^= 1;
-				break;
-			case RIGHT_DOWN:
-				direction |= 2;
-				break;
-			case RIGHT_UP:
-				direction ^= 2;
-				break;
-			case X:
-				Action action = getAvailableAction();
-				exec(action);
-				break;
-			case Z:
-				break;
+		case LEFT_DOWN:
+			direction |= 1;
+			break;
+		case LEFT_UP:
+			direction ^= 1;
+			break;
+		case RIGHT_DOWN:
+			direction |= 2;
+			break;
+		case RIGHT_UP:
+			direction ^= 2;
+			break;
+		case X:
+			Action action = getAvailableAction();
+			exec(action);
+			break;
+		case Z:
+			break;
 		}
 
 		System.out.println("GameModel: " + event + " received");
 	}
 
 	private void exec(Action action) {
-		switch(action) {
+		switch (action) {
 		case USE_DOOR:
-			Door d = (Door)getCurrentObject();
+			Door d = (Door) getCurrentObject();
 			int tiledX = d.getPairedDoor().coordinates().x;
 			int tiledY = d.getPairedDoor().coordinates().y;
 			setPlayerSpawn(tiledX, tiledY);
@@ -157,12 +167,12 @@ public class GameModel implements InputEventHandler {
 		case OPEN_WINDOW:
 			break;
 		case DROP_ITEM:
-			Container c = (Container)getCurrentObject();
+			Container c = (Container) getCurrentObject();
 			c.add(player.inventory.poke());
 			break;
 		case GET_ITEM:
-			
-			Container c1 = (Container)getCurrentObject();
+
+			Container c1 = (Container) getCurrentObject();
 			player.inventory.add(c1.poke());
 			break;
 		case NONE:
