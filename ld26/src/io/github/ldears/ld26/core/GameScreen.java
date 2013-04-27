@@ -8,6 +8,7 @@ import io.github.ldears.ld26.events.InputEventHandler;
 import io.github.ldears.ld26.map.*;
 import io.github.ldears.ld26.models.GameModel;
 import io.github.ldears.ld26.render.Renderer;
+import io.github.ldears.ld26.render.TexturedWalls;
 
 import static io.github.ldears.ld26.map.TileType.*;
 
@@ -22,6 +23,8 @@ public class GameScreen implements Screen, InputProcessor {
 
 	public GameScreen() {
 		model = new GameModel();
+
+		// WARNING: to use wall textures, room must be proportional to texture size (64x64)
 
 		// TODO mockup
 		{
@@ -69,9 +72,15 @@ public class GameScreen implements Screen, InputProcessor {
 				((Container) (tileMap[8][1].getContent())).add(bottle);
 			}
 
+			TexturedWalls walls = new TexturedWalls(1);
+
+			{
+				walls.walls[0] = new TexturedWalls.Wall(TexturedWalls.WallTexture.ROSES, 1, 1, 10, 9);
+			}
+
 			model.setPlayerSpawn(1, 1);
 			model.init(tileMap);
-			renderer = new Renderer(model);
+			renderer = new Renderer(model, walls);
 		}
 
 	}

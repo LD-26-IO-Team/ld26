@@ -3,226 +3,233 @@ sprites.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
+roses_wall_texture
+  rotate: false
+  xy: 1, 121
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
 player
   rotate: false
-  xy: 1, 19
+  xy: 1, 87
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 0
 player
   rotate: false
-  xy: 1, 19
+  xy: 1, 87
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 1
 player
   rotate: false
-  xy: 1, 19
+  xy: 1, 87
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 2
 player
   rotate: false
-  xy: 1, 19
+  xy: 1, 87
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 3
 player
   rotate: false
-  xy: 1, 19
+  xy: 1, 87
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 4
 player
   rotate: false
-  xy: 1, 19
+  xy: 1, 87
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 5
 player
   rotate: false
-  xy: 1, 19
+  xy: 1, 87
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 6
 player
   rotate: false
-  xy: 1, 19
+  xy: 1, 87
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 7
 player
   rotate: false
-  xy: 1, 19
+  xy: 1, 87
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 8
 player
   rotate: false
-  xy: 1, 19
+  xy: 1, 87
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 9
 player
   rotate: false
-  xy: 19, 19
+  xy: 131, 217
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 10
 player_left
   rotate: false
-  xy: 37, 19
+  xy: 1, 53
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 0
 player_left
   rotate: false
-  xy: 55, 19
+  xy: 19, 87
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 1
 player_left
   rotate: false
-  xy: 73, 19
+  xy: 131, 183
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 2
 player_left
   rotate: false
-  xy: 73, 19
+  xy: 131, 183
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 4
 player_left
   rotate: false
-  xy: 91, 19
+  xy: 149, 217
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 3
 player_left
   rotate: false
-  xy: 109, 19
+  xy: 1, 19
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 5
 player_left
   rotate: false
-  xy: 127, 19
+  xy: 19, 53
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 6
 player_left
   rotate: false
-  xy: 145, 19
+  xy: 37, 87
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 7
 player_left
   rotate: false
-  xy: 145, 19
+  xy: 37, 87
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 9
 player_left
   rotate: false
-  xy: 163, 19
+  xy: 131, 149
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 8
 player_right
   rotate: false
-  xy: 181, 19
+  xy: 149, 183
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 0
 player_right
   rotate: false
-  xy: 181, 19
+  xy: 149, 183
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 5
 player_right
   rotate: false
-  xy: 199, 19
+  xy: 167, 217
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 1
 player_right
   rotate: false
-  xy: 217, 19
+  xy: 19, 19
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 2
 player_right
   rotate: false
-  xy: 217, 19
+  xy: 19, 19
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 4
 player_right
   rotate: false
-  xy: 235, 19
+  xy: 37, 53
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 3
 player_right
   rotate: false
-  xy: 253, 19
+  xy: 55, 87
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 6
 player_right
   rotate: false
-  xy: 271, 19
+  xy: 149, 149
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 7
 player_right
   rotate: false
-  xy: 271, 19
+  xy: 149, 149
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 9
 player_right
   rotate: false
-  xy: 289, 19
+  xy: 167, 183
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 8
 ~~door
   rotate: false
-  xy: 307, 19
+  xy: 185, 217
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
@@ -236,98 +243,98 @@ bottle_full
   index: -1
 bottle_packed
   rotate: false
-  xy: 325, 35
+  xy: 131, 131
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 ceil
   rotate: false
-  xy: 19, 1
+  xy: 37, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 dark
   rotate: false
-  xy: 343, 35
+  xy: 55, 69
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 door_bottom
   rotate: false
-  xy: 37, 1
+  xy: 73, 103
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 door_top
   rotate: false
-  xy: 361, 35
+  xy: 167, 165
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 inner_door_bottom
   rotate: false
-  xy: 55, 1
+  xy: 185, 199
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 inner_door_top
   rotate: false
-  xy: 379, 35
+  xy: 203, 233
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_corner_left_bottom
   rotate: false
-  xy: 73, 1
+  xy: 19, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_corner_right_bottom
   rotate: false
-  xy: 397, 35
+  xy: 149, 131
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_left
   rotate: false
-  xy: 91, 1
+  xy: 37, 17
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_middle
   rotate: false
-  xy: 415, 35
+  xy: 55, 51
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_middle_ceil
   rotate: false
-  xy: 109, 1
+  xy: 73, 85
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_right
   rotate: false
-  xy: 433, 35
+  xy: 91, 103
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_x
   rotate: false
-  xy: 127, 1
+  xy: 167, 147
   size: 16, 16
   orig: 16, 16
   offset: 0, 0

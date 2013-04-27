@@ -27,6 +27,8 @@ public class ResLoader {
 	public final TextureAtlas.AtlasRegion[] items;
 	public final TextureAtlas.AtlasRegion[] itemsPacked;
 
+	public final TextureAtlas.AtlasRegion[] wallTextures;
+
 	public final Animation[] player;
 
 	public final TextureRegion darkBox;
@@ -53,6 +55,17 @@ public class ResLoader {
 		initPlayer(atlas);
 
 		darkBox = atlas.findRegion("dark");
+
+
+		TextureAtlas backgroundsAtlas = new TextureAtlas(IMAGES_DIR + "backgrounds.atlas");
+		wallTextures = new TextureAtlas.AtlasRegion[TexturedWalls.WallTexture.values().length];
+		initWallTextures(backgroundsAtlas);
+	}
+
+	private void initWallTextures(TextureAtlas atlas) {
+		for (TexturedWalls.WallTexture texture : TexturedWalls.WallTexture.values()) {
+			wallTextures[texture.ordinal()] = atlas.findRegion(texture.name);
+		}
 	}
 
 	private void initPlayer(TextureAtlas atlas) {

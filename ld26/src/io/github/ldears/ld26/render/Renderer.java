@@ -3,10 +3,9 @@ package io.github.ldears.ld26.render;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.*;
+import com.badlogic.gdx.math.MathUtils;
 import io.github.ldears.ld26.map.*;
 import io.github.ldears.ld26.models.Action;
 import io.github.ldears.ld26.models.GameModel;
@@ -40,8 +39,11 @@ public class Renderer {
 	private SpriteBatch hudBatch;
 	private ResLoader resLoader;
 
-	public Renderer(GameModel model) {
+	private TexturedWalls walls;
+
+	public Renderer(GameModel model, TexturedWalls walls) {
 		this.model = model;
+		this.walls = walls;
 
 		camera = new OrthographicCamera(SCREEN_WIDTH, SCREEN_HEIGHT);
 		camera.position.set(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 0);
@@ -76,6 +78,27 @@ public class Renderer {
 
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
+
+		for (TexturedWalls.Wall wall : walls.walls) {
+			if (wall != null) {
+
+				int textureIndex = wall.texture.ordinal();
+				TextureRegion region = resLoader.wallTextures[textureIndex];
+
+				int width = region.getRegionWidth();
+				int height = region.getRegionHeight();
+
+				int countX = MathUtils.ceil(wall.rect.width / width);
+				int countY = MathUtils.ceil(wall.rect.height / height);
+
+				for (int i = 0; i < countX; i++) {
+					for (int j = 0; j < countY; j++) {
+						batch.draw(region, wall.rect.x + i * width,
+								wall.rect.y + j * height);
+					}
+				}
+			}
+		}
 
 		// Draw map
 		Tile[][] tileMap = model.getTileMap();
