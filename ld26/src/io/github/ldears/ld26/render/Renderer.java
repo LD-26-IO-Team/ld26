@@ -23,10 +23,15 @@ public class Renderer {
 
 	public static final int TILE_SIZE 			= 32;
 
+	public static final int INV_ICON_WIDTH	= 16;
+	public static final int INV_ICON_HEIGHT	= 16;
+
 	private GameModel model;
 
 	private OrthographicCamera camera;
+//	private SpriteBatch tmpBatch;
 	private SpriteBatch batch;
+	private SpriteBatch hudBatch;
 	private ResLoader resLoader;
 
 	public Renderer(GameModel model) {
@@ -35,9 +40,13 @@ public class Renderer {
 		camera = new OrthographicCamera(SCREEN_WIDTH, SCREEN_HEIGHT);
 		camera.position.set(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 0);
 
+//		tmpBatch = new SpriteBatch();
 		batch = new SpriteBatch();
+		hudBatch = new SpriteBatch();
 
 		resLoader = new ResLoader();
+
+		Gdx.gl.glClearColor(0, 0.5f, 0, 1);
 	}
 
 	public void render(float dt) {
@@ -48,16 +57,15 @@ public class Renderer {
 		camera.position.set(ppos.x, ppos.y, 0);
 		camera.update();
 
+		// Draw background
+//		tmpBatch.begin();
+//		tmpBatch.draw(resLoader.background, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+//		tmpBatch.end();
+
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
 
-		// Draw background
-		batch.disableBlending();
-//		batch.draw();
-		batch.enableBlending();
-
 		// Draw map
-
 		Tile[][] tileMap = model.getTileMap();
 		int mapWidth = tileMap.length;
 		int mapHeight = tileMap[0].length;
@@ -73,9 +81,28 @@ public class Renderer {
 		}
 
 		// Draw player
-
 		batch.draw(resLoader.player, ppos.x, ppos.y, TILE_SIZE, TILE_SIZE * 2);
 
 		batch.end();
+
+		drawHud();
+	}
+
+	private void drawHud() {
+		int boxX = 10;
+		int boxY = SCREEN_HEIGHT - 10;
+
+		int boxWidth = 200;
+		int boxHeight = 100;
+
+		hudBatch.begin();
+
+		hudBatch.setColor(1, 1, 1, 0.5f);
+		hudBatch.draw(resLoader.darkBox, boxX, boxY - boxHeight, boxWidth, boxHeight);
+
+		hudBatch.setColor(1, 1, 1, 1);
+		resLoader.font.draw(hudBatch, "Inventory: n/a", boxX + 5, boxY - 5);
+
+		hudBatch.end();
 	}
 }

@@ -17,6 +17,7 @@ public class DesktopLauncher {
 		config.width = SCREEN_WIDTH;
 		config.height = SCREEN_HEIGHT;
 		config.useGL20 = false;
+		config.resizable = false;
 		config.fullscreen = IS_FULLSCREEN;
 
 		new LwjglApplication(new GameImpl(), config);
