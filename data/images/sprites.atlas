@@ -9,24 +9,38 @@ player
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
-  index: -1
+  index: 1
 player_left
   rotate: false
   xy: 19, 19
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
-  index: -1
-player_right
+  index: 1
+player_left
   rotate: false
   xy: 37, 19
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
-  index: -1
-~~door
+  index: 2
+player_right
   rotate: false
   xy: 55, 19
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 1
+player_right
+  rotate: false
+  xy: 73, 19
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 2
+~~door
+  rotate: false
+  xy: 91, 19
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
@@ -40,7 +54,7 @@ bottle_full
   index: -1
 bottle_packed
   rotate: false
-  xy: 73, 35
+  xy: 109, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -54,7 +68,7 @@ ceil
   index: -1
 dark
   rotate: false
-  xy: 91, 35
+  xy: 127, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -68,7 +82,7 @@ door_bottom
   index: -1
 door_top
   rotate: false
-  xy: 109, 35
+  xy: 145, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -82,28 +96,28 @@ inner_door_bottom
   index: -1
 inner_door_top
   rotate: false
-  xy: 73, 17
+  xy: 163, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_corner_left_bottom
   rotate: false
-  xy: 127, 35
+  xy: 73, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_corner_right_bottom
   rotate: false
-  xy: 91, 17
+  xy: 181, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_left
   rotate: false
-  xy: 145, 35
+  xy: 91, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -117,7 +131,7 @@ wall_middle
   index: -1
 wall_middle_ceil
   rotate: false
-  xy: 163, 35
+  xy: 199, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -131,7 +145,7 @@ wall_right
   index: -1
 wall_x
   rotate: false
-  xy: 181, 35
+  xy: 217, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0

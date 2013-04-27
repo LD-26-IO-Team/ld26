@@ -1,6 +1,7 @@
 package io.github.ldears.ld26.render;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -26,7 +27,7 @@ public class ResLoader {
 	public final TextureAtlas.AtlasRegion[] items;
 	public final TextureAtlas.AtlasRegion[] itemsPacked;
 
-	public final TextureAtlas.AtlasRegion[] player;
+	public final Animation[] player;
 
 	public final TextureRegion darkBox;
 
@@ -48,7 +49,7 @@ public class ResLoader {
 		itemsPacked = new TextureAtlas.AtlasRegion[ItemType.count()];
 		initObjects(atlas);
 
-		player = new TextureAtlas.AtlasRegion[PlayerDirection.values().length];
+		player = new Animation[PlayerDirection.values().length];
 		initPlayer(atlas);
 
 		darkBox = atlas.findRegion("dark");
@@ -56,7 +57,7 @@ public class ResLoader {
 
 	private void initPlayer(TextureAtlas atlas) {
 		for (PlayerDirection dir : PlayerDirection.values()) {
-			player[dir.ordinal()] = atlas.findRegion(dir.name);
+			player[dir.ordinal()] = new Animation(dir.animationTime, atlas.findRegions(dir.name));
 		}
 	}
 

@@ -4,11 +4,15 @@ package io.github.ldears.ld26.models;
  * @author dector
  */
 public enum PlayerDirection {
-	LEFT("player_left"), RIGHT("player_right"), STAND("player");
+	LEFT("player_left", 	0.5f),
+	RIGHT("player_right", 	0.5f),
+	STAND("player", 		0.5f);
 
 	public final String name;
+	public final float animationTime;
 
-	private PlayerDirection(String name) {
+	private PlayerDirection(String name, float animationTime) {
 		this.name = name;
+		this.animationTime = animationTime;
 	}
 }

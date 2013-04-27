@@ -3,6 +3,7 @@ package io.github.ldears.ld26.render;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -55,7 +56,11 @@ public class Renderer {
 		updateText(null);
 	}
 
+	private float time;
+
 	public void render(float dt) {
+		time += dt;
+
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 
 		Point ppos = model.getPlayerPosition();
@@ -102,8 +107,10 @@ public class Renderer {
 			}
 		}
 
+		Animation player = resLoader.player[model.getPlayerDirection().ordinal()];
+
 		// Draw player
-		batch.draw(resLoader.player[model.getPlayerDirection().ordinal()], ppos.x, ppos.y, TILE_SIZE, TILE_SIZE * 2);
+		batch.draw(player.getKeyFrame(time, true), ppos.x, ppos.y, TILE_SIZE, TILE_SIZE * 2);
 
 		batch.end();
 
