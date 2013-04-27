@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import io.github.ldears.ld26.map.ItemType;
 import io.github.ldears.ld26.map.TileType;
+import io.github.ldears.ld26.models.PlayerDirection;
 
 /**
  * @author dector
@@ -25,7 +26,7 @@ public class ResLoader {
 	public final TextureAtlas.AtlasRegion[] items;
 	public final TextureAtlas.AtlasRegion[] itemsPacked;
 
-	public final TextureAtlas.AtlasRegion player;
+	public final TextureAtlas.AtlasRegion[] player;
 
 	public final TextureRegion darkBox;
 
@@ -47,9 +48,16 @@ public class ResLoader {
 		itemsPacked = new TextureAtlas.AtlasRegion[ItemType.count()];
 		initObjects(atlas);
 
-		player = atlas.findRegion("player");
+		player = new TextureAtlas.AtlasRegion[PlayerDirection.values().length];
+		initPlayer(atlas);
 
 		darkBox = atlas.findRegion("dark");
+	}
+
+	private void initPlayer(TextureAtlas atlas) {
+		for (PlayerDirection dir : PlayerDirection.values()) {
+			player[dir.ordinal()] = atlas.findRegion(dir.name);
+		}
 	}
 
 	private BitmapFont initFont() {

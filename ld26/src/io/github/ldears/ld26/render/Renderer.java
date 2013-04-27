@@ -24,6 +24,9 @@ public class Renderer {
 
 	public static final int TILE_SIZE 			= 32;
 
+	public static final int ITEM_SIZE 			= (int) (TILE_SIZE * 0.75f);
+	public static final int ITEM_PADDING		= (TILE_SIZE - ITEM_SIZE) / 2;
+
 	public static final int INV_ICON_WIDTH	= 16;
 	public static final int INV_ICON_HEIGHT	= 16;
 
@@ -93,14 +96,14 @@ public class Renderer {
 								? resLoader.items
 								: resLoader.itemsPacked;
 
-						batch.draw(spriteHolder[item.itemType.ordinal()], absX, absY);
+						batch.draw(spriteHolder[item.itemType.ordinal()], absX + ITEM_PADDING, absY, ITEM_SIZE, ITEM_SIZE);
 					}
 				}
 			}
 		}
 
 		// Draw player
-		batch.draw(resLoader.player, ppos.x, ppos.y, TILE_SIZE, TILE_SIZE * 2);
+		batch.draw(resLoader.player[model.getPlayerDirection().ordinal()], ppos.x, ppos.y, TILE_SIZE, TILE_SIZE * 2);
 
 		batch.end();
 
@@ -123,8 +126,6 @@ public class Renderer {
 		Action newAction = model.getAvailableAction();
 
 		if (newAction != prevAction) {
-			System.out.println(newAction);
-
 			switch (newAction) {
 				case USE_DOOR:
 					updateText(TEXT_DOOR);
