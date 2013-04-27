@@ -59,6 +59,9 @@ public class GameScreen implements Screen, InputProcessor {
 				Door door2 = new Door(2, 4, "door2");
 				door1.setPairedDoor(door2);
 				door2.setPairedDoor(door1);
+
+				tileMap[2][1].setContent(door1);
+				tileMap[2][4].setContent(door2);
 			}
 
 			model.setPlayerSpawn(1, 1);
