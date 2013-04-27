@@ -97,6 +97,9 @@ public class GameModel implements InputEventHandler {
 	public GameObject getCurrentObject() {
 		int tiledX = player.pos.x / TILE_SIZE;
 		int tiledY = player.pos.y / TILE_SIZE;
+		int tiledRX = (player.pos.x + TileType.PLAYER_WIDTH) / TILE_SIZE;
+		if (tiledRX * TILE_SIZE - player.pos.x < 
+				player.pos.x + TileType.PLAYER_WIDTH - tiledRX * TILE_SIZE) tiledX = tiledRX;
 		Tile ofInterest = data[tiledX][tiledY];
 		GameObject c = ofInterest.getContent();
 		return c;
@@ -128,6 +131,7 @@ public class GameModel implements InputEventHandler {
 				direction ^= 2;
 				break;
 			case X:
+				System.out.println("Here");
 				Action action = getAvailableAction();
 				exec(action);
 				break;
