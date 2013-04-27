@@ -48,7 +48,7 @@ public class GameScreen implements Screen, InputProcessor {
 				}
 			}
 
-			model.setPlayerSpawn(8, 4);
+			model.setPlayerSpawn(1, 4);
 			model.init(tileMap);
 			renderer = new Renderer(model);
 		}

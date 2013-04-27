@@ -26,7 +26,7 @@ public class GameModel implements InputEventHandler {
 	private class Player {
 		Point pos;
 		Container inventory;
-		int velocity = TILE_SIZE;
+		int velocity = TILE_SIZE * 3;
 	}
 
 	public GameModel() {
@@ -47,27 +47,28 @@ public class GameModel implements InputEventHandler {
 		time += dt;
 		int tiledX = player.pos.x / TILE_SIZE;
 		int tiledY = player.pos.y / TILE_SIZE;
+		int tiledRX = (player.pos.x + TileType.PLAYER_WIDTH) / TILE_SIZE;
 		int dist = (int) (time * player.velocity);
 		if (dist > 0) {
 			time = 0;
+			int playerX = player.pos.x;
+			int playerRX = playerX + TileType.PLAYER_WIDTH;
 			if ((direction & 2) != 0) {
-				int playerX = player.pos.x;
-				if (((playerX + dist + TileType.PLAYER_WIDTH) / TILE_SIZE) > tiledX)
+				if (((playerRX + dist) / TILE_SIZE) > tiledX)
 					if (data[tiledX + 1][tiledY].type == TileType.WALL_RIGHT)
 						return;
-				if (data[tiledX][tiledY].type == TileType.WALL_MIDDLE)
-					if (playerX + dist + TileType.PLAYER_WIDTH > tiledX * TILE_SIZE + (TILE_SIZE - TileType.WALL_MIDDLE_WIDTH) / 2)
+				if (data[tiledRX][tiledY].type == TileType.WALL_MIDDLE)
+					if (playerRX + dist > tiledRX * TILE_SIZE + (TILE_SIZE - TileType.WALL_MIDDLE_WIDTH) / 2)
 						return;
 				player.pos.move(playerX + dist, player.pos.y);
 
 			}
 			if ((direction & 1) != 0) {
-				int playerX = player.pos.x;
 				if (((playerX - dist) / TILE_SIZE) < tiledX)
 					if (data[tiledX - 1][tiledY].type == TileType.WALL_LEFT)
 						return;
 				if (data[tiledX][tiledY].type == TileType.WALL_MIDDLE)
-					if (playerX - dist > tiledX * TILE_SIZE + (TILE_SIZE + TileType.WALL_MIDDLE_WIDTH) / 2)
+					if (playerX - dist < tiledX * TILE_SIZE + (TILE_SIZE + TileType.WALL_MIDDLE_WIDTH) / 2)
 						return;
 				player.pos.move(player.pos.x - dist, player.pos.y);
 			}
