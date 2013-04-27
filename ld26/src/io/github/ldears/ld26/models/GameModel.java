@@ -102,7 +102,9 @@ public class GameModel implements InputEventHandler {
 	}
 
 	public PlayerDirection getPlayerDirection() {
-		return null;
+		if (((direction & 3) == 3) || ((direction & 3) == 0)) return PlayerDirection.STAND;
+		else if ((direction & 2) != 0) return PlayerDirection.RIGHT;
+		else return PlayerDirection.LEFT;
 	}
 
 	public Item getInventoryItem() {
