@@ -8,6 +8,9 @@ import io.github.ldears.ld26.map.Tile;
 import io.github.ldears.ld26.map.TileType;
 import io.github.ldears.ld26.models.GameModel;
 
+import java.awt.*;
+import java.awt.geom.Point2D;
+
 /**
  * @author dector
  */
@@ -45,20 +48,24 @@ public class Renderer {
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
 
+		// Draw map
+
 		Tile[][] tileMap = model.getTileMap();
-
 		int mapHeight = tileMap.length;
-
 		for (int y = mapHeight - 1; y >= 0; y--) {
 			for (int x = 0; x < tileMap[y].length; x++) {
 				TileType tile = tileMap[y][x].type;
 
 				if (tile != TileType.EMPTY) {
-					batch.draw(resLoader.tileTex[tile.x][tile.y],
-							x * TILE_SIZE, (mapHeight - y) * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+					batch.draw(resLoader.tiles[tile.index],
+							x * TILE_SIZE, (mapHeight - y - 1) * TILE_SIZE, TILE_SIZE, TILE_SIZE);
 				}
 			}
 		}
+
+		// Draw player
+		Point ppos = model.getPlayerPosition();
+		batch.draw(resLoader.player, ppos.x, ppos.y, TILE_SIZE, TILE_SIZE * 2);
 
 		batch.end();
 	}

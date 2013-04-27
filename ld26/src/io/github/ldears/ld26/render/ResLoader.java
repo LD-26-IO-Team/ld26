@@ -1,9 +1,7 @@
 package io.github.ldears.ld26.render;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import io.github.ldears.ld26.map.TileType;
 
 /**
  * @author dector
@@ -11,14 +9,24 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 public class ResLoader {
 
 	private static final String IMAGES_DIR = "data/images/";
-	private static final int TILE_SIZE = 16;
 
-	public final TextureRegion[][] tileTex;
+	public final TextureAtlas.AtlasRegion[] tiles;
+	public final TextureAtlas.AtlasRegion player;
 
 	public ResLoader() {
-		FileHandle spritesFile = Gdx.files.internal(IMAGES_DIR + "sprites.png");
-		Texture spritesTexture = new Texture(spritesFile);
+		TextureAtlas atlas = new TextureAtlas(IMAGES_DIR + "sprites.atlas");
 
-		tileTex = TextureRegion.split(spritesTexture, TILE_SIZE, TILE_SIZE);
+		tiles = new TextureAtlas.AtlasRegion[TileType.count()];
+		initTiles(atlas);
+
+		player = atlas.findRegion("player");
+	}
+
+	private void initTiles(TextureAtlas atlas) {
+		for (TileType tile : TileType.values()) {
+			if (tile != TileType.EMPTY) {
+				tiles[tile.index] = atlas.findRegion(tile.name);
+			}
+		}
 	}
 }
