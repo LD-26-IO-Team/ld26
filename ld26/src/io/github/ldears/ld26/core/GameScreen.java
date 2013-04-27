@@ -111,6 +111,12 @@ public class GameScreen implements Screen, InputProcessor {
 			case Input.Keys.RIGHT:
 				model.handleEvent(InputEventHandler.InputEvent.RIGHT_DOWN);
 				break;
+			case Input.Keys.X:
+				model.handleEvent(InputEventHandler.InputEvent.X);
+				break;
+			case Input.Keys.Z:
+				model.handleEvent(InputEventHandler.InputEvent.Z);
+				break;
 		}
 
 		return true;

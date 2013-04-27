@@ -48,6 +48,8 @@ public class Renderer {
 		resLoader = new ResLoader();
 
 		Gdx.gl.glClearColor(0, 0.5f, 0, 1);
+
+		updateText(null);
 	}
 
 	public void render(float dt) {
@@ -93,16 +95,27 @@ public class Renderer {
 	private static int BOX_Y = SCREEN_HEIGHT - 15;
 	private static int BOX_PADDING = 5;
 
-	private void drawHud() {
-		String text = "Inventory: n/a\n";
+	private static String TEXT_INV = "Inventory: n/a\n";
+	private static String TEXT_DOOR = "Press [x] to use door\n";
 
-		switch (model.getAvailableAction()) {
-			case USE_DOOR:
-				text += "Press [x] to use door\n";
-				break;
+	private String text;
+	private Action prevAction;
+
+	private void drawHud() {
+		Action newAction = model.getAvailableAction();
+
+		if (newAction != prevAction) {
+			switch (newAction) {
+				case USE_DOOR:
+					updateText(TEXT_DOOR);
+					break;
+				default:
+					updateText(null);
+					break;
+			}
 		}
 
-		BitmapFont.TextBounds bounds = resLoader.font.getBounds(text);
+		BitmapFont.TextBounds bounds = resLoader.font.getMultiLineBounds(text);
 
 		int boxWidth = (int) (bounds.width + 2 * BOX_PADDING);
 		int boxHeight = (int) (bounds.height + 2 * BOX_PADDING);
@@ -116,5 +129,14 @@ public class Renderer {
 		resLoader.font.drawMultiLine(hudBatch, text, BOX_X + BOX_PADDING, BOX_Y - BOX_PADDING);
 
 		hudBatch.end();
+	}
+
+	private void updateText(String text) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(TEXT_INV);
+
+		if (text != null) { sb.append(text); }
+
+		this.text = sb.toString();
 	}
 }
