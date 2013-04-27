@@ -13,8 +13,7 @@ public class GameModel implements InputEventHandler {
 
 	// Work here with model
 
-	public GameModel(int width, int height) {
-//		this.reactionHandler = reactionHandler;
+	public GameModel() {
 	}
 
 	public void setPlayerSpawn(int x, int y) {
@@ -25,7 +24,7 @@ public class GameModel implements InputEventHandler {
 
 	}
 
-	public void update() {
+	public void update(float dt) {
 
 	}
 

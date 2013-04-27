@@ -10,19 +10,22 @@ import static io.github.ldears.ld26.events.InputEventHandler.InputEvent;
 /**
  * @author dector
  */
-public class GameScreen implements Screen, InputProcessor, ReactionEventHandler {
+public class GameScreen implements Screen, InputProcessor {
 
 	private GameModel model;
 
 	private Renderer renderer;
 
 	public GameScreen() {
-		model = new GameModel(this);
+		model = new GameModel();
+		model.init(null);
+
 		renderer = new Renderer(model);
 	}
 
 	@Override
 	public void render(float dt) {
+		model.update(dt);
 		renderer.render(dt);
 	}
 
@@ -53,10 +56,6 @@ public class GameScreen implements Screen, InputProcessor, ReactionEventHandler 
 
 	@Override
 	public boolean keyDown(int key) {
-		if (key == Input.Keys.SPACE) {
-			model.handleEvent(InputEvent.TEST);
-		}
-
 		return true;
 	}
 
@@ -93,14 +92,5 @@ public class GameScreen implements Screen, InputProcessor, ReactionEventHandler 
 	@Override
 	public boolean scrolled(int i) {
 		return false;
-	}
-
-	// Gameplay reaction event
-
-	@Override
-	public void handleEvent(ReactionEvent event) {
-
-		// TODO MOCKUP
-		System.out.println("GameScreen: " + event + " received");
 	}
 }
