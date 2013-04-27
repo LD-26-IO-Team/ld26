@@ -14,8 +14,8 @@ public enum TileType {
 	WALL_MC("wall_middle_ceil"),
 	WALL_MIDDLE("wall_middle");
 
-	public static final int PLAYER_WIDTH 		= 2*12;
-	public static final int WALL_MIDDLE_WIDTH 	= 4*2;
+	public static final int PLAYER_WIDTH 		= 2*16;
+	public static final int WALL_MIDDLE_WIDTH 	= 8;
 
 	public final String name;
 	public final int index;
