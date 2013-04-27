@@ -13,6 +13,8 @@ public class GameModel implements InputEventHandler {
 
 	// Work here with model
 
+	private Tile[][] tileMap;
+
 	public GameModel() {
 	}
 
@@ -21,7 +23,7 @@ public class GameModel implements InputEventHandler {
 	}
 
 	public void init(Tile[][] tiles) {
-
+		this.tileMap = tiles;
 	}
 
 	public void update(float dt) {
@@ -33,7 +35,7 @@ public class GameModel implements InputEventHandler {
 	}
 
 	public Tile[][] getTileMap() {
-		return null;
+		return tileMap;
 	}
 
 	public Action getAvailableAction() {
