@@ -5,7 +5,7 @@ package io.github.ldears.ld26.models;
  */
 public enum PlayerDirection {
 	LEFT("player_left", 	0.25f),
-	RIGHT("player_right", 	0.25f),
+	RIGHT("player_right", 	1f/20),
 	STAND("player", 		0.5f);
 
 	public final String name;
