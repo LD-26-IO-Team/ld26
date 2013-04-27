@@ -12,6 +12,7 @@ public enum TileType {
 	WALL_MIDDLE(3, 0);
 
 	public static final int WALL_MIDDLE_WIDTH 	= 4;
+	public static final int PLAYER_WIDTH 		= 2*12;
 
 	public final int x;
 	public final int y;
