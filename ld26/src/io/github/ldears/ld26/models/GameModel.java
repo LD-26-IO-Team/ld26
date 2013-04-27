@@ -152,8 +152,15 @@ public class GameModel implements InputEventHandler {
 			break;
 		case CLOSE_WINDOW:
 		case OPEN_WINDOW:
+			break;
 		case DROP_ITEM:
+			Container c = (Container)getCurrentObject();
+			c.add(player.inventory.poke());
+			break;
 		case GET_ITEM:
+			Container c1 = (Container)getCurrentObject();
+			player.inventory.add(c1.poke());
+			break;
 		case NONE:
 			break;
 		}
