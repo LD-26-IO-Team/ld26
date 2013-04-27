@@ -28,7 +28,9 @@ public class GameModel implements InputEventHandler {
 	private class Player {
 		Point pos;
 		Container inventory;
-		int velocity = TILE_SIZE * 3;
+		float accel = 3*TILE_SIZE;
+		float stopAccel = 5*TILE_SIZE;
+		float velocity = TILE_SIZE;
 	}
 
 	public GameModel() {
@@ -47,6 +49,8 @@ public class GameModel implements InputEventHandler {
 
 	public void update(float dt) {
 		time += dt;
+		if ((direction & 3) != 0) player.velocity = Math.min(player.velocity + player.accel*dt, 5*TILE_SIZE);
+		else player.velocity = Math.max((player.velocity - player.stopAccel*dt), TILE_SIZE);
 		// System.out.println(getAvailableAction());
 		int tiledX = player.pos.x / TILE_SIZE;
 		int tiledY = player.pos.y / TILE_SIZE;
