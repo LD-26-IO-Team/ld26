@@ -85,7 +85,12 @@ public class GameModel implements InputEventHandler {
 	}
 
 	public Action getAvailableAction() {
-		return getCurrentObject().getAction(player.inventory.isFull());
+		GameObject c = getCurrentObject();
+		if (c != null) {
+			return c.getAction(player.inventory.isFull());
+		} else {
+			return Action.NONE;
+		}
 	}
 	
 	public GameObject getCurrentObject() {
@@ -116,15 +121,18 @@ public class GameModel implements InputEventHandler {
 				direction ^= 2;
 				break;
 			case X:
-				Action ac = getAvailableAction();
-				if (ac != null) {
-					
-				}
+				Action action = getAvailableAction();
+				exec(action);
 				break;
 			case Z:
 				break;
 		}
 
 		System.out.println("GameModel: " + event + " received");
+	}
+
+	private void exec(Action action) {
+		// TODO Auto-generated method stub
+		
 	}
 }

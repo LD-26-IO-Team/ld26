@@ -13,7 +13,7 @@ public class Item extends GameObject {
 
 	@Override
 	public Action getAction(boolean hasItem) {
-		return null;
+		return Action.NONE;
 	}
 
 	// Sprite sprite;

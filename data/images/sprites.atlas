@@ -3,9 +3,16 @@ sprites.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-player
+door
   rotate: false
   xy: 1, 19
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: -1
+player
+  rotate: false
+  xy: 19, 19
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
@@ -19,70 +26,70 @@ ceil
   index: -1
 dark
   rotate: false
-  xy: 19, 35
+  xy: 37, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 inner_door_bottom
   rotate: false
-  xy: 19, 17
+  xy: 19, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 inner_door_top
   rotate: false
-  xy: 37, 35
+  xy: 37, 17
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_corner_left_bottom
   rotate: false
-  xy: 37, 17
+  xy: 55, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_corner_right_bottom
   rotate: false
-  xy: 55, 35
+  xy: 55, 17
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_left
   rotate: false
-  xy: 55, 17
+  xy: 73, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_middle
   rotate: false
-  xy: 73, 35
+  xy: 73, 17
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_middle_ceil
   rotate: false
-  xy: 73, 17
+  xy: 91, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_right
   rotate: false
-  xy: 91, 35
+  xy: 91, 17
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_x
   rotate: false
-  xy: 91, 17
+  xy: 109, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0

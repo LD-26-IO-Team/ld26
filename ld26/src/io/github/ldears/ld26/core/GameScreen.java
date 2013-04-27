@@ -4,6 +4,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import io.github.ldears.ld26.events.InputEventHandler;
+import io.github.ldears.ld26.map.Container;
 import io.github.ldears.ld26.map.Door;
 import io.github.ldears.ld26.map.Tile;
 import io.github.ldears.ld26.map.TileType;
@@ -46,6 +47,10 @@ public class GameScreen implements Screen, InputProcessor {
 				for (int y = 0; y < height; y++) {
 					tileMap[x][y] = new Tile();
 					tileMap[x][y].type = tileTypeMap[height - y - 1][x];
+
+					if (tileMap[x][y].type == EMPTY && (y == 1|| y == 4)) {
+						tileMap[x][y].setContent(new Container(x, y, "", 5, 1, 1, true));
+					}
 				}
 			}
 

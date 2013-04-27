@@ -69,14 +69,14 @@ public class Container extends GameObject {
 	@Override
 	public Action getAction(boolean hasItem) {
 		if (hasItem && isFull())
-			return null;
+			return Action.NONE;
 		else if (!hasItem && !isEmpty())
 			return Action.GET_ITEM;
 		else if (hasItem && !isFull())
 			return Action.DROP_ITEM;
 		else
 			// (!hasItem && isEmpty())
-			return null;
+			return Action.NONE;
 	}
 
 	public boolean isFull() {

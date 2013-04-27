@@ -10,4 +10,8 @@ public class Tile {
 	public GameObject getContent() {
 		return content;
 	}
+
+	public void setContent(GameObject content) {
+		this.content = content;
+	}
 }

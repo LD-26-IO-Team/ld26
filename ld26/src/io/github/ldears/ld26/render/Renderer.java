@@ -3,13 +3,14 @@ package io.github.ldears.ld26.render;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import io.github.ldears.ld26.map.Tile;
 import io.github.ldears.ld26.map.TileType;
+import io.github.ldears.ld26.models.Action;
 import io.github.ldears.ld26.models.GameModel;
 
 import java.awt.*;
-import java.awt.geom.Point2D;
 
 /**
  * @author dector
@@ -88,20 +89,31 @@ public class Renderer {
 		drawHud();
 	}
 
-	private void drawHud() {
-		int boxX = 10;
-		int boxY = SCREEN_HEIGHT - 10;
+	private static int BOX_X = 15;
+	private static int BOX_Y = SCREEN_HEIGHT - 15;
+	private static int BOX_PADDING = 5;
 
-		int boxWidth = 200;
-		int boxHeight = 100;
+	private void drawHud() {
+		String text = "Inventory: n/a\n";
+
+		switch (model.getAvailableAction()) {
+			case USE_DOOR:
+				text += "Press [x] to use door\n";
+				break;
+		}
+
+		BitmapFont.TextBounds bounds = resLoader.font.getBounds(text);
+
+		int boxWidth = (int) (bounds.width + 2 * BOX_PADDING);
+		int boxHeight = (int) (bounds.height + 2 * BOX_PADDING);
 
 		hudBatch.begin();
 
 		hudBatch.setColor(1, 1, 1, 0.5f);
-		hudBatch.draw(resLoader.darkBox, boxX, boxY - boxHeight, boxWidth, boxHeight);
+		hudBatch.draw(resLoader.darkBox, BOX_X, BOX_Y - boxHeight, boxWidth, boxHeight);
 
 		hudBatch.setColor(1, 1, 1, 1);
-		resLoader.font.draw(hudBatch, "Inventory: n/a", boxX + 5, boxY - 5);
+		resLoader.font.drawMultiLine(hudBatch, text, BOX_X + BOX_PADDING, BOX_Y - BOX_PADDING);
 
 		hudBatch.end();
 	}
