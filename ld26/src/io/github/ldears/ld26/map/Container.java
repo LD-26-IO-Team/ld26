@@ -50,6 +50,12 @@ public class Container extends GameObject {
 		else
 			return null;
 	}
+	
+	public Item get(int i) {
+		if (i < items.size())
+			return items.get(i);
+		return null;
+	}
 
 	public Item poke() {
 		if (items.size() > 0)
