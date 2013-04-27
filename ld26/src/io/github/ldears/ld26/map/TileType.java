@@ -12,7 +12,10 @@ public enum TileType {
 	WALL_CLB("wall_corner_left_bottom"),
 	WALL_CRB("wall_corner_right_bottom"),
 	WALL_MC("wall_middle_ceil"),
-	WALL_MIDDLE("wall_middle");
+	WALL_MIDDLE("wall_middle"),
+	WALL_X("wall_x"),
+	INNER_DOOR_TOP("inner_door_top"),
+	INNER_DOOR_BOTTOM("inner_door_bottom");
 
 	public static final int PLAYER_WIDTH 		= 2*12;
 	public static final int WALL_MIDDLE_WIDTH 	= 4*2;
