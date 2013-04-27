@@ -43,6 +43,9 @@ public class Renderer {
 	public void render(float dt) {
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 
+		Point ppos = model.getPlayerPosition();
+
+		camera.position.set(ppos.x, ppos.y, 0);
 		camera.update();
 
 		batch.setProjectionMatrix(camera.combined);
@@ -64,7 +67,7 @@ public class Renderer {
 		}
 
 		// Draw player
-		Point ppos = model.getPlayerPosition();
+
 		batch.draw(resLoader.player, ppos.x, ppos.y, TILE_SIZE, TILE_SIZE * 2);
 
 		batch.end();
