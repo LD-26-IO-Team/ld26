@@ -1,7 +1,9 @@
 package io.github.ldears.ld26.core;
 
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
+import io.github.ldears.ld26.events.InputEventHandler;
 import io.github.ldears.ld26.map.Tile;
 import io.github.ldears.ld26.map.TileType;
 import io.github.ldears.ld26.models.GameModel;
@@ -83,12 +85,30 @@ public class GameScreen implements Screen, InputProcessor {
 
 	@Override
 	public boolean keyDown(int key) {
+		switch (key) {
+			case Input.Keys.LEFT:
+				model.handleEvent(InputEventHandler.InputEvent.LEFT_DOWN);
+				break;
+			case Input.Keys.RIGHT:
+				model.handleEvent(InputEventHandler.InputEvent.RIGHT_DOWN);
+				break;
+		}
+
 		return true;
 	}
 
 	@Override
-	public boolean keyUp(int i) {
-		return false;
+	public boolean keyUp(int key) {
+		switch (key) {
+			case Input.Keys.LEFT:
+				model.handleEvent(InputEventHandler.InputEvent.LEFT_UP);
+				break;
+			case Input.Keys.RIGHT:
+				model.handleEvent(InputEventHandler.InputEvent.RIGHT_UP);
+				break;
+		}
+
+		return true;
 	}
 
 	@Override
