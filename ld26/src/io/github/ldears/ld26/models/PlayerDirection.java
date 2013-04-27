@@ -4,8 +4,8 @@ package io.github.ldears.ld26.models;
  * @author dector
  */
 public enum PlayerDirection {
-	LEFT("player_left", 	0.5f),
-	RIGHT("player_right", 	0.5f),
+	LEFT("player_left", 	0.25f),
+	RIGHT("player_right", 	0.25f),
 	STAND("player", 		0.5f);
 
 	public final String name;
