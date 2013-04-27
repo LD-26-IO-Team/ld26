@@ -1,5 +1,7 @@
 package io.github.ldears.ld26.map;
 
+import io.github.ldears.ld26.models.Action;
+
 import java.awt.Point;
 
 /**
@@ -26,4 +28,6 @@ public abstract class GameObject {
 	public Point coordinates() {
 		return new Point(tiledX, tiledY);
 	}
+
+	public abstract Action getAction(boolean hasItem);
 }

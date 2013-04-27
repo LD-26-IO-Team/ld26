@@ -7,7 +7,8 @@ public enum TileType {
 
 	EMPTY(-1, -1),
 	CEIL(0, 0),
-	WALL_LEFT(1, 0), WALL_RIGHT(2, 0),
+	WALL_LEFT(1, 0), 
+	WALL_RIGHT(2, 0),
 	WALL_MIDDLE(3, 0);
 
 	public static final int WALL_MIDDLE_WIDTH 	= 4;

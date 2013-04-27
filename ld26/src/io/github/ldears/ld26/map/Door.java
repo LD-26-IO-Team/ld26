@@ -1,5 +1,7 @@
 package io.github.ldears.ld26.map;
 
+import io.github.ldears.ld26.models.Action;
+
 /**
  * @author dector
  */
@@ -22,6 +24,11 @@ public class Door extends GameObject {
 
 	public void setPairedDoor(Door pairedDoor) {
 		this.pairedDoor = pairedDoor;
+	}
+
+	@Override
+	public Action getAction(boolean hasItem) {
+		return Action.USE_DOOR;
 	}
 
 }
