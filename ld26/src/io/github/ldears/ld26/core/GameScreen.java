@@ -4,6 +4,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import io.github.ldears.ld26.events.InputEventHandler;
+import io.github.ldears.ld26.map.Door;
 import io.github.ldears.ld26.map.Tile;
 import io.github.ldears.ld26.map.TileType;
 import io.github.ldears.ld26.models.GameModel;
@@ -26,15 +27,15 @@ public class GameScreen implements Screen, InputProcessor {
 		// TODO mockup
 		{
 			TileType[][] tileTypeMap = {
-					{ WALL_LEFT, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	WALL_MC, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	WALL_RIGHT },
-					{ WALL_LEFT, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	WALL_MIDDLE, EMPTY, EMPTY, 	EMPTY, 	EMPTY, 	WALL_RIGHT },
-					{ WALL_LEFT, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	WALL_MIDDLE, EMPTY, EMPTY, 	EMPTY, 	EMPTY, 	WALL_RIGHT },
-					{ WALL_LEFT, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	WALL_MIDDLE, EMPTY, EMPTY, 	EMPTY, 	EMPTY, 	WALL_RIGHT },
-					{ WALL_LEFT, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	WALL_MIDDLE, EMPTY, EMPTY, 	EMPTY, 	EMPTY, 	WALL_RIGHT },
-					{ WALL_LEFT, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	WALL_MC, CEIL, 	CEIL, 	CEIL, 	CEIL, 	WALL_RIGHT },
-					{ WALL_LEFT, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	INNER_DOOR_TOP, EMPTY, EMPTY, 	EMPTY, 	EMPTY, 	WALL_RIGHT },
-					{ WALL_LEFT, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	INNER_DOOR_BOTTOM, EMPTY,	EMPTY, 	EMPTY, 	EMPTY, 	WALL_RIGHT },
-					{ WALL_CLB, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL,		CEIL, 	CEIL, 	CEIL, 	CEIL, 	WALL_CRB   }
+					{ WALL_LEFT, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	WALL_MC, 			CEIL, 	CEIL, 	CEIL, 	CEIL, 	WALL_RIGHT },
+					{ WALL_LEFT, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	WALL_MIDDLE, 		EMPTY,	EMPTY, 	EMPTY, 	EMPTY, 	WALL_RIGHT },
+					{ WALL_LEFT, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	WALL_MIDDLE, 		EMPTY,  EMPTY, 	EMPTY, 	EMPTY, 	WALL_RIGHT },
+					{ WALL_LEFT, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	WALL_MIDDLE, 		EMPTY,  EMPTY, 	EMPTY, 	EMPTY, 	WALL_RIGHT },
+					{ WALL_LEFT, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	WALL_MIDDLE, 		EMPTY,  EMPTY, 	EMPTY, 	EMPTY, 	WALL_RIGHT },
+					{ WALL_LEFT, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	WALL_MC,	 		CEIL, 	CEIL, 	CEIL, 	CEIL, 	WALL_RIGHT },
+					{ WALL_LEFT, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	INNER_DOOR_TOP, 	EMPTY,  EMPTY, 	EMPTY, 	EMPTY, 	WALL_RIGHT },
+					{ WALL_LEFT, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	INNER_DOOR_BOTTOM, 	EMPTY,	EMPTY, 	EMPTY, 	EMPTY, 	WALL_RIGHT },
+					{ WALL_CLB, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL,				CEIL, 	CEIL, 	CEIL, 	CEIL, 	WALL_CRB   }
 			};
 
 			int width = tileTypeMap[0].length;
@@ -46,6 +47,13 @@ public class GameScreen implements Screen, InputProcessor {
 					tileMap[x][y] = new Tile();
 					tileMap[x][y].type = tileTypeMap[height - y - 1][x];
 				}
+			}
+
+			{
+				Door door1 = new Door(2, 1, "door1");
+				Door door2 = new Door(2, 4, "door2");
+				door1.setPairedDoor(door2);
+				door2.setPairedDoor(door1);
 			}
 
 			model.setPlayerSpawn(1, 1);

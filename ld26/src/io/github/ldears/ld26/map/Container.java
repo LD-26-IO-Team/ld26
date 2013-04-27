@@ -24,7 +24,7 @@ public class Container extends GameObject {
 
 	public Container(int x, int y, String name, int volume, int tileWidth,
 			int tileHeight, boolean transparent) {
-		super(x, y, name);
+		super(x, y, name, ObjectType.CONTAINER);
 		this.volume = volume;
 		this.tileWidth = tileWidth;
 		this.tileHeight = tileHeight;

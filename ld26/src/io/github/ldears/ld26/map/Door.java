@@ -12,7 +12,7 @@ public class Door extends GameObject {
 	public static final int width 	= 1;
 	
 	public Door(int x, int y, String name) {
-		super(x, y, name);
+		super(x, y, name, ObjectType.DOOR);
 	}
 
 	// Sprite closedSprite;

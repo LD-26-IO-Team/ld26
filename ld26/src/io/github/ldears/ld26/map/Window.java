@@ -10,7 +10,7 @@ public class Window extends GameObject {
 	private boolean closed = true;
 
 	public Window(int x, int y, String name) {
-		super(x, y, name);
+		super(x, y, name, ObjectType.WINDOW);
 	}
 
 	// Sprite closedSprite;
