@@ -51,17 +51,23 @@ public class Renderer {
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
 
+		// Draw background
+		batch.disableBlending();
+//		batch.draw();
+		batch.enableBlending();
+
 		// Draw map
 
 		Tile[][] tileMap = model.getTileMap();
-		int mapHeight = tileMap.length;
-		for (int y = mapHeight - 1; y >= 0; y--) {
-			for (int x = 0; x < tileMap[y].length; x++) {
-				TileType tile = tileMap[y][x].type;
+		int mapWidth = tileMap.length;
+		int mapHeight = tileMap[0].length;
+		for (int x = 0; x < mapWidth; x++) {
+			for (int y = 0; y < mapHeight; y++) {
+				TileType tile = tileMap[x][y].type;
 
 				if (tile != TileType.EMPTY) {
 					batch.draw(resLoader.tiles[tile.index],
-							x * TILE_SIZE, (mapHeight - y - 1) * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+							x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
 				}
 			}
 		}

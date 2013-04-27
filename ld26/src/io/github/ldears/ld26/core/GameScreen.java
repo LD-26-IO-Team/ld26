@@ -26,26 +26,29 @@ public class GameScreen implements Screen, InputProcessor {
 		// TODO mockup
 		{
 			TileType[][] tileTypeMap = {
-					{ WALL_LEFT, CEIL, CEIL, CEIL, CEIL, WALL_MC, CEIL, CEIL, CEIL, CEIL, WALL_RIGHT },
-					{ WALL_LEFT, EMPTY, EMPTY, EMPTY, EMPTY, WALL_MIDDLE, EMPTY, EMPTY, EMPTY, EMPTY, WALL_RIGHT },
-					{ WALL_LEFT, EMPTY, EMPTY, EMPTY, EMPTY, WALL_MIDDLE, EMPTY, EMPTY, EMPTY, EMPTY, WALL_RIGHT },
-					{ WALL_LEFT, EMPTY, EMPTY, EMPTY, EMPTY, WALL_MIDDLE, EMPTY, EMPTY, EMPTY, EMPTY, WALL_RIGHT },
-					{ WALL_LEFT, EMPTY, EMPTY, EMPTY, EMPTY, WALL_MIDDLE, EMPTY, EMPTY, EMPTY, EMPTY, WALL_RIGHT },
-					{ WALL_LEFT, CEIL, CEIL, CEIL, CEIL, CEIL, CEIL, CEIL, CEIL, CEIL, WALL_RIGHT },
-					{ WALL_LEFT, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, WALL_RIGHT },
-					{ WALL_LEFT, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, WALL_RIGHT },
-					{ WALL_CLB, CEIL, CEIL, CEIL, CEIL, CEIL, CEIL, CEIL, CEIL, CEIL, WALL_CRB }
+					{ WALL_LEFT, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	WALL_MC, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	WALL_RIGHT },
+					{ WALL_LEFT, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	WALL_MIDDLE, EMPTY, EMPTY, 	EMPTY, 	EMPTY, 	WALL_RIGHT },
+					{ WALL_LEFT, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	WALL_MIDDLE, EMPTY, EMPTY, 	EMPTY, 	EMPTY, 	WALL_RIGHT },
+					{ WALL_LEFT, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	WALL_MIDDLE, EMPTY, EMPTY, 	EMPTY, 	EMPTY, 	WALL_RIGHT },
+					{ WALL_LEFT, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	WALL_MIDDLE, EMPTY, EMPTY, 	EMPTY, 	EMPTY, 	WALL_RIGHT },
+					{ WALL_LEFT, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 		CEIL, 	CEIL, 	CEIL, 	CEIL, 	WALL_RIGHT },
+					{ WALL_LEFT, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 		EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	WALL_RIGHT },
+					{ WALL_LEFT, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 		EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	WALL_RIGHT },
+					{ WALL_CLB, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 		CEIL, 	CEIL, 	CEIL, 	CEIL, 	WALL_CRB   }
 			};
 
-			Tile[][] tileMap = new Tile[tileTypeMap.length][tileTypeMap[0].length];
-			for (int i = 0; i < tileMap.length; i++) {
-				for (int j = 0; j < tileMap[0].length; j++) {
-					tileMap[i][j] = new Tile();
-					tileMap[i][j].type = tileTypeMap[i][j];
+			int width = tileTypeMap[0].length;
+			int height = tileTypeMap.length;
+
+			Tile[][] tileMap = new Tile[width][height];
+			for (int x = 0; x < width; x++) {
+				for (int y = 0; y < height; y++) {
+					tileMap[x][y] = new Tile();
+					tileMap[x][y].type = tileTypeMap[height - y - 1][x];
 				}
 			}
 
-			model.setPlayerSpawn(1, 1);
+			model.setPlayerSpawn(8, 4);
 			model.init(tileMap);
 			renderer = new Renderer(model);
 		}
