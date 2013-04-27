@@ -114,6 +114,10 @@ public class GameModel implements InputEventHandler {
 	public Item getInventoryItem() {
 		return player.inventory.poke();
 	}
+	
+	public Container getInventory() {
+		return player.inventory;
+	}
 
 	@Override
 	public void handleEvent(InputEvent event) {
