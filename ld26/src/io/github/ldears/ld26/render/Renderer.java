@@ -185,6 +185,7 @@ public class Renderer {
 	private static String TEXT_INV = "Inventory:";
 	private static String TEXT_DOOR = "Press [x] to use door";
 	private static String TEXT_GET_ITEM = "Press [x] to get item";
+	private static String TEXT_ITERATE_ITEM = "Press [z] to iterate items";
 	private static String TEXT_DROP_ITEM = "Press [x] to drop item";
 
 	private String text;
@@ -255,7 +256,7 @@ public class Renderer {
 		}
 	}
 
-	private void updateText(String text) {
+	private void updateText(String... text) {
 		StringBuilder sb = new StringBuilder();
 
 		sb.append("Music volume: ");
@@ -268,7 +269,13 @@ public class Renderer {
 					.append("Press ]/[ to +/- music volume");
 		}
 
-		if (text != null) { sb.append("\n\n").append(text).append("\n"); }
+		if (text != null) {
+			sb.append("\n\n");
+
+			for (String s : text) {
+				sb.append(s).append("\n");
+			}
+		}
 
 		this.text = sb.toString();
 	}
@@ -282,7 +289,7 @@ public class Renderer {
 				updateText(TEXT_DOOR);
 				break;
 			case GET_ITEM:
-				updateText(TEXT_GET_ITEM);
+				updateText(TEXT_GET_ITEM, TEXT_ITERATE_ITEM);
 				break;
 			case DROP_ITEM:
 				updateText(TEXT_DROP_ITEM);
