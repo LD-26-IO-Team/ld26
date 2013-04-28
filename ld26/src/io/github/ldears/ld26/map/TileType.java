@@ -79,8 +79,9 @@ public enum TileType {
 	WDB_B("wardrobe_b"),
 
 	GC_T("guitar_case_t"),
-	GC_B("guitar_case_b")
-	
+	GC_B("guitar_case_b"),
+
+	PHONE("phone")
 	;
 
 	public static final int PLAYER_WIDTH 		= 2*16;
