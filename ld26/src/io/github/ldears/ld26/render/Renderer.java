@@ -41,6 +41,7 @@ public class Renderer {
 	private ResLoader resLoader;
 
 	private TexturedWalls walls;
+	private CloudSystem cloudSystem;
 
 	public Renderer(GameModel model, TexturedWalls walls) {
 		this.model = model;
@@ -54,6 +55,10 @@ public class Renderer {
 		hudBatch = new SpriteBatch();
 
 		resLoader = new ResLoader();
+
+		cloudSystem = new CloudSystem(resLoader,
+				max(model.getTileMapWidth() * TILE_SIZE, SCREEN_WIDTH),
+				max(model.getTileMapHeight() * TILE_SIZE, SCREEN_HEIGHT));
 
 		Gdx.gl.glClearColor(0.15f, 0.57f, 0.86f, 1);
 
@@ -71,6 +76,8 @@ public class Renderer {
 
 		updateCamera(ppos);
 
+		cloudSystem.update(dt);
+
 		// Draw background
 //		tmpBatch.begin();
 //		tmpBatch.draw(resLoader.background, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -78,6 +85,8 @@ public class Renderer {
 
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
+
+		cloudSystem.render(batch);
 
 		batch.disableBlending();
 

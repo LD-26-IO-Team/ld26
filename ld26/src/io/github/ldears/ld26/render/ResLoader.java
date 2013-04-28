@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.utils.Array;
 import io.github.ldears.ld26.map.ItemType;
 import io.github.ldears.ld26.map.TileType;
 import io.github.ldears.ld26.models.PlayerDirection;
@@ -28,6 +29,7 @@ public class ResLoader {
 	public final TextureAtlas.AtlasRegion[] itemsPacked;
 
 	public final TextureAtlas.AtlasRegion[] wallTextures;
+	public final Array<TextureAtlas.AtlasRegion> cloudsTexture;
 	public final TextureAtlas.AtlasRegion groundTexture;
 
 	public final Animation[] player;
@@ -62,7 +64,13 @@ public class ResLoader {
 		wallTextures = new TextureAtlas.AtlasRegion[TexturedWalls.WallTexture.values().length];
 		initWallTextures(backgroundsAtlas);
 
+		cloudsTexture = initClouds(backgroundsAtlas);
+
 		groundTexture = backgroundsAtlas.findRegion("ground");
+	}
+
+	private Array<TextureAtlas.AtlasRegion> initClouds(TextureAtlas backgroundsAtlas) {
+		return backgroundsAtlas.findRegions("cloud");
 	}
 
 	private void initWallTextures(TextureAtlas atlas) {

@@ -5,11 +5,25 @@ filter: Nearest,Nearest
 repeat: none
 roses_wall_texture
   rotate: false
-  xy: 1, 36
+  xy: 1, 102
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
+cloud
+  rotate: false
+  xy: 1, 36
+  size: 128, 64
+  orig: 128, 64
+  offset: 0, 0
+  index: 1
+cloud
+  rotate: false
+  xy: 131, 166
+  size: 128, 64
+  orig: 128, 64
+  offset: 0, 0
+  index: 2
 ground
   rotate: false
   xy: 1, 1
