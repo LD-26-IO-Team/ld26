@@ -67,7 +67,7 @@ public class GameModel implements InputEventHandler {
 				if (((playerRX + dist) / TILE_SIZE) > tiledX)
 					if (data[tiledX + 1][tiledY].type == TileType.WALL_RIGHT)
 						return;
-				if (data[tiledRX][tiledY].type == TileType.WALL_MIDDLE)
+				if (data[tiledRX][tiledY].type == TileType.WALL_MD)
 					if (playerRX + dist > tiledRX * TILE_SIZE
 							+ (TILE_SIZE - TileType.WALL_MIDDLE_WIDTH) / 2)
 						return;
@@ -78,7 +78,7 @@ public class GameModel implements InputEventHandler {
 				if (((playerX - dist) / TILE_SIZE) < tiledX)
 					if (data[tiledX - 1][tiledY].type == TileType.WALL_LEFT)
 						return;
-				if (data[tiledX][tiledY].type == TileType.WALL_MIDDLE)
+				if (data[tiledX][tiledY].type == TileType.WALL_MD)
 					if (playerX - dist < tiledX * TILE_SIZE
 							+ (TILE_SIZE + TileType.WALL_MIDDLE_WIDTH) / 2)
 						return;

@@ -47,8 +47,8 @@ public class GameScreen implements Screen, InputProcessor {
 					{ WALL_LEFT, 	EMPTY,  COMP_BL, 	COMP_BR, 	EMPTY, 	BOX,		EMPTY, 	BC_BL, 	BC_BR, 	EMPTY,  DOOR_B,	EMPTY, 	EMPTY, 	IN_DOOR_B, 	 EMPTY, 	SO_L, 	SO_R, 	EMPTY, 	EMPTY, 	TV_B, EMPTY,	EMPTY, 	WALL_RIGHT },
 					{ WALL_LEFT, 	CEIL, 	CEIL, 		CEIL, 		CEIL, 	WALL_MC, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 		CEIL, 	CEIL, 	WALL_MC, 	CEIL, 	CEIL,  CEIL,	CEIL, 	WALL_RIGHT },
 					{ WALL_LEFT, 	EMPTY, 	EMPTY, 		EMPTY, 		EMPTY, 	WALL_MD, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	CLK_T, 	EMPTY, 	EMPTY,  EMPTY,	EMPTY, 		EMPTY,	EMPTY, 	WALL_MD, 	EMPTY, 	EMPTY, EMPTY,	EMPTY, 	WALL_RIGHT },
-					{ WALL_LEFT, 	EMPTY, 	EMPTY, 		EMPTY, 	WDB_T, 	IN_DOOR_T, 	EMPTY, 	DOOR_T, 	EMPTY, 	EMPTY, 	CLK_M, 	EMPTY, 	EMPTY, 	DOOR_T, 	EMPTY,	EMPTY, 	EMPTY, 	IN_DOOR_T, 	EMPTY, 	TO_T,  EMPTY,	EMPTY, 	WALL_RIGHT },
-					{ WALL_LEFT, 	BED_L, 	BED_R, 		EMPTY, 	WDB_B, 	IN_DOOR_B, 	EMPTY, 	DOOR_B, 	EMPTY, 	EMPTY, 	CLK_B, 	EMPTY, 	EMPTY, 	DOOR_B, 	EMPTY,	EMPTY, 	EMPTY, 	IN_DOOR_B, 	EMPTY, 	TO_B,  BATH_L,	BATH_R, 	WALL_RIGHT },
+					{ WALL_LEFT, 	EMPTY, 	EMPTY, 		EMPTY, 	WDB_T, 	IN_DOOR_T, 	EMPTY, 	DOOR_T, 	EMPTY, 	EMPTY, 	CLK_B, 	EMPTY, 	EMPTY, 	DOOR_T, 	EMPTY,	EMPTY, 	EMPTY, 	IN_DOOR_T, 	EMPTY, 	TO_T,  EMPTY,	EMPTY, 	WALL_RIGHT },
+					{ WALL_LEFT, 	BED_L, 	BED_R, 		EMPTY, 	WDB_B, 	IN_DOOR_B, 	EMPTY, 	DOOR_B, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	DOOR_B, 	EMPTY,	EMPTY, 	EMPTY, 	IN_DOOR_B, 	EMPTY, 	TO_B,  BATH_L,	BATH_R, 	WALL_RIGHT },
 					{ WALL_LEFT, 	CEIL, 	CEIL, 		CEIL, 		CEIL, 	CEIL, 		CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	WALL_MC, 	CEIL, 	 CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL,  CEIL,	CEIL, 	WALL_RIGHT },
 					{ WALL_LEFT, 	EMPTY, 	EMPTY, 		EMPTY, 		EMPTY, 	EMPTY, 		EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	WALL_MD, 	EMPTY, 	 EMPTY,	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY,  EMPTY,	EMPTY, 	WALL_RIGHT },
 					{ WALL_LEFT, 	EMPTY, 	EMPTY, 		CR_TL,		CR_TML,	CR_TMR,		CR_TR, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	WALL_MD, 	DOOR_T,	 EMPTY,	EMPTY, 	MW_OV, 	EMPTY, 	CKR_T, 	EMPTY,  FRI_T,	EMPTY, 	WALL_RIGHT },
@@ -75,12 +75,12 @@ public class GameScreen implements Screen, InputProcessor {
 			}
 
 			{
-				Door door1 = new Door(14, 1, "door1");
+				Door door1 = new Door(13, 1, "door1");
 				Door door2 = new Door(13, 5, "door2");
 				door1.setPairedDoor(door2);
 				door2.setPairedDoor(door1);
 
-				tileMap[14][1].setContent(door1);
+				tileMap[13][1].setContent(door1);
 				tileMap[13][5].setContent(door2);
 				
 				door1 = new Door(10, 9, "door1");
@@ -112,10 +112,10 @@ public class GameScreen implements Screen, InputProcessor {
 			TexturedWalls walls = new TexturedWalls(1);
 
 			{
-				walls.walls[0] = new TexturedWalls.Wall(TexturedWalls.WallTexture.ROSES, 1, 1, 13, 9);
+				walls.walls[0] = new TexturedWalls.Wall(TexturedWalls.WallTexture.ROSES, 1, 1, 21, 13);
 			}
 
-			model.setPlayerSpawn(7, 1);
+			model.setPlayerSpawn(7, 5);
 			model.init(tileMap);
 			renderer = new Renderer(model, walls);
 
@@ -188,10 +188,11 @@ public class GameScreen implements Screen, InputProcessor {
 			case Input.Keys.Z:
 				model.handleEvent(InputEventHandler.InputEvent.Z);
 				break;
-			case Input.Keys.LEFT_BRACKET:
+			case Input.Keys.MINUS:
 				SoundManager.instance.decMusicVolume();
 				break;
-			case Input.Keys.RIGHT_BRACKET:
+			case Input.Keys.PLUS:
+			case Input.Keys.EQUALS:
 				SoundManager.instance.incMusicVolume();
 				break;
 			case Input.Keys.M:

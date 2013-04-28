@@ -132,6 +132,11 @@ public class Renderer {
 				int absY = y * TILE_SIZE;
 
 				if (type != TileType.EMPTY) {
+
+					if (resLoader.tiles[type.index] == null) {
+						System.out.println(type);
+					}
+
 					batch.draw(resLoader.tiles[type.index], absX, absY, TILE_SIZE, TILE_SIZE);
 				}
 
@@ -271,7 +276,7 @@ public class Renderer {
 		} else {
 			sb.append(SoundManager.instance.getMusicVolume()).append("%\n")
 					.append("Press [m] to mute\n")
-					.append("Press ] or [ to change music volume");
+					.append("Press [-]/[+] to change music volume");
 		}
 
 		if (text != null) {

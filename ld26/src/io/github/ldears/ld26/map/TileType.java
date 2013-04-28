@@ -22,61 +22,61 @@ public enum TileType {
 	DOOR_T("door_top"),
 	DOOR_B("door_bottom"),
 	
-	BC_TL("bookcase_top_left"),
-	BC_TR("bookcase_top_right"),
-	BC_ML("bookcase_middle_left"),
-	BC_MR("bookcase_middle_right"),
-	BC_BL("bookcase_bottom_left"),
-	BC_BR("bookcase_bottom_right"),
+	BC_TL("bookshelf_tl"),
+	BC_TR("bookshelf_tr"),
+	BC_ML("bookshelf_ml"),
+	BC_MR("bookshelf_mr"),
+	BC_BL("bookshelf_bl"),
+	BC_BR("bookshelf_br"),
 	
-	SO_L("sofa_left"),
-	SO_R("sofa_right"),
+	SO_L("sofa_l"),
+	SO_R("sofa_r"),
 	
-	TV_T("tv_top"),
-	TV_B("tv_bottom"),
+	TV_T("tv_t"),
+	TV_B("tv_b"),
 	
-	COMP_TL("comp_top_left"),
-	COMP_TR("comp_top_right"),
-	COMP_BL("comp_bottom_left"),
-	COMP_BR("comp_bottom_right"),
+	COMP_TL("comp_tl"),
+	COMP_TR("comp_tr"),
+	COMP_BL("comp_bl"),
+	COMP_BR("comp_br"),
 	
-	BOX("box"),
+	BOX("catbox"),
 	
 	BUCKT("bucket"),
 	
-	BATH_L("bath_left"),
-	BATH_R("bath_right"),
+	BATH_L("bath_l"),
+	BATH_R("bath_r"),
 	
-	TO_T("toilet_top"),
-	TO_B("toilet_bottom"),
+	TO_T("toilet_t"),
+	TO_B("toilet_b"),
 	
-	CLK_T("clock_top"),
-	CLK_M("clock_middle"),
-	CLK_B("clock_bottom"),
+	CLK_T("clock_t"),
+//	CLK_M("clock_m"),
+	CLK_B("clock_b"),
 	
-	CR_TL("comp_top_left"),
-	CR_TR("comp_top_right"),
-	CR_TML("comp_top_middle_left"),
-	CR_TMR("comp_top_middle_right"),
-	CR_BL("comp_bottom_left"),
-	CR_BR("comp_bottom_right"),
-	CR_BML("comp_bottom_middle_left"),
-	CR_BMR("comp_bottom_middle_right"),
+	CR_TL("car_tl"),
+	CR_TR("car_tr"),
+	CR_TML("car_tml"),
+	CR_TMR("car_tmr"),
+	CR_BL("car_bl"),
+	CR_BR("car_br"),
+	CR_BML("car_bml"),
+	CR_BMR("car_bmr"),
 
-	CKR_T("cooker_top"),
-	CKR_B("cooker_bottom"),
+	CKR_T("coocker_t"),
+	CKR_B("coocker_b"),
 	
-	FRI_T("fridge_top"),
-	FRI_B("fridge_bottom"),
+	FRI_T("refrigerator_t"),
+	FRI_B("refrigerator_b"),
 	
-	MW_OV("microwave_oven"),
+	MW_OV("microoven"),
 	MIN_T("minitable"),
 	
-	BED_L("bed_left"),
-	BED_R("bed_right"),
+	BED_L("bed_l"),
+	BED_R("bed_r"),
 	
-	WDB_T("wardrobe_top"),
-	WDB_B("wardrobe_bottom")
+	WDB_T("wardrobe_t"),
+	WDB_B("wardrobe_b")
 	
 	;
 
