@@ -160,11 +160,12 @@ public class GameModel implements InputEventHandler {
 			direction ^= 2;
 			break;
 		case X:
-			ind = 0;
 			Action action = getAvailableAction();
 			exec(action);
+			ind = 0;
 			break;
 		case Z:
+			System.out.println(ind);
 			GameObject go = getCurrentObject();
 			if (go.getClass() == Container.class) {
 				Container c = (Container) go;
@@ -173,6 +174,7 @@ public class GameModel implements InputEventHandler {
 						ind %= getContainerContents().size();
 					}
 				}
+			System.out.println(ind);
 			break;
 		}
 
