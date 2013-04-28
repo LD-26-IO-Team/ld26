@@ -10,6 +10,8 @@ import io.github.ldears.ld26.map.TileType;
 import io.github.ldears.ld26.render.Renderer;
 
 import java.awt.Point;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @author dector
@@ -24,13 +26,14 @@ public class GameModel implements InputEventHandler {
 	 * Time passed since player position was last updated
 	 */
 	private float time;
+	private int ind = 0;
 
 	private class Player {
 		Point pos;
 		Container inventory;
 		float accel = 3*TILE_SIZE;
 		float stopAccel = 5*TILE_SIZE;
-		float velocity = TILE_SIZE;
+		float velocity = 3*TILE_SIZE;
 	}
 
 	public GameModel() {
@@ -49,8 +52,8 @@ public class GameModel implements InputEventHandler {
 
 	public void update(float dt) {
 		time += dt;
-		if ((direction & 3) != 0) player.velocity = Math.min(player.velocity + player.accel*dt, 5*TILE_SIZE);
-		else player.velocity = Math.max((player.velocity - player.stopAccel*dt), TILE_SIZE);
+		if ((direction & 3) != 0) player.velocity = Math.min(player.velocity + player.accel*dt, 8*TILE_SIZE);
+		else player.velocity = Math.max((player.velocity - player.stopAccel*dt), 3*TILE_SIZE);
 		// System.out.println(getAvailableAction());
 		int tiledX = player.pos.x / TILE_SIZE;
 		int tiledY = player.pos.y / TILE_SIZE;
@@ -157,10 +160,19 @@ public class GameModel implements InputEventHandler {
 			direction ^= 2;
 			break;
 		case X:
+			ind = 0;
 			Action action = getAvailableAction();
 			exec(action);
 			break;
 		case Z:
+			GameObject go = getCurrentObject();
+			if (go.getClass() == Container.class) {
+				Container c = (Container) go;
+				if (!c.isEmpty()) {
+						ind += 1;
+						ind %= getContainerContents().size();
+					}
+				}
 			break;
 		}
 
@@ -183,12 +195,22 @@ public class GameModel implements InputEventHandler {
 			c.add(player.inventory.poke());
 			break;
 		case GET_ITEM:
-
 			Container c1 = (Container) getCurrentObject();
-			player.inventory.add(c1.poke());
+			player.inventory.add(c1.remove(c1.get(ind)));
 			break;
 		case NONE:
 			break;
 		}
+	}
+	
+	public List<Item> getContainerContents() {
+		GameObject current = getCurrentObject();
+		if (!(current.getClass() == Container.class)) return new LinkedList<Item>();
+		Container c = (Container)current;
+		return c.getContents();
+	}
+	
+	public int getSelectedIndex() {
+		return ind;
 	}
 }
