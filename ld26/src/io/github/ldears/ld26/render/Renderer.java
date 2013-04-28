@@ -166,6 +166,9 @@ public class Renderer {
 		// Draw player
 		batch.draw(player.getKeyFrame(time, true), ppos.x, ppos.y, TILE_SIZE, TILE_SIZE * 2);
 
+		// debug
+		resLoader.font.draw(batch, (int) (ppos.x / TILE_SIZE) + ":" + (int) (ppos.y / TILE_SIZE), ppos.x, ppos.y - 5);
+
 		batch.end();
 
 		drawHud();
@@ -241,16 +244,21 @@ public class Renderer {
 		hudBatch.end();
 	}
 
+	private Vector3 vec = new Vector3();
+
 	private void drawItemsSelect() {
 		List<Item> items = model.getContainerContents();
 
 		if (items == null) return;
-
-		Point ppos = model.getPlayerPosition();
+		{
+			Point ppos = model.getPlayerPosition();
+			vec.set(ppos.x, ppos.y, 0);
+		}
+		camera.project(vec);
 
 		int boxWidth = items.size() * TILE_SIZE;
-		int boxX = Math.max(ppos.x + TILE_SIZE / 2 - boxWidth / 2, 0);
-		int boxY = ppos.y + 2*TILE_SIZE + 5;
+		int boxX = Math.max((int) vec.x + TILE_SIZE / 2 - boxWidth / 2, 0);
+		int boxY = (int) vec.y + 2*TILE_SIZE + 5;
 
 		int selectedItemIndex = model.getSelectedIndex();
 

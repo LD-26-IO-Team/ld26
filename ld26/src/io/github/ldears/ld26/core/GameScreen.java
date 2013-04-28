@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.utils.Array;
 import io.github.ldears.ld26.events.InputEventHandler;
 import io.github.ldears.ld26.map.*;
 import io.github.ldears.ld26.models.Action;
@@ -45,10 +46,10 @@ public class GameScreen implements Screen, InputProcessor {
 					{ WALL_LEFT, 	EMPTY, 	EMPTY, 		EMPTY, 		EMPTY, 	EMPTY, 		EMPTY, 	BC_TL, 	BC_TR,  EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	WALL_MD, 	 EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, EMPTY,	EMPTY, 	WALL_RIGHT },
 					{ WALL_LEFT, 	EMPTY,  COMP_TL, 	COMP_TR, 	EMPTY, 	EMPTY,		EMPTY, 	BC_ML, 	BC_MR, 	EMPTY,  DOOR_T,	EMPTY, 	EMPTY, 	IN_DOOR_T, 	 EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	TV_T, EMPTY,	EMPTY, 	WALL_RIGHT },
 					{ WALL_LEFT, 	EMPTY,  COMP_BL, 	COMP_BR, 	EMPTY, 	BOX,		EMPTY, 	BC_BL, 	BC_BR, 	EMPTY,  DOOR_B,	EMPTY, 	EMPTY, 	IN_DOOR_B, 	 EMPTY, 	SO_L, 	SO_R, 	EMPTY, 	EMPTY, 	TV_B, EMPTY,	EMPTY, 	WALL_RIGHT },
-					{ WALL_LEFT, 	CEIL, 	CEIL, 		CEIL, 		CEIL, 	WALL_MC, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 		CEIL, 	CEIL, 	WALL_MC, 	CEIL, 	CEIL,  CEIL,	CEIL, 	WALL_RIGHT },
-					{ WALL_LEFT, 	EMPTY, 	EMPTY, 		EMPTY, 		EMPTY, 	WALL_MD, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	CLK_T, 	EMPTY, 	EMPTY,  EMPTY,	EMPTY, 		EMPTY,	EMPTY, 	WALL_MD, 	EMPTY, 	EMPTY, EMPTY,	EMPTY, 	WALL_RIGHT },
-					{ WALL_LEFT, 	EMPTY, 	EMPTY, 		EMPTY, 	WDB_T, 	IN_DOOR_T, 	EMPTY, 	DOOR_T, 	EMPTY, 	EMPTY, 	CLK_B, 	EMPTY, 	EMPTY, 	DOOR_T, 	EMPTY,	EMPTY, 	EMPTY, 	IN_DOOR_T, 	EMPTY, 	TO_T,  EMPTY,	EMPTY, 	WALL_RIGHT },
-					{ WALL_LEFT, 	BED_L, 	BED_R, 		EMPTY, 	WDB_B, 	IN_DOOR_B, 	EMPTY, 	DOOR_B, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	DOOR_B, 	EMPTY,	EMPTY, 	EMPTY, 	IN_DOOR_B, 	EMPTY, 	TO_B,  BATH_L,	BATH_R, 	WALL_RIGHT },
+					{ WALL_LEFT, 	CEIL, 	CEIL, 		CEIL, 		CEIL, 	CEIL, 	WALL_MC, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 		CEIL, 	CEIL, 	WALL_MC, 	CEIL, 	CEIL,  CEIL,	CEIL, 	WALL_RIGHT },
+					{ WALL_LEFT, 	EMPTY, 	EMPTY, 		EMPTY, 		EMPTY, 	EMPTY, 	WALL_MD, 	EMPTY, 	EMPTY, 	EMPTY, 	CLK_T, 	EMPTY, 	EMPTY,  EMPTY,	EMPTY, 		EMPTY,	EMPTY, 	WALL_MD, 	EMPTY, 	EMPTY, EMPTY,	EMPTY, 	WALL_RIGHT },
+					{ WALL_LEFT, 	EMPTY, 	EMPTY, 		EMPTY, 	WDB_T, 		EMPTY, 	IN_DOOR_T, 	EMPTY, 	DOOR_T, 	EMPTY, 	CLK_B, 	EMPTY, 	EMPTY, 	DOOR_T, 	EMPTY,	EMPTY, 	EMPTY, 	IN_DOOR_T, 	EMPTY, 	TO_T,  EMPTY,	EMPTY, 	WALL_RIGHT },
+					{ WALL_LEFT, 	BED_L, 	BED_R, 		EMPTY, 	WDB_B, 		EMPTY, 	IN_DOOR_B, 	EMPTY, 	DOOR_B, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	DOOR_B, 	EMPTY,	EMPTY, 	EMPTY, 	IN_DOOR_B, 	EMPTY, 	TO_B,  BATH_L,	BATH_R, 	WALL_RIGHT },
 					{ WALL_LEFT, 	CEIL, 	CEIL, 		CEIL, 		CEIL, 	CEIL, 		CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	WALL_MC, 	CEIL, 	 CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL,  CEIL,	CEIL, 	WALL_RIGHT },
 					{ WALL_LEFT, 	EMPTY, 	EMPTY, 		EMPTY, 		EMPTY, 	EMPTY, 		EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	WALL_MD, 	EMPTY, 	 EMPTY,	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY,  EMPTY,	EMPTY, 	WALL_RIGHT },
 					{ WALL_LEFT, 	EMPTY, 	EMPTY, 		CR_TL,		CR_TML,	CR_TMR,		CR_TR, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	WALL_MD, 	DOOR_T,	 EMPTY,	EMPTY, 	MW_OV, 	EMPTY, 	CKR_T, 	EMPTY,  FRI_T,	EMPTY, 	WALL_RIGHT },
@@ -62,16 +63,37 @@ public class GameScreen implements Screen, InputProcessor {
 			int width = tileTypeMap[0].length;
 			int height = tileTypeMap.length;
 
+			int[][] containtersPosition = {
+					{1, 9}, {2, 9}, {3, 9}, {4, 9}, {5, 10}, {6, 9}, {7, 9}, {8, 9}, {9, 9}, {11, 9}, {12, 9}, {13, 9}, {14, 9}, {15, 9}, {16, 9}, {17, 9}, {18, 9}, {19, 9}, {20, 9}, {21, 9},
+					{1, 5}, {2, 5}, {3, 5}, {4, 5}, {5, 5}, {6, 5}, {7, 5}, {9, 5}, {10, 5}, {11, 5}, {12, 5}, {14, 5}, {15, 5}, {16, 5}, {17, 5}, {18, 5}, {19, 6}, {20, 6}, {21, 6},
+					{13, 1}, {14, 1}, {15, 1}, {16, 1}, {17, 1}, {18, 1}, {19, 1}, {20, 1}, {21, 1}
+			};
+
+			Array<int[]> notTransperentContainers = new Array();
+			notTransperentContainers.add(new int[] { 5, 10 });
+			notTransperentContainers.add(new int[] { 19, 6 });
+			notTransperentContainers.add(new int[] { 20, 6 });
+			notTransperentContainers.add(new int[] { 21, 6 });
+			notTransperentContainers.add(new int[] { 15, 2 });
+
 			Tile[][] tileMap = new Tile[width][height];
 			for (int x = 0; x < width; x++) {
 				for (int y = 0; y < height; y++) {
 					tileMap[x][y] = new Tile();
 					tileMap[x][y].type = tileTypeMap[height - y - 1][x];
 
-					if (tileMap[x][y].type == EMPTY && (y == 1|| y == 5 || y == 9)) {
+					/*if (tileMap[x][y].type == EMPTY && (y == 1|| y == 5 || y == 9)) {
 						tileMap[x][y].setContent(new Container(x, y, "", 5, 1, 1, true));
-					}
+					}*/
 				}
+			}
+
+			for (int i = 0; i < containtersPosition.length; i++) {
+				int x = containtersPosition[i][0];
+				int y = containtersPosition[i][1];
+
+				tileMap[x][y].setContent(new Container(x, y, "", 5, 1, 1,
+						! (notTransperentContainers.contains(containtersPosition[i], true))));
 			}
 
 			{
@@ -84,29 +106,29 @@ public class GameScreen implements Screen, InputProcessor {
 				tileMap[13][5].setContent(door2);
 				
 				door1 = new Door(10, 9, "door1");
-				door2 = new Door(7, 5, "door2");
+				door2 = new Door(8, 5, "door2");
 				door1.setPairedDoor(door2);
 				door2.setPairedDoor(door1);
 
 				tileMap[10][9].setContent(door1);
-				tileMap[7][5].setContent(door2);
+				tileMap[8][5].setContent(door2);
 			}
 
 			{
 				Item bottle = new Item(8, 1, "bottle");
 				bottle.itemType = ItemType.BOTTLE;
 
-				((Container) (tileMap[8][1].getContent())).add(bottle);
+				((Container) (tileMap[15][1].getContent())).add(bottle);
 
 				Item apple = new Item(8, 1, "apple");
 				apple.itemType = ItemType.APPLE;
 
-				((Container) (tileMap[8][1].getContent())).add(apple);
+				((Container) (tileMap[15][1].getContent())).add(apple);
 
 				Item vantuz = new Item(8, 1, "vantuz");
 				vantuz.itemType = ItemType.VANTUZ;
 
-				((Container) (tileMap[8][1].getContent())).add(vantuz);
+				((Container) (tileMap[15][1].getContent())).add(vantuz);
 			}
 
 			TexturedWalls walls = new TexturedWalls(1);
