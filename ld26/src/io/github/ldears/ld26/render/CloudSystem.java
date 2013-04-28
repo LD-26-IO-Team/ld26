@@ -55,7 +55,7 @@ public class CloudSystem {
 
 			Cloud c = new Cloud(newId,
 					rnd.nextInt(textures.size),
-					worldWidth,
+					worldWidth + Renderer.SCREEN_WIDTH / 2,
 					rnd.nextInt(Math.abs(CLOUD_ROAD_HEIGHT - 64)) + MIN_CLOUD_Y + newId * CLOUD_ROAD_HEIGHT,
 					rnd.nextInt(MAX_VELOCITY - MIN_VELOCITY) + MIN_VELOCITY);
 

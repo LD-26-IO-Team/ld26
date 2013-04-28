@@ -92,7 +92,7 @@ public class Renderer {
 
 		batch.disableBlending();
 
-		for (int i = 0; i < max(SCREEN_WIDTH / TILE_SIZE, model.getTileMapWidth()); i++) {
+		for (int i = 0; i < max(SCREEN_WIDTH / TILE_SIZE, model.getTileMapWidth() + SCREEN_WIDTH / 2); i++) {
 			batch.draw(resLoader.groundTexture, i * TILE_SIZE, 0);
 		}
 
