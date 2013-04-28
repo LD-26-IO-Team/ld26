@@ -205,7 +205,7 @@ public class GameModel implements InputEventHandler {
 	
 	public List<Item> getContainerContents() {
 		GameObject current = getCurrentObject();
-		if (!(current.getClass() == Container.class)) return new LinkedList<Item>();
+		if ((current == null) || !(current.getClass() == Container.class)) return new LinkedList<Item>();
 		Container c = (Container)current;
 		return c.getContents();
 	}
