@@ -137,7 +137,7 @@ public class Renderer {
 						System.out.println(type);
 					}
 
-					batch.draw(resLoader.tiles[type.index], absX, absY, TILE_SIZE, TILE_SIZE);
+					batch.draw(resLoader.tiles[type.index].getKeyFrame(time, true), absX, absY, TILE_SIZE, TILE_SIZE);
 				}
 
 
@@ -148,18 +148,18 @@ public class Renderer {
 					boolean trash = contents.size() > 1;
 
 					for (Item item : contents) {
-						TextureAtlas.AtlasRegion[] spriteHolder = (container.isTransparent())
+						Animation[] animation = (container.isTransparent())
 								? resLoader.items
 								: resLoader.itemsPacked;
 
 						if (item.itemType == ItemType.CAT || item.itemType == ItemType.RASTA || item.itemType == ItemType.GUITAR) {
-							batch.draw(spriteHolder[item.itemType.ordinal()], absX, absY, TILE_SIZE,
+							batch.draw(animation[item.itemType.ordinal()].getKeyFrame(time, true), absX, absY, TILE_SIZE,
 									(item.itemType != ItemType.CAT) ? 2*TILE_SIZE : TILE_SIZE);
 						} else {
 							if (trash) {
 								batch.draw(resLoader.trash, absX, absY, TILE_SIZE, TILE_SIZE);
 							} else {
-								batch.draw(spriteHolder[item.itemType.ordinal()], absX, absY, TILE_SIZE, TILE_SIZE);
+								batch.draw(animation[item.itemType.ordinal()].getKeyFrame(time, true), absX, absY, TILE_SIZE, TILE_SIZE);
 							}
 						}
 					}
@@ -244,7 +244,7 @@ public class Renderer {
 			hudBatch.setColor(1, 1, 1, 0.5f);
 			hudBatch.draw(resLoader.lightBox, itemX - BOX_PADDING, itemY - 2 * BOX_PADDING, INV_ICON_WIDTH + 2 * BOX_PADDING, INV_ICON_HEIGHT + 2 * BOX_PADDING);
 			hudBatch.setColor(1, 1, 1, 1);
-			hudBatch.draw(resLoader.items[itemType.ordinal()], itemX, itemY - BOX_PADDING, INV_ICON_WIDTH, INV_ICON_HEIGHT);
+			hudBatch.draw(resLoader.items[itemType.ordinal()].getKeyFrame(time, true), itemX, itemY - BOX_PADDING, INV_ICON_WIDTH, INV_ICON_HEIGHT);
 		}
 
 		drawItemsSelect();
@@ -275,7 +275,7 @@ public class Renderer {
 					? resLoader.itemSelector[1]
 					: resLoader.itemSelector[0];
 			hudBatch.draw(reg, boxX + i * TILE_SIZE, boxY, TILE_SIZE, TILE_SIZE);
-			hudBatch.draw(resLoader.items[items.get(i).itemType.ordinal()],
+			hudBatch.draw(resLoader.items[items.get(i).itemType.ordinal()].getKeyFrame(time, true),
 					boxX + i * TILE_SIZE + ITEM_PADDING,
 					boxY + ITEM_PADDING,
 					ITEM_SIZE, ITEM_SIZE);

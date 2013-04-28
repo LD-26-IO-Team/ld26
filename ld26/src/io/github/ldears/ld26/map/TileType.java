@@ -50,9 +50,9 @@ public enum TileType {
 	TO_T("toilet_t"),
 	TO_B("toilet_b"),
 	
-	CLK_T("clock_t"),
+	CLK_T("clock_t", 0.5f),
 //	CLK_M("clock_m"),
-	CLK_B("clock_b"),
+	CLK_B("clock_b", 0.5f),
 	
 	CR_TL("car_tl"),
 	CR_TR("car_tr"),
@@ -90,8 +90,15 @@ public enum TileType {
 	public final String name;
 	public final int index;
 
+	public final float animationTime;
+
 	private TileType(String name) {
+		this(name, 1);
+	}
+
+	private TileType(String name, float animationTime) {
 		this.name = name;
+		this.animationTime = animationTime;
 
 		index = ordinal() - 1;
 	}

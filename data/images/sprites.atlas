@@ -499,332 +499,423 @@ cat_full
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: -1
-cat_packed
+  index: 0
+cat_full
+  rotate: false
+  xy: 55, 97
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+cat_full
+  rotate: false
+  xy: 55, 97
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+cat_full
+  rotate: false
+  xy: 55, 97
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+cat_full
+  rotate: false
+  xy: 55, 97
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+cat_full
+  rotate: false
+  xy: 55, 97
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 5
+cat_full
+  rotate: false
+  xy: 55, 97
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 6
+cat_full
   rotate: false
   xy: 73, 115
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: -1
-ceil
+  index: 7
+cat_packed
   rotate: false
   xy: 91, 133
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-clock_b
+ceil
   rotate: false
   xy: 109, 151
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-clock_t
+clock_b
   rotate: false
   xy: 19, 11
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: -1
-comp_bl
+  index: 0
+clock_b
   rotate: false
   xy: 37, 45
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: -1
-comp_br
+  index: 1
+clock_b
+  rotate: false
+  xy: 37, 45
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+clock_b
   rotate: false
   xy: 55, 79
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: -1
-comp_tl
+  index: 2
+clock_t
   rotate: false
   xy: 73, 97
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: -1
-comp_tr
+  index: 0
+clock_t
   rotate: false
   xy: 91, 115
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: -1
-coocker_b
+  index: 1
+clock_t
+  rotate: false
+  xy: 91, 115
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+clock_t
   rotate: false
   xy: 109, 133
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: -1
-coocker_t
+  index: 2
+comp_bl
   rotate: false
   xy: 127, 151
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-dark
+comp_br
   rotate: false
   xy: 37, 27
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-door_bottom
+comp_tl
   rotate: false
   xy: 55, 61
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-door_top
+comp_tr
   rotate: false
   xy: 73, 79
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-guitar_case_b
+coocker_b
   rotate: false
   xy: 91, 97
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-guitar_case_t
+coocker_t
   rotate: false
   xy: 109, 115
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-inner_door_bottom
+dark
   rotate: false
   xy: 127, 133
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-inner_door_top
+door_bottom
   rotate: false
   xy: 145, 151
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-item_selector
+door_top
   rotate: false
   xy: 55, 43
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-item_selector_selected
+guitar_case_b
   rotate: false
   xy: 73, 61
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-knife_full
+guitar_case_t
   rotate: false
   xy: 91, 79
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-knife_packed
+inner_door_bottom
   rotate: false
   xy: 109, 97
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-light
+inner_door_top
   rotate: false
   xy: 127, 115
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-microoven
+item_selector
   rotate: false
   xy: 145, 133
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-minitable
+item_selector_selected
   rotate: false
   xy: 73, 43
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-phone
+knife_full
   rotate: false
   xy: 91, 61
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-plant
+knife_packed
   rotate: false
   xy: 109, 79
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-refrigerator_b
+light
   rotate: false
   xy: 127, 97
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-refrigerator_t
+microoven
   rotate: false
   xy: 145, 115
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-sofa_l
+minitable
   rotate: false
   xy: 91, 43
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-sofa_r
+phone
   rotate: false
   xy: 109, 61
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-tmll
+plant
   rotate: false
   xy: 127, 79
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-toilet_b
+refrigerator_b
   rotate: false
   xy: 145, 97
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-toilet_t
+refrigerator_t
   rotate: false
   xy: 109, 43
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-trash
+sofa_l
   rotate: false
   xy: 127, 61
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-tv_b
+sofa_r
   rotate: false
   xy: 145, 79
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-tv_t
+tmll
   rotate: false
   xy: 127, 43
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-vantuz
+toilet_b
   rotate: false
   xy: 145, 61
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-wall_corner_left_bottom
+toilet_t
   rotate: false
   xy: 145, 43
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-wall_corner_right_bottom
+trash
   rotate: false
   xy: 179, 185
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-wall_left
+tv_b
   rotate: false
   xy: 197, 185
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-wall_middle
+tv_t
   rotate: false
   xy: 215, 185
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-wall_middle_ceil
+vantuz
   rotate: false
   xy: 233, 185
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-wall_right
+wall_corner_left_bottom
   rotate: false
   xy: 37, 9
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-wall_x
+wall_corner_right_bottom
   rotate: false
   xy: 55, 25
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-wardrobe_b
+wall_left
   rotate: false
   xy: 73, 25
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-wardrobe_t
+wall_middle
   rotate: false
   xy: 91, 25
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-bookshelf_tl
+wall_middle_ceil
   rotate: false
   xy: 109, 25
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+wall_right
+  rotate: false
+  xy: 127, 25
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+wall_x
+  rotate: false
+  xy: 145, 25
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+wardrobe_b
+  rotate: false
+  xy: 55, 7
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+wardrobe_t
+  rotate: false
+  xy: 73, 7
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bookshelf_tl
+  rotate: false
+  xy: 91, 7
   size: 15, 16
   orig: 15, 16
   offset: 0, 0

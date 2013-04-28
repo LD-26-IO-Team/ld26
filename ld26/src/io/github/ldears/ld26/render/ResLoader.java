@@ -23,10 +23,10 @@ public class ResLoader {
 
 	public final BitmapFont font;
 
-	public final TextureAtlas.AtlasRegion[] tiles;
+	public final Animation[] tiles;
 
-	public final TextureAtlas.AtlasRegion[] items;
-	public final TextureAtlas.AtlasRegion[] itemsPacked;
+	public final Animation[] items;
+	public final Animation[] itemsPacked;
 
 	public final TextureAtlas.AtlasRegion[] wallTextures;
 	public final Array<TextureAtlas.AtlasRegion> cloudsTexture;
@@ -50,11 +50,11 @@ public class ResLoader {
 
 		TextureAtlas atlas = new TextureAtlas(IMAGES_DIR + "sprites.atlas");
 
-		tiles = new TextureAtlas.AtlasRegion[TileType.count()];
+		tiles = new Animation[TileType.count()];
 		initTiles(atlas);
 
-		items = new TextureAtlas.AtlasRegion[ItemType.count()];
-		itemsPacked = new TextureAtlas.AtlasRegion[ItemType.count()];
+		items = new Animation[ItemType.count()];
+		itemsPacked = new Animation[ItemType.count()];
 		initObjects(atlas);
 
 		player = new Animation[PlayerDirection.values().length];
@@ -105,15 +105,15 @@ public class ResLoader {
 	private void initTiles(TextureAtlas atlas) {
 		for (TileType tile : TileType.values()) {
 			if (tile != TileType.EMPTY) {
-				tiles[tile.index] = atlas.findRegion(tile.name);
+				tiles[tile.index] = new Animation(tile.animationTime, atlas.findRegions(tile.name));
 			}
 		}
 	}
 
 	private void initObjects(TextureAtlas atlas) {
 		for (ItemType item : ItemType.values()) {
-			items[item.ordinal()] = atlas.findRegion(item.fullSprite);
-			itemsPacked[item.ordinal()] = atlas.findRegion(item.packedSprite);
+			items[item.ordinal()] = new Animation(item.animationTime, atlas.findRegions(item.fullSprite));
+			itemsPacked[item.ordinal()] = new Animation(item.animationTime, atlas.findRegions(item.packedSprite));
 		}
 	}
 }
