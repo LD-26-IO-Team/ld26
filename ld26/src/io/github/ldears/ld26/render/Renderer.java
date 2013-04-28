@@ -54,7 +54,7 @@ public class Renderer {
 
 		resLoader = new ResLoader();
 
-		Gdx.gl.glClearColor(0, 0.5f, 0, 1);
+		Gdx.gl.glClearColor(0.15f, 0.57f, 0.86f, 1);
 
 		updateText(null);
 	}
@@ -79,6 +79,12 @@ public class Renderer {
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
 
+		batch.disableBlending();
+
+		for (int i = 0; i < max(SCREEN_WIDTH / TILE_SIZE, model.getTileMapWidth()); i++) {
+			batch.draw(resLoader.groundTexture, i * TILE_SIZE, 0);
+		}
+
 		for (TexturedWalls.Wall wall : walls.walls) {
 			if (wall != null) {
 
@@ -99,6 +105,8 @@ public class Renderer {
 				}
 			}
 		}
+
+		batch.enableBlending();
 
 		// Draw map
 		Tile[][] tileMap = model.getTileMap();
@@ -140,6 +148,10 @@ public class Renderer {
 		batch.end();
 
 		drawHud();
+	}
+
+	private int max(int a, int b) {
+		return (a >= b) ? a : b;
 	}
 
 	private static int BOX_X = 15;

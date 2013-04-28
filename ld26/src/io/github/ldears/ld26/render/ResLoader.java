@@ -28,6 +28,7 @@ public class ResLoader {
 	public final TextureAtlas.AtlasRegion[] itemsPacked;
 
 	public final TextureAtlas.AtlasRegion[] wallTextures;
+	public final TextureAtlas.AtlasRegion groundTexture;
 
 	public final Animation[] player;
 
@@ -60,6 +61,8 @@ public class ResLoader {
 		TextureAtlas backgroundsAtlas = new TextureAtlas(IMAGES_DIR + "backgrounds.atlas");
 		wallTextures = new TextureAtlas.AtlasRegion[TexturedWalls.WallTexture.values().length];
 		initWallTextures(backgroundsAtlas);
+
+		groundTexture = backgroundsAtlas.findRegion("ground");
 	}
 
 	private void initWallTextures(TextureAtlas atlas) {

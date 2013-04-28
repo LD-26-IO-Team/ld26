@@ -92,6 +92,10 @@ public class GameModel implements InputEventHandler {
 		return data;
 	}
 
+	public int getTileMapWidth() {
+		return data.length;
+	}
+
 	public Action getAvailableAction() {
 		GameObject c = getCurrentObject();
 		if (c != null) {
