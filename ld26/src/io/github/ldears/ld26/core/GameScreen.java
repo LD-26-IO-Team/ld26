@@ -146,14 +146,14 @@ public class GameScreen implements Screen, InputProcessor {
 			}
 
 			{
-				createItemAt(tileMap, ItemType.BOTTLE, 15, 1);
-				createItemAt(tileMap, ItemType.APPLE, 15, 1);
-				createItemAt(tileMap, ItemType.VANTUZ, 15, 1);
-				createItemAt(tileMap, ItemType.KNIFE, 15, 1);
-				createItemAt(tileMap, ItemType.RASTA, 15, 1);
+				createItemAt(tileMap, ItemType.BOTTLE, 2, 5);
+				createItemAt(tileMap, ItemType.APPLE, 15, 9);
+				createItemAt(tileMap, ItemType.VANTUZ, 4, 9);
+				createItemAt(tileMap, ItemType.KNIFE, 18, 5);
+				createItemAt(tileMap, ItemType.RASTA, 20, 9);
 				createItemAt(tileMap, ItemType.GUITAR, 17, 9);
-				createItemAt(tileMap, ItemType.BOOK, 10, 5);
-				createItemAt(tileMap, ItemType.CAT, 9, 9);
+				createItemAt(tileMap, ItemType.BOOK, 20, 1);
+				createItemAt(tileMap, ItemType.CAT, 11, 5);
 			}
 
 			TexturedWalls walls = new TexturedWalls(1);
