@@ -121,8 +121,8 @@ public class GameModel implements InputEventHandler {
 			tiledX = tiledRX;
 		Tile ofInterest = data[tiledX][tiledY];
 		Tile ofInterest2 = data[tiledX][tiledY + 1];
-		if ((ofInterest.type != TileType.EMPTY)
-				&& (ofInterest2.type == TileType.EMPTY))
+		if ((!ofInterest.hasContainer())
+				&& (ofInterest2.hasContainer()))
 			return ofInterest2.getContent();
 		return ofInterest.getContent();
 	}
