@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Vector3;
 import io.github.ldears.ld26.map.*;
 import io.github.ldears.ld26.models.Action;
 import io.github.ldears.ld26.models.GameModel;
@@ -68,8 +69,7 @@ public class Renderer {
 
 		Point ppos = model.getPlayerPosition();
 
-		camera.position.set(ppos.x, ppos.y, 0);
-		camera.update();
+		updateCamera(ppos);
 
 		// Draw background
 //		tmpBatch.begin();
@@ -148,6 +148,19 @@ public class Renderer {
 		batch.end();
 
 		drawHud();
+	}
+
+	private Vector3 lerpVector = new Vector3();
+
+	private void updateCamera(Point ppos) {
+		int camX = max(ppos.x, SCREEN_WIDTH / 2);
+		int camY = max(ppos.y, SCREEN_HEIGHT / 2);
+
+		lerpVector.set(camX, camY, 0);
+
+		camera.position.lerp(lerpVector, 0.08f);
+//		camera.position.set(camX, camY, 0);
+		camera.update();
 	}
 
 	private int max(int a, int b) {
