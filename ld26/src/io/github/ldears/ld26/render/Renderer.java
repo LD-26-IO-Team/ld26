@@ -332,4 +332,10 @@ public class Renderer {
 				break;
 		}
 	}
+
+	public void renderWon() {
+		hudBatch.begin();
+		hudBatch.draw(resLoader.wonTexture, (640 - 300) / 2, (480 - 400) / 2);
+		hudBatch.end();
+	}
 }

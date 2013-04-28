@@ -218,6 +218,10 @@ public class GameScreen implements Screen, InputProcessor {
 
 	@Override
 	public void render(float dt) {
+		if (won) {
+			renderer.renderWon();
+			return;
+		}
 		model.update(dt);
 		renderer.render(dt);
 	}
@@ -247,6 +251,8 @@ public class GameScreen implements Screen, InputProcessor {
 
 	// Input
 
+	private boolean won;
+
 	@Override
 	public boolean keyDown(int key) {
 		switch (key) {
@@ -254,12 +260,15 @@ public class GameScreen implements Screen, InputProcessor {
 				Gdx.app.exit();
 				break;
 			case Input.Keys.LEFT:
+				if (won) break;
 				model.handleEvent(InputEventHandler.InputEvent.LEFT_DOWN);
 				break;
 			case Input.Keys.RIGHT:
+				if (won) break;
 				model.handleEvent(InputEventHandler.InputEvent.RIGHT_DOWN);
 				break;
 			case Input.Keys.X:
+				if (won) break;
 				Action a = model.getAvailableAction();
 				if (a != null) {
 					switch (a) {
@@ -280,6 +289,7 @@ public class GameScreen implements Screen, InputProcessor {
 				model.handleEvent(InputEventHandler.InputEvent.X);
 				break;
 			case Input.Keys.Z:
+				if (won) break;
 				model.handleEvent(InputEventHandler.InputEvent.Z);
 				break;
 			case Input.Keys.MINUS:
@@ -303,16 +313,20 @@ public class GameScreen implements Screen, InputProcessor {
 	public boolean keyUp(int key) {
 		switch (key) {
 			case Input.Keys.LEFT:
+				if (won) break;
 				model.handleEvent(InputEventHandler.InputEvent.LEFT_UP);
 				break;
 			case Input.Keys.RIGHT:
+				if (won) break;
 				model.handleEvent(InputEventHandler.InputEvent.RIGHT_UP);
 				break;
 			case Input.Keys.X:
+				if (won) break;
 				Action a = model.getAvailableAction();
 				if (a != null && a == Action.CALL_PHONE) {
 					if (model.isWinConditionsOk()) {
 						SoundManager.instance.play(Sounds.DIAL);
+						won = true;
 					} else {
 						SoundManager.instance.play(Sounds.NO);
 					}

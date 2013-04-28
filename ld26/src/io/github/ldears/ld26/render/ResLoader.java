@@ -1,6 +1,7 @@
 package io.github.ldears.ld26.render;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -39,6 +40,8 @@ public class ResLoader {
 	public final TextureRegion trash;
 	public final TextureRegion itemSelector[];
 
+	public final TextureRegion wonTexture;
+
 //	public final TextureAtlas.AtlasRegion[] objects;
 
 	public ResLoader() {
@@ -75,6 +78,8 @@ public class ResLoader {
 		cloudsTexture = initClouds(backgroundsAtlas);
 
 		groundTexture = backgroundsAtlas.findRegion("ground");
+
+		wonTexture = new TextureRegion(new Texture(IMAGES_DIR + "end/win.png"), 300, 400);
 	}
 
 	private Array<TextureAtlas.AtlasRegion> initClouds(TextureAtlas backgroundsAtlas) {
