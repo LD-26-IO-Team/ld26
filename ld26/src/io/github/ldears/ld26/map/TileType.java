@@ -76,7 +76,10 @@ public enum TileType {
 	BED_R("bed_r"),
 	
 	WDB_T("wardrobe_t"),
-	WDB_B("wardrobe_b")
+	WDB_B("wardrobe_b"),
+
+	GC_T("guitar_case_t"),
+	GC_B("guitar_case_b")
 	
 	;
 
