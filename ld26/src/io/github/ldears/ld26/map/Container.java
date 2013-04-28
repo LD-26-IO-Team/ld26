@@ -15,6 +15,7 @@ public class Container extends GameObject {
 	int tileWidth;
 	int tileHeight;
 	boolean transparent;
+	boolean visible;
 
 	// Void if null
 	// Sprite sprite;
@@ -30,6 +31,7 @@ public class Container extends GameObject {
 		this.tileHeight = tileHeight;
 		this.items = new LinkedList<Item>();
 		this.transparent = transparent;
+		this.visible = true;
 	}
 
 	public List<Item> getContents() {
@@ -92,8 +94,16 @@ public class Container extends GameObject {
 	public boolean isEmpty() {
 		return items.size() == 0;
 	}
+	
+	public void setVisible(boolean visible) {
+		this.visible = visible;
+	}
 
 	public boolean isTransparent() {
 		return transparent;
+	}
+	
+	public boolean isVisible() {
+		return visible;
 	}
 }
