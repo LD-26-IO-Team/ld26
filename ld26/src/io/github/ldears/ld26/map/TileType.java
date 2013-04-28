@@ -72,6 +72,12 @@ public enum TileType {
 	MW_OV("microwave_oven"),
 	MIN_T("minitable"),
 	
+	BED_L("bed_left"),
+	BED_R("bed_right"),
+	
+	WDB_T("wardrobe_top"),
+	WDB_B("wardrobe_bottom")
+	
 	;
 
 	public static final int PLAYER_WIDTH 		= 2*16;
