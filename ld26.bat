@@ -1,0 +1,1 @@
+java -cp ld26.jar;libs/* io.github.ldears.ld26.DesktopLauncher
