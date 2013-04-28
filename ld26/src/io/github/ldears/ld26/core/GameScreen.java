@@ -163,7 +163,12 @@ public class GameScreen implements Screen, InputProcessor {
 			case Input.Keys.RIGHT_BRACKET:
 				SoundManager.instance.incMusicVolume();
 				break;
+			case Input.Keys.M:
+				SoundManager.instance.toggleMuted();
+				break;
 		}
+
+		renderer.updateText();
 
 		return true;
 	}
@@ -178,6 +183,8 @@ public class GameScreen implements Screen, InputProcessor {
 				model.handleEvent(InputEventHandler.InputEvent.RIGHT_UP);
 				break;
 		}
+
+		renderer.updateText();
 
 		return true;
 	}

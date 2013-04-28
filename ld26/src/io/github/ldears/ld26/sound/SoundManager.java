@@ -23,7 +23,7 @@ public class SoundManager {
 	private int musicVolume;
 
 	private SoundManager() {
-		musicVolume = 70;
+		musicVolume = 50;
 
 		music = Gdx.audio.newMusic(Gdx.files.internal(SOUND_DIR + MUSIC_FILE));
 		setMusicVolume(musicVolume);
@@ -62,10 +62,22 @@ public class SoundManager {
 		}
 	}
 
+	public boolean isMuted() {
+		return muted;
+	}
+
+	public int getMusicVolume() {
+		return musicVolume;
+	}
+
 	private void setMusicVolume(int volPercent) {
 		musicVolume = volPercent;
 		music.setVolume(1f * volPercent / 100);
 
 		System.out.println("Music volume: " + volPercent + "%");
+	}
+
+	public void toggleMuted() {
+		setMuted(! isMuted());
 	}
 }

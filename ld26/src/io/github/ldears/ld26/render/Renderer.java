@@ -11,6 +11,7 @@ import io.github.ldears.ld26.map.*;
 import io.github.ldears.ld26.models.Action;
 import io.github.ldears.ld26.models.GameModel;
 import io.github.ldears.ld26.models.PlayerDirection;
+import io.github.ldears.ld26.sound.SoundManager;
 
 import java.awt.Point;
 
@@ -192,20 +193,7 @@ public class Renderer {
 		Action newAction = model.getAvailableAction();
 
 		if (newAction != prevAction) {
-			switch (newAction) {
-				case USE_DOOR:
-					updateText(TEXT_DOOR);
-					break;
-				case GET_ITEM:
-					updateText(TEXT_GET_ITEM);
-					break;
-				case DROP_ITEM:
-					updateText(TEXT_DROP_ITEM);
-					break;
-				default:
-					updateText(null);
-					break;
-			}
+			updateText();
 		}
 
 		Item invItem = model.getInventoryItem();
@@ -242,9 +230,37 @@ public class Renderer {
 	private void updateText(String text) {
 		StringBuilder sb = new StringBuilder();
 
-		if (text != null) { sb.append(text).append("\n"); }
-//		sb.append(TEXT_INV);
+		sb.append("Music volume: ");
+		if (SoundManager.instance.isMuted()) {
+			sb.append("[Muted]\n")
+					.append("Press [M] to unmute");
+		} else {
+			sb.append(SoundManager.instance.getMusicVolume()).append("%\n")
+					.append("Press [M] to mute");
+		}
+
+		if (text != null) { sb.append("\n\n").append(text).append("\n"); }
 
 		this.text = sb.toString();
+	}
+
+	public void updateText() {
+		Action newAction = model.getAvailableAction();
+		prevAction = newAction;
+
+		switch (newAction) {
+			case USE_DOOR:
+				updateText(TEXT_DOOR);
+				break;
+			case GET_ITEM:
+				updateText(TEXT_GET_ITEM);
+				break;
+			case DROP_ITEM:
+				updateText(TEXT_DROP_ITEM);
+				break;
+			default:
+				updateText(null);
+				break;
+		}
 	}
 }
