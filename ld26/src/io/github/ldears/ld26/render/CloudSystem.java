@@ -13,9 +13,10 @@ public class CloudSystem {
 
 	private static final int MAX_CLOUDS = 5;
 	private static final int MIN_CLOUD_Y = Renderer.SCREEN_HEIGHT / 7;
-	private static final int CLOUD_ROAD_HEIGHT = (Renderer.SCREEN_HEIGHT - MIN_CLOUD_Y) / MAX_CLOUDS;
 	private static final int MIN_VELOCITY = 1 * Renderer.TILE_SIZE;
 	private static final int MAX_VELOCITY = 4 * Renderer.TILE_SIZE;
+
+	private final int CLOUD_ROAD_HEIGHT;
 
 	private ResLoader resLoader;
 	private Array<Integer> idsArray;
@@ -32,6 +33,8 @@ public class CloudSystem {
 		this.resLoader = resLoader;
 		this.worldWidth = worldWidth;
 		this.worldHeight = worldHeight;
+
+		CLOUD_ROAD_HEIGHT = (Math.max(Renderer.SCREEN_HEIGHT, worldHeight) - MIN_CLOUD_Y) / MAX_CLOUDS;
 
 		clouds = new Cloud[MAX_CLOUDS];
 
