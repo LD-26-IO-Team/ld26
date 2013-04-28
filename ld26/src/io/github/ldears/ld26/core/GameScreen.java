@@ -77,10 +77,10 @@ public class GameScreen implements Screen, InputProcessor {
 
 				((Container) (tileMap[8][1].getContent())).add(bottle);
 
-				Item bottle2 = new Item(8, 1, "bottle2");
-				bottle2.itemType = ItemType.BOTTLE;
+				Item apple = new Item(8, 1, "apple");
+				apple.itemType = ItemType.APPLE;
 
-				((Container) (tileMap[8][1].getContent())).add(bottle2);
+				((Container) (tileMap[8][1].getContent())).add(apple);
 			}
 
 			TexturedWalls walls = new TexturedWalls(1);

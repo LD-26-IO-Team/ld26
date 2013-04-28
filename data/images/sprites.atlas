@@ -227,121 +227,128 @@ player_right
   orig: 16, 32
   offset: 0, 0
   index: -1
-bottle_full
+apple
   rotate: false
   xy: 1, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-bottle_packed
+bottle_full
   rotate: false
   xy: 325, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-ceil
+bottle_packed
   rotate: false
   xy: 19, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-dark
+ceil
   rotate: false
   xy: 343, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-door_bottom
+dark
   rotate: false
   xy: 37, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-door_top
+door_bottom
   rotate: false
   xy: 361, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-inner_door_bottom
+door_top
   rotate: false
   xy: 55, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-inner_door_top
+inner_door_bottom
   rotate: false
   xy: 379, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-item_selector
+inner_door_top
   rotate: false
   xy: 73, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-item_selector_selected
+item_selector
   rotate: false
   xy: 397, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-wall_corner_left_bottom
+item_selector_selected
   rotate: false
   xy: 91, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-wall_corner_right_bottom
+wall_corner_left_bottom
   rotate: false
   xy: 415, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-wall_left
+wall_corner_right_bottom
   rotate: false
   xy: 109, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-wall_middle
+wall_left
   rotate: false
   xy: 433, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-wall_middle_ceil
+wall_middle
   rotate: false
   xy: 127, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-wall_right
+wall_middle_ceil
   rotate: false
   xy: 451, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-wall_x
+wall_right
   rotate: false
   xy: 145, 1
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+wall_x
+  rotate: false
+  xy: 469, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0

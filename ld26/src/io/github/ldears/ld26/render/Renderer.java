@@ -233,6 +233,8 @@ public class Renderer {
 	private void drawItemsSelect() {
 		List<Item> items = model.getContainerContents();
 
+		if (items == null) return;
+
 		Point ppos = model.getPlayerPosition();
 
 		int boxWidth = items.size() * TILE_SIZE;
@@ -243,8 +245,8 @@ public class Renderer {
 
 		for (int i = 0; i < items.size(); i++) {
 			TextureRegion reg = (i == selectedItemIndex)
-					? resLoader.itemSelector[0]
-					: resLoader.itemSelector[1];
+					? resLoader.itemSelector[1]
+					: resLoader.itemSelector[0];
 			hudBatch.draw(reg, boxX + i * TILE_SIZE, boxY, TILE_SIZE, TILE_SIZE);
 			hudBatch.draw(resLoader.items[items.get(i).itemType.ordinal()],
 					boxX + i * TILE_SIZE + ITEM_PADDING,
