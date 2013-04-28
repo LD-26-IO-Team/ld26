@@ -32,15 +32,28 @@ public class GameScreen implements Screen, InputProcessor {
 		// TODO mockup
 		{
 			TileType[][] tileTypeMap = {
-					{ WALL_LEFT, 	CEIL, 	CEIL, 		CEIL, 	CEIL, 	WALL_MC, 			CEIL, 	CEIL, 	CEIL, 	CEIL, 	WALL_MC, 	CEIL, 	CEIL, 	WALL_RIGHT},
-					{ WALL_LEFT, 	EMPTY, 	EMPTY, 		EMPTY, 	EMPTY, 	WALL_MIDDLE, 		EMPTY,	EMPTY, 	EMPTY, 	EMPTY, 	WALL_MIDDLE, EMPTY, 	EMPTY, 	WALL_RIGHT },
-					{ WALL_LEFT, 	EMPTY, 	EMPTY, 		EMPTY, 	EMPTY, 	WALL_MIDDLE, 		EMPTY,  EMPTY, 	EMPTY, 	EMPTY, 	WALL_MIDDLE, EMPTY, 	EMPTY, 	WALL_RIGHT },
-					{ WALL_LEFT, 	EMPTY, 	DOOR_TOP, 	EMPTY, 	EMPTY, 	WALL_MIDDLE, 		EMPTY,  EMPTY, 	EMPTY, 	EMPTY, 	WALL_MIDDLE, EMPTY, 	EMPTY, 	WALL_RIGHT },
-					{ WALL_LEFT, 	EMPTY, 	DOOR_BOTTOM,EMPTY, 	EMPTY, 	WALL_MIDDLE, 		EMPTY,  EMPTY, 	EMPTY, 	EMPTY, 	WALL_MIDDLE, EMPTY, 	EMPTY, 	WALL_RIGHT },
-					{ WALL_LEFT, 	CEIL, 	CEIL, 		CEIL, 	CEIL, 	WALL_MC,	 		CEIL, 	CEIL, 	CEIL, 	CEIL, 	WALL_MC, 	CEIL, 	CEIL, 	WALL_RIGHT },
-					{ WALL_LEFT, 	EMPTY, 	DOOR_TOP, 	EMPTY, 	EMPTY, 	INNER_DOOR_TOP, 	EMPTY,  EMPTY, 	EMPTY, 	EMPTY, 	WALL_MIDDLE, EMPTY, 	EMPTY, 	WALL_RIGHT },
-					{ WALL_LEFT, 	EMPTY, 	DOOR_BOTTOM,EMPTY, 	EMPTY, 	INNER_DOOR_BOTTOM, 	EMPTY,	EMPTY, 	EMPTY, 	EMPTY, 	WALL_MIDDLE, EMPTY, 	EMPTY, 	WALL_RIGHT },
-					{ WALL_CLB, 	CEIL, 	CEIL, 		CEIL, 	CEIL, 	CEIL,				CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 		CEIL,	CEIL, 	WALL_CRB }
+//					{ WALL_LEFT, 	CEIL, 	CEIL, 		CEIL, 	CEIL, 	WALL_MC, 			CEIL, 	CEIL, 	CEIL, 	CEIL, 	WALL_MC, 	 CEIL, 		CEIL, 	WALL_RIGHT },
+//					{ WALL_LEFT, 	EMPTY, 	EMPTY, 		EMPTY, 	EMPTY, 	WALL_MIDDLE, 		EMPTY,	EMPTY, 	EMPTY, 	EMPTY, 	WALL_MIDDLE, EMPTY, 	EMPTY, 	WALL_RIGHT },
+//					{ WALL_LEFT, 	EMPTY, 	EMPTY, 		EMPTY, 	EMPTY, 	WALL_MIDDLE, 		EMPTY,  EMPTY, 	EMPTY, 	EMPTY, 	WALL_MIDDLE, EMPTY, 	EMPTY, 	WALL_RIGHT },
+//					{ WALL_LEFT, 	EMPTY, 	DOOR_TOP, 	EMPTY, 	EMPTY, 	WALL_MIDDLE, 		EMPTY,  EMPTY, 	EMPTY, 	EMPTY, 	WALL_MIDDLE, EMPTY, 	EMPTY, 	WALL_RIGHT },
+//					{ WALL_LEFT, 	EMPTY, 	DOOR_BOTTOM,EMPTY, 	EMPTY, 	WALL_MIDDLE, 		EMPTY,  EMPTY, 	EMPTY, 	EMPTY, 	WALL_MIDDLE, EMPTY, 	EMPTY, 	WALL_RIGHT },
+//					{ WALL_LEFT, 	CEIL, 	CEIL, 		CEIL, 	CEIL, 	WALL_MC,	 		CEIL, 	CEIL, 	CEIL, 	CEIL, 	WALL_MC, 	 CEIL, 		CEIL, 	WALL_RIGHT },
+//					{ WALL_LEFT, 	EMPTY, 	DOOR_TOP, 	EMPTY, 	EMPTY, 	INNER_DOOR_TOP, 	EMPTY,  EMPTY, 	EMPTY, 	EMPTY, 	WALL_MIDDLE, EMPTY, 	EMPTY, 	WALL_RIGHT },
+//					{ WALL_LEFT, 	EMPTY, 	DOOR_BOTTOM,EMPTY, 	EMPTY, 	INNER_DOOR_BOTTOM, 	EMPTY,	EMPTY, 	EMPTY, 	EMPTY, 	WALL_MIDDLE, EMPTY, 	EMPTY, 	WALL_RIGHT },
+//					{ WALL_CLB, 	CEIL, 	CEIL, 		CEIL, 	CEIL, 	CEIL,				CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 		 CEIL,		CEIL, 	WALL_CRB }
+					{ WALL_LEFT, 	CEIL, 	CEIL, 		CEIL, 		CEIL, 	CEIL, 		CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	WALL_MC, 	 CEIL, 		CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL,  CEIL,	CEIL, 	WALL_RIGHT },
+					{ WALL_LEFT, 	EMPTY, 	EMPTY, 		EMPTY, 		EMPTY, 	EMPTY, 		EMPTY, 	BC_TL, 	BC_TR,  EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	WALL_MD, 	 EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, EMPTY,	EMPTY, 	WALL_RIGHT },
+					{ WALL_LEFT, 	EMPTY,  COMP_TL, 	COMP_TR, 	EMPTY, 	EMPTY,		EMPTY, 	BC_ML, 	BC_MR, 	EMPTY,  DOOR_T,	EMPTY, 	EMPTY, 	IN_DOOR_T, 	 EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	TV_T, EMPTY,	EMPTY, 	WALL_RIGHT },
+					{ WALL_LEFT, 	EMPTY,  COMP_BL, 	COMP_BR, 	EMPTY, 	BOX,		EMPTY, 	BC_BL, 	BC_BR, 	EMPTY,  DOOR_B,	EMPTY, 	EMPTY, 	IN_DOOR_B, 	 EMPTY, 	SO_L, 	SO_R, 	EMPTY, 	EMPTY, 	TV_B, EMPTY,	EMPTY, 	WALL_RIGHT },
+					{ WALL_LEFT, 	CEIL, 	CEIL, 		CEIL, 		CEIL, 	WALL_MC, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 		CEIL, 	CEIL, 	WALL_MC, 	CEIL, 	CEIL,  CEIL,	CEIL, 	WALL_RIGHT },
+					{ WALL_LEFT, 	EMPTY, 	EMPTY, 		EMPTY, 		EMPTY, 	WALL_MD, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	CLK_T, 	EMPTY, 	EMPTY,  EMPTY,	EMPTY, 		EMPTY,	EMPTY, 	WALL_MD, 	EMPTY, 	EMPTY, EMPTY,	EMPTY, 	WALL_RIGHT },
+					{ WALL_LEFT, 	EMPTY, 	EMPTY, 		EMPTY, 	EMPTY, 	IN_DOOR_T, 	EMPTY, 	DOOR_T, 	EMPTY, 	EMPTY, 	CLK_M, 	EMPTY, 	EMPTY, 	DOOR_T, 	EMPTY,	EMPTY, 	EMPTY, 	IN_DOOR_T, 	EMPTY, 	TO_T,  EMPTY,	EMPTY, 	WALL_RIGHT },
+					{ WALL_LEFT, 	EMPTY, 	EMPTY, 		EMPTY, 	EMPTY, 	IN_DOOR_B, 	EMPTY, 	DOOR_B, 	EMPTY, 	EMPTY, 	CLK_B, 	EMPTY, 	EMPTY, 	DOOR_B, 	EMPTY,	EMPTY, 	EMPTY, 	IN_DOOR_B, 	EMPTY, 	TO_B,  BATH_L,	BATH_R, 	WALL_RIGHT },
+					{ WALL_LEFT, 	CEIL, 	CEIL, 		CEIL, 		CEIL, 	CEIL, 		CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	WALL_MC, 	CEIL, 	 CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL,  CEIL,	CEIL, 	WALL_RIGHT },
+					{ WALL_LEFT, 	EMPTY, 	EMPTY, 		EMPTY, 		EMPTY, 	EMPTY, 		EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	WALL_MD, 	EMPTY, 	 EMPTY,	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY,  EMPTY,	EMPTY, 	WALL_RIGHT },
+					{ WALL_LEFT, 	EMPTY, 	EMPTY, 		CR_TL,		CR_TML,	CR_TMR,		CR_TR, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	WALL_MD, 	DOOR_T,	 EMPTY,	EMPTY, 	MW_OV, 	EMPTY, 	CKR_T, 	EMPTY,  FRI_T,	EMPTY, 	WALL_RIGHT },
+					{ WALL_LEFT, 	EMPTY, 	EMPTY, 		CR_BL,		CR_BML,	CR_BMR,		CR_BR, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	EMPTY, 	WALL_MD, 	DOOR_B,	 EMPTY,	BUCKT, 	MIN_T, 	EMPTY, 	CKR_B, 	EMPTY,  FRI_B,	EMPTY, 	WALL_RIGHT },
+					{ WALL_CLB, 	CEIL, 	CEIL, 		CEIL, 		CEIL, 	CEIL, 		CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 		CEIL, 	 CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL, 	CEIL,  CEIL,	CEIL, 	WALL_CRB },
 			};
 
 			// Магнітофон - mute sound. анімований. з нотками (коли грає).
@@ -55,20 +68,28 @@ public class GameScreen implements Screen, InputProcessor {
 					tileMap[x][y] = new Tile();
 					tileMap[x][y].type = tileTypeMap[height - y - 1][x];
 
-					if (tileMap[x][y].type == EMPTY && (y == 1|| y == 4)) {
+					if (tileMap[x][y].type == EMPTY && (y == 1|| y == 5 || y == 9)) {
 						tileMap[x][y].setContent(new Container(x, y, "", 5, 1, 1, true));
 					}
 				}
 			}
 
 			{
-				Door door1 = new Door(2, 1, "door1");
-				Door door2 = new Door(2, 4, "door2");
+				Door door1 = new Door(14, 1, "door1");
+				Door door2 = new Door(13, 5, "door2");
 				door1.setPairedDoor(door2);
 				door2.setPairedDoor(door1);
 
-				tileMap[2][1].setContent(door1);
-				tileMap[2][4].setContent(door2);
+				tileMap[14][1].setContent(door1);
+				tileMap[13][5].setContent(door2);
+				
+				door1 = new Door(10, 9, "door1");
+				door2 = new Door(7, 5, "door2");
+				door1.setPairedDoor(door2);
+				door2.setPairedDoor(door1);
+
+				tileMap[10][9].setContent(door1);
+				tileMap[7][5].setContent(door2);
 			}
 
 			{
@@ -91,7 +112,7 @@ public class GameScreen implements Screen, InputProcessor {
 			TexturedWalls walls = new TexturedWalls(1);
 
 			{
-				walls.walls[0] = new TexturedWalls.Wall(TexturedWalls.WallTexture.ROSES, 1, 1, 10, 9);
+				walls.walls[0] = new TexturedWalls.Wall(TexturedWalls.WallTexture.ROSES, 1, 1, 13, 9);
 			}
 
 			model.setPlayerSpawn(7, 1);
