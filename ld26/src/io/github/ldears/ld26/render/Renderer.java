@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Vector3;
 import io.github.ldears.ld26.map.*;
 import io.github.ldears.ld26.models.Action;
 import io.github.ldears.ld26.models.GameModel;
@@ -40,6 +41,7 @@ public class Renderer {
 	private ResLoader resLoader;
 
 	private TexturedWalls walls;
+	private CloudSystem cloudSystem;
 
 	public Renderer(GameModel model, TexturedWalls walls) {
 		this.model = model;
@@ -54,7 +56,11 @@ public class Renderer {
 
 		resLoader = new ResLoader();
 
-		Gdx.gl.glClearColor(0, 0.5f, 0, 1);
+		cloudSystem = new CloudSystem(resLoader,
+				max(model.getTileMapWidth() * TILE_SIZE, SCREEN_WIDTH),
+				max(model.getTileMapHeight() * TILE_SIZE, SCREEN_HEIGHT));
+
+		Gdx.gl.glClearColor(0.15f, 0.57f, 0.86f, 1);
 
 		updateText(null);
 	}
@@ -68,8 +74,9 @@ public class Renderer {
 
 		Point ppos = model.getPlayerPosition();
 
-		camera.position.set(ppos.x, ppos.y, 0);
-		camera.update();
+		updateCamera(ppos);
+
+		cloudSystem.update(dt);
 
 		// Draw background
 //		tmpBatch.begin();
@@ -78,6 +85,14 @@ public class Renderer {
 
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
+
+		cloudSystem.render(batch);
+
+		batch.disableBlending();
+
+		for (int i = 0; i < max(SCREEN_WIDTH / TILE_SIZE, model.getTileMapWidth()); i++) {
+			batch.draw(resLoader.groundTexture, i * TILE_SIZE, 0);
+		}
 
 		for (TexturedWalls.Wall wall : walls.walls) {
 			if (wall != null) {
@@ -99,6 +114,8 @@ public class Renderer {
 				}
 			}
 		}
+
+		batch.enableBlending();
 
 		// Draw map
 		Tile[][] tileMap = model.getTileMap();
@@ -140,6 +157,23 @@ public class Renderer {
 		batch.end();
 
 		drawHud();
+	}
+
+	private Vector3 lerpVector = new Vector3();
+
+	private void updateCamera(Point ppos) {
+		int camX = max(ppos.x, SCREEN_WIDTH / 2);
+		int camY = max(ppos.y, SCREEN_HEIGHT / 2);
+
+		lerpVector.set(camX, camY, 0);
+
+		camera.position.lerp(lerpVector, 0.08f);
+//		camera.position.set(camX, camY, 0);
+		camera.update();
+	}
+
+	private int max(int a, int b) {
+		return (a >= b) ? a : b;
 	}
 
 	private static int BOX_X = 15;

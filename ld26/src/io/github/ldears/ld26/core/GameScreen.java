@@ -6,9 +6,12 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import io.github.ldears.ld26.events.InputEventHandler;
 import io.github.ldears.ld26.map.*;
+import io.github.ldears.ld26.models.Action;
 import io.github.ldears.ld26.models.GameModel;
 import io.github.ldears.ld26.render.Renderer;
 import io.github.ldears.ld26.render.TexturedWalls;
+import io.github.ldears.ld26.sound.SoundManager;
+import io.github.ldears.ld26.sound.Sounds;
 
 import static io.github.ldears.ld26.map.TileType.*;
 
@@ -84,6 +87,8 @@ public class GameScreen implements Screen, InputProcessor {
 			model.setPlayerSpawn(1, 1);
 			model.init(tileMap);
 			renderer = new Renderer(model, walls);
+
+			SoundManager.instance.setMuted(false);
 		}
 
 	}
@@ -132,10 +137,31 @@ public class GameScreen implements Screen, InputProcessor {
 				model.handleEvent(InputEventHandler.InputEvent.RIGHT_DOWN);
 				break;
 			case Input.Keys.X:
+				Action a = model.getAvailableAction();
+				if (a != null) {
+					switch (a) {
+						case DROP_ITEM:
+							SoundManager.instance.play(Sounds.DROP);
+							break;
+						case GET_ITEM:
+							SoundManager.instance.play(Sounds.GET);
+							break;
+						case USE_DOOR:
+							SoundManager.instance.play(Sounds.DOOR);
+							break;
+					}
+				}
+
 				model.handleEvent(InputEventHandler.InputEvent.X);
 				break;
 			case Input.Keys.Z:
 				model.handleEvent(InputEventHandler.InputEvent.Z);
+				break;
+			case Input.Keys.LEFT_BRACKET:
+				SoundManager.instance.decMusicVolume();
+				break;
+			case Input.Keys.RIGHT_BRACKET:
+				SoundManager.instance.incMusicVolume();
 				break;
 		}
 
