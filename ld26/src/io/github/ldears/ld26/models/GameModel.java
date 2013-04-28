@@ -165,8 +165,14 @@ public class GameModel implements InputEventHandler {
 			exec(action);
 			break;
 		case Z:
-			ind += 1;
-			ind %= getContainerContents().size();
+			GameObject go = getCurrentObject();
+			if (go.getClass() == Container.class) {
+				Container c = (Container) go;
+				if (!c.isEmpty()) {
+						ind += 1;
+						ind %= getContainerContents().size();
+					}
+				}
 			break;
 		}
 
