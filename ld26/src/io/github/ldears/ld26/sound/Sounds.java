@@ -7,7 +7,9 @@ public enum Sounds {
 
 	GET("get.mp3"),
 	DROP("drop.mp3"),
-	DOOR("door.mp3");
+	DOOR("door.mp3"),
+	NO("no.mp3"),
+	DIAL("dial.mp3"),;
 
 	public final String file;
 

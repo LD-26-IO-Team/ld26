@@ -273,11 +273,6 @@ public class GameScreen implements Screen, InputProcessor {
 							SoundManager.instance.play(Sounds.DOOR);
 							break;
 						case CALL_PHONE:
-							if (model.isWinConditionsOk()) {
-								SoundManager.instance.play(Sounds.GET);
-							} else {
-								SoundManager.instance.play(Sounds.DOOR);
-							}
 							break;
 					}
 				}
@@ -312,6 +307,16 @@ public class GameScreen implements Screen, InputProcessor {
 				break;
 			case Input.Keys.RIGHT:
 				model.handleEvent(InputEventHandler.InputEvent.RIGHT_UP);
+				break;
+			case Input.Keys.X:
+				Action a = model.getAvailableAction();
+				if (a != null && a == Action.CALL_PHONE) {
+					if (model.isWinConditionsOk()) {
+						SoundManager.instance.play(Sounds.DIAL);
+					} else {
+						SoundManager.instance.play(Sounds.NO);
+					}
+				}
 				break;
 		}
 
