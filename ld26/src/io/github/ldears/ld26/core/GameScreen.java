@@ -7,6 +7,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.utils.Array;
 import io.github.ldears.ld26.events.InputEventHandler;
 import io.github.ldears.ld26.map.*;
+import io.github.ldears.ld26.map.Container;
 import io.github.ldears.ld26.models.Action;
 import io.github.ldears.ld26.models.GameModel;
 import io.github.ldears.ld26.render.Renderer;
@@ -14,8 +15,9 @@ import io.github.ldears.ld26.render.TexturedWalls;
 import io.github.ldears.ld26.sound.SoundManager;
 import io.github.ldears.ld26.sound.Sounds;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.awt.*;
+import java.util.*;
+import java.util.List;
 
 import static io.github.ldears.ld26.map.TileType.*;
 
@@ -81,7 +83,7 @@ public class GameScreen implements Screen, InputProcessor {
 			int[][] notVisibleContainers = {
 					{ 7, 9 }, { 8, 9 },
 					{ 4, 5 }, {15, 5}, { 20, 5 }, { 21, 5 },
-					{16, 1}, {20, 1}
+					{15, 1}, {16, 1}, {20, 1}
 			};
 
 			Tile[][] tileMap = new Tile[width][height];
@@ -140,6 +142,10 @@ public class GameScreen implements Screen, InputProcessor {
 			}
 
 			{
+				tileMap[15][5].setContent(new Phone(15, 5, "phone", ObjectType.PHONE));
+			}
+
+			{
 				createItemAt(tileMap, ItemType.BOTTLE, 15, 1);
 				createItemAt(tileMap, ItemType.APPLE, 15, 1);
 				createItemAt(tileMap, ItemType.VANTUZ, 15, 1);
@@ -154,6 +160,44 @@ public class GameScreen implements Screen, InputProcessor {
 
 			{
 				walls.walls[0] = new TexturedWalls.Wall(TexturedWalls.WallTexture.ROSES, 1, 1, 21, 13);
+			}
+
+			{
+				Map<ItemType, List<Point>> map = new HashMap<ItemType, List<Point>>();
+
+				List<Point> bottleWin = new ArrayList<Point>();
+				bottleWin.add(new Point(20, 1));
+				map.put(ItemType.BOTTLE, bottleWin);
+
+				List<Point> w2 = new ArrayList<Point>();
+				w2.add(new Point(15, 1));
+				map.put(ItemType.APPLE, w2);
+
+				List<Point> w3 = new ArrayList<Point>();
+				w3.add(new Point(16, 1));
+				map.put(ItemType.KNIFE, w3);
+
+				List<Point> w4 = new ArrayList<Point>();
+				w4.add(new Point(18, 5));
+				map.put(ItemType.VANTUZ, w4);
+
+				List<Point> w5 = new ArrayList<Point>();
+				w5.add(new Point(4, 5));
+				map.put(ItemType.RASTA, w5);
+
+				List<Point> w6 = new ArrayList<Point>();
+				w6.add(new Point(6, 9));
+				w6.add(new Point(7, 9));
+				w6.add(new Point(8, 9));
+				map.put(ItemType.BOOK, w6);
+
+				List<Point> w7 = new ArrayList<Point>();
+				w7.add(new Point(1, 5));
+				w7.add(new Point(2, 5));
+				w7.add(new Point(3, 5));
+				map.put(ItemType.GUITAR, w7);
+
+				model.setWinConditions(map);
 			}
 
 			model.setPlayerSpawn(7, 5);
@@ -227,6 +271,13 @@ public class GameScreen implements Screen, InputProcessor {
 							break;
 						case USE_DOOR:
 							SoundManager.instance.play(Sounds.DOOR);
+							break;
+						case CALL_PHONE:
+							if (model.isWinConditionsOk()) {
+								SoundManager.instance.play(Sounds.GET);
+							} else {
+								SoundManager.instance.play(Sounds.DOOR);
+							}
 							break;
 					}
 				}

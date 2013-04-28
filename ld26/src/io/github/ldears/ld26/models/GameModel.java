@@ -1,17 +1,11 @@
 package io.github.ldears.ld26.models;
 
 import io.github.ldears.ld26.events.InputEventHandler;
-import io.github.ldears.ld26.map.Container;
-import io.github.ldears.ld26.map.Door;
-import io.github.ldears.ld26.map.GameObject;
-import io.github.ldears.ld26.map.Item;
-import io.github.ldears.ld26.map.Tile;
-import io.github.ldears.ld26.map.TileType;
+import io.github.ldears.ld26.map.*;
 import io.github.ldears.ld26.render.Renderer;
 
 import java.awt.Point;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author dector
@@ -200,11 +194,62 @@ public class GameModel implements InputEventHandler {
 			Container c1 = (Container) getCurrentObject();
 			player.inventory.add(c1.remove(c1.get(ind)));
 			break;
+		case CALL_PHONE:
+			// Check win condition
+			Map<ItemType, Point> itemsMap = new HashMap<ItemType, Point>();
+
+			for (int i = 0; i < data.length; i++) {
+				for (int j = 0; j < data[0].length; j++) {
+					GameObject go = data[i][j].getContent();
+
+					if (go != null && go.type == ObjectType.CONTAINER) {
+						for (Item item : ((Container) go).getContents()) {
+							itemsMap.put(item.itemType, new Point(i, j));
+						}
+					}
+				}
+			}
+
+			Iterator<ItemType> iter = winCond.keySet().iterator();
+			boolean failed = false;
+			winConditionsOk = true;
+
+			while (! failed && iter.hasNext()) {
+				ItemType type = iter.next();
+
+				Point pos = itemsMap.get(type);
+
+				boolean found = false;
+				for (Point sp : winCond.get(type)) {
+					found |= (sp.x == pos.x && sp.y == pos.y);
+				}
+
+				if (! found) failed = true;
+
+				/*if (failed) {
+					System.out.println(type.name() + " failed");
+					System.out.println("At pos: " + pos);
+				}*/
+			}
+
+			if (failed) winConditionsOk = false;
+			break;
 		case NONE:
 			break;
 		}
 	}
-	
+
+	private Map<ItemType, List<Point>> winCond;
+	private boolean winConditionsOk;
+
+	public void setWinConditions(Map<ItemType, List<Point>> map) {
+		winCond = map;
+	}
+
+	public boolean isWinConditionsOk() {
+		return winConditionsOk;
+	}
+
 	public List<Item> getContainerContents() {
 		GameObject current = getCurrentObject();
 		if ((current == null) || !(current.getClass() == Container.class)) return new LinkedList<Item>();

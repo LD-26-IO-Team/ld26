@@ -81,7 +81,7 @@ public enum TileType {
 	GC_T("guitar_case_t"),
 	GC_B("guitar_case_b"),
 
-	PHONE("phone")
+	PHONE("phone"),
 	;
 
 	public static final int PLAYER_WIDTH 		= 2*16;

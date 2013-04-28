@@ -26,6 +26,7 @@ public class SoundManager {
 		musicVolume = 50;
 
 		music = Gdx.audio.newMusic(Gdx.files.internal(SOUND_DIR + MUSIC_FILE));
+		music.setLooping(true);
 		setMusicVolume(musicVolume);
 
 		sounds = new ArrayMap<String, Sound>();

@@ -7,6 +7,7 @@ public enum ObjectType {
 	DOOR("door", ""),
 	WINDOW("", ""),
 	ITEM("", ""),
+	PHONE("phone", ""),
 	CONTAINER("", "");
 
 	public final String name;

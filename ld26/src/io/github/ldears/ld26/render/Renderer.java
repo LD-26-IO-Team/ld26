@@ -207,6 +207,7 @@ public class Renderer {
 	private static String TEXT_GET_ITEM = "Press [x] to get item";
 	private static String TEXT_ITERATE_ITEM = "Press [z] to iterate items";
 	private static String TEXT_DROP_ITEM = "Press [x] to drop item";
+	private static String CALL_PHONE_ITEM = "Press [x] to call to Lisa";
 
 	private String text;
 	private Action prevAction;
@@ -318,6 +319,9 @@ public class Renderer {
 				break;
 			case DROP_ITEM:
 				updateText(TEXT_DROP_ITEM);
+				break;
+			case CALL_PHONE:
+				updateText(CALL_PHONE_ITEM);
 				break;
 			default:
 				updateText(null);
