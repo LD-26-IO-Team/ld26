@@ -32,7 +32,7 @@ public class Container extends GameObject {
 		this.transparent = transparent;
 	}
 
-	public Iterable<Item> getContents() {
+	public List<Item> getContents() {
 		return items;
 	}
 
