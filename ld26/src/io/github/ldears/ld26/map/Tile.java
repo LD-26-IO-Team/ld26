@@ -6,6 +6,7 @@ package io.github.ldears.ld26.map;
 public class Tile {
 	public TileType type;
 	GameObject content;
+	boolean containered = false;
 	
 	public GameObject getContent() {
 		return content;
@@ -13,5 +14,13 @@ public class Tile {
 
 	public void setContent(GameObject content) {
 		this.content = content;
+	}
+	
+	public void addContainer(){
+		containered = true;
+	}
+	
+	public boolean hasContainer() {
+		return containered;
 	}
 }
