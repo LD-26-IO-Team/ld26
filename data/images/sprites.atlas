@@ -304,58 +304,72 @@ item_selector_selected
   orig: 16, 16
   offset: 0, 0
   index: -1
-vantuz
+light
   rotate: false
   xy: 415, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-wall_corner_left_bottom
+trash
   rotate: false
   xy: 109, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-wall_corner_right_bottom
+vantuz
   rotate: false
   xy: 433, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-wall_left
+wall_corner_left_bottom
   rotate: false
   xy: 127, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-wall_middle
+wall_corner_right_bottom
   rotate: false
   xy: 451, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-wall_middle_ceil
+wall_left
   rotate: false
   xy: 145, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-wall_right
+wall_middle
   rotate: false
   xy: 469, 35
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-wall_x
+wall_middle_ceil
   rotate: false
   xy: 163, 1
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+wall_right
+  rotate: false
+  xy: 487, 35
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+wall_x
+  rotate: false
+  xy: 181, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0

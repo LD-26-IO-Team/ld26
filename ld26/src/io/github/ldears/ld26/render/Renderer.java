@@ -138,13 +138,18 @@ public class Renderer {
 
 				if (tile.getContent() != null && tile.getContent().type == ObjectType.CONTAINER) {
 					Container container = (Container) tile.getContent();
+					List<Item> contents = container.getContents();
 
-					for (Item item : container.getContents()) {
-						TextureAtlas.AtlasRegion[] spriteHolder = (container.isTransparent())
-								? resLoader.items
-								: resLoader.itemsPacked;
+					if (contents.size() > 1) {
+						batch.draw(resLoader.trash, absX + ITEM_PADDING, absY, ITEM_SIZE, ITEM_SIZE);
+					} else {
+						for (Item item : contents) {
+							TextureAtlas.AtlasRegion[] spriteHolder = (container.isTransparent())
+									? resLoader.items
+									: resLoader.itemsPacked;
 
-						batch.draw(spriteHolder[item.itemType.ordinal()], absX + ITEM_PADDING, absY, ITEM_SIZE, ITEM_SIZE);
+							batch.draw(spriteHolder[item.itemType.ordinal()], absX + ITEM_PADDING, absY, ITEM_SIZE, ITEM_SIZE);
+						}
 					}
 				}
 			}
@@ -206,12 +211,6 @@ public class Renderer {
 		int boxWidth = (int) (bounds.width + 2 * BOX_PADDING);
 		int boxHeight = (int) (bounds.height + 2 * BOX_PADDING);
 
-		if (itemType != null) {
-			if (text.isEmpty()) boxWidth += INV_ICON_WIDTH;
-
-			boxHeight += INV_ICON_HEIGHT + BOX_PADDING;
-		}
-
 		hudBatch.begin();
 
 		hudBatch.setColor(1, 1, 1, 0.5f);
@@ -223,7 +222,13 @@ public class Renderer {
 		}
 
 		if (itemType != null) {
-			hudBatch.draw(resLoader.items[itemType.ordinal()], BOX_X + BOX_PADDING, BOX_Y - boxHeight + BOX_PADDING, INV_ICON_WIDTH, INV_ICON_HEIGHT);
+			int itemX = BOX_X + BOX_PADDING;
+			int itemY = BOX_Y - boxHeight - BOX_PADDING - INV_ICON_HEIGHT;
+
+			hudBatch.setColor(1, 1, 1, 0.5f);
+			hudBatch.draw(resLoader.lightBox, itemX - BOX_PADDING, itemY - 2 * BOX_PADDING, INV_ICON_WIDTH + 2 * BOX_PADDING, INV_ICON_HEIGHT + 2 * BOX_PADDING);
+			hudBatch.setColor(1, 1, 1, 1);
+			hudBatch.draw(resLoader.items[itemType.ordinal()], itemX, itemY - BOX_PADDING, INV_ICON_WIDTH, INV_ICON_HEIGHT);
 		}
 
 		drawItemsSelect();
@@ -266,7 +271,7 @@ public class Renderer {
 		} else {
 			sb.append(SoundManager.instance.getMusicVolume()).append("%\n")
 					.append("Press [m] to mute\n")
-					.append("Press ]/[ to +/- music volume");
+					.append("Press ] or [ to change music volume");
 		}
 
 		if (text != null) {
