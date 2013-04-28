@@ -10,6 +10,13 @@ public class GameImpl extends Game {
 
 	@Override
 	public void create() {
+		StartScreen screen = new StartScreen(this);
+
+		Gdx.input.setInputProcessor(screen);
+		setScreen(screen);
+	}
+
+	public void startGame() {
 		GameScreen screen = new GameScreen();
 
 		Gdx.input.setInputProcessor(screen);

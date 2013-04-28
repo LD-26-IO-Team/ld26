@@ -174,7 +174,7 @@ public class Renderer {
 		batch.draw(player.getKeyFrame(time, true), ppos.x, ppos.y, TILE_SIZE, TILE_SIZE * 2);
 
 		// debug
-		resLoader.font.draw(batch, (int) (ppos.x / TILE_SIZE) + ":" + (int) (ppos.y / TILE_SIZE), ppos.x, ppos.y - 5);
+//		resLoader.font.draw(batch, (int) (ppos.x / TILE_SIZE) + ":" + (int) (ppos.y / TILE_SIZE), ppos.x, ppos.y - 5);
 
 		batch.end();
 
@@ -315,7 +315,11 @@ public class Renderer {
 				updateText(TEXT_DOOR);
 				break;
 			case GET_ITEM:
-				updateText(TEXT_GET_ITEM, TEXT_ITERATE_ITEM);
+				if (model.getContainerContents().size() > 1) {
+					updateText(TEXT_GET_ITEM, TEXT_ITERATE_ITEM);
+				} else {
+					updateText(TEXT_GET_ITEM);
+				}
 				break;
 			case DROP_ITEM:
 				updateText(TEXT_DROP_ITEM);
