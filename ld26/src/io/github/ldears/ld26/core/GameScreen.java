@@ -76,6 +76,11 @@ public class GameScreen implements Screen, InputProcessor {
 				bottle.itemType = ItemType.BOTTLE;
 
 				((Container) (tileMap[8][1].getContent())).add(bottle);
+
+				Item bottle2 = new Item(8, 1, "bottle2");
+				bottle2.itemType = ItemType.BOTTLE;
+
+				((Container) (tileMap[8][1].getContent())).add(bottle2);
 			}
 
 			TexturedWalls walls = new TexturedWalls(1);
@@ -84,7 +89,7 @@ public class GameScreen implements Screen, InputProcessor {
 				walls.walls[0] = new TexturedWalls.Wall(TexturedWalls.WallTexture.ROSES, 1, 1, 10, 9);
 			}
 
-			model.setPlayerSpawn(1, 1);
+			model.setPlayerSpawn(7, 1);
 			model.init(tileMap);
 			renderer = new Renderer(model, walls);
 

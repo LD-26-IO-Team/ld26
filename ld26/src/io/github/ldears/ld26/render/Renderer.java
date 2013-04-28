@@ -14,6 +14,7 @@ import io.github.ldears.ld26.models.PlayerDirection;
 import io.github.ldears.ld26.sound.SoundManager;
 
 import java.awt.Point;
+import java.util.List;
 
 /**
  * @author dector
@@ -224,7 +225,32 @@ public class Renderer {
 			hudBatch.draw(resLoader.items[itemType.ordinal()], BOX_X + BOX_PADDING, BOX_Y - boxHeight + BOX_PADDING, INV_ICON_WIDTH, INV_ICON_HEIGHT);
 		}
 
+		drawItemsSelect();
+
 		hudBatch.end();
+	}
+
+	private void drawItemsSelect() {
+		List<Item> items = model.getContainerContents();
+
+		Point ppos = model.getPlayerPosition();
+
+		int boxWidth = items.size() * TILE_SIZE;
+		int boxX = Math.max(ppos.x + TILE_SIZE / 2 - boxWidth / 2, 0);
+		int boxY = ppos.y + 2*TILE_SIZE + 5;
+
+		int selectedItemIndex = model.getSelectedIndex();
+
+		for (int i = 0; i < items.size(); i++) {
+			TextureRegion reg = (i == selectedItemIndex)
+					? resLoader.itemSelector[0]
+					: resLoader.itemSelector[1];
+			hudBatch.draw(reg, boxX + i * TILE_SIZE, boxY, TILE_SIZE, TILE_SIZE);
+			hudBatch.draw(resLoader.items[items.get(i).itemType.ordinal()],
+					boxX + i * TILE_SIZE + ITEM_PADDING,
+					boxY + ITEM_PADDING,
+					ITEM_SIZE, ITEM_SIZE);
+		}
 	}
 
 	private void updateText(String text) {
@@ -233,10 +259,11 @@ public class Renderer {
 		sb.append("Music volume: ");
 		if (SoundManager.instance.isMuted()) {
 			sb.append("[Muted]\n")
-					.append("Press [M] to unmute");
+					.append("Press [m] to unmute");
 		} else {
 			sb.append(SoundManager.instance.getMusicVolume()).append("%\n")
-					.append("Press [M] to mute");
+					.append("Press [m] to mute\n")
+					.append("Press ]/[ to +/- music volume");
 		}
 
 		if (text != null) { sb.append("\n\n").append(text).append("\n"); }
