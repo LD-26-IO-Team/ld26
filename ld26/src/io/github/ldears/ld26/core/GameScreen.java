@@ -137,8 +137,6 @@ public class GameScreen implements Screen, InputProcessor {
 				model.handleEvent(InputEventHandler.InputEvent.RIGHT_DOWN);
 				break;
 			case Input.Keys.X:
-				model.handleEvent(InputEventHandler.InputEvent.X);
-
 				Action a = model.getAvailableAction();
 				if (a != null) {
 					switch (a) {
@@ -148,8 +146,13 @@ public class GameScreen implements Screen, InputProcessor {
 						case GET_ITEM:
 							SoundManager.instance.play(Sounds.GET);
 							break;
+						case USE_DOOR:
+							SoundManager.instance.play(Sounds.DOOR);
+							break;
 					}
 				}
+
+				model.handleEvent(InputEventHandler.InputEvent.X);
 				break;
 			case Input.Keys.Z:
 				model.handleEvent(InputEventHandler.InputEvent.Z);
