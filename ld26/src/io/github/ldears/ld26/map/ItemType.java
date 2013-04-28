@@ -6,6 +6,7 @@ package io.github.ldears.ld26.map;
 public enum ItemType {
 
 	BOTTLE("bottle_full", "bottle_packed"),
+	VANTUZ("vantuz", "vantuz"),
 	APPLE("apple", "apple");
 
 	public final String fullSprite;

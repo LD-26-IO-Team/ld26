@@ -35,6 +35,8 @@ public class ResLoader {
 	public final Animation[] player;
 
 	public final TextureRegion darkBox;
+	public final TextureRegion lightBox;
+	public final TextureRegion trash;
 	public final TextureRegion itemSelector[];
 
 //	public final TextureAtlas.AtlasRegion[] objects;
@@ -59,6 +61,8 @@ public class ResLoader {
 		initPlayer(atlas);
 
 		darkBox = atlas.findRegion("dark");
+		lightBox = atlas.findRegion("light");
+		trash = atlas.findRegion("trash");
 		itemSelector = new TextureRegion[2];
 		itemSelector[0] = atlas.findRegion("item_selector");
 		itemSelector[1] = atlas.findRegion("item_selector_selected");

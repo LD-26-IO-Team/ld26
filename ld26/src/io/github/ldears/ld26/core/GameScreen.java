@@ -81,6 +81,11 @@ public class GameScreen implements Screen, InputProcessor {
 				apple.itemType = ItemType.APPLE;
 
 				((Container) (tileMap[8][1].getContent())).add(apple);
+
+				Item vantuz = new Item(8, 1, "vantuz");
+				vantuz.itemType = ItemType.VANTUZ;
+
+				((Container) (tileMap[8][1].getContent())).add(vantuz);
 			}
 
 			TexturedWalls walls = new TexturedWalls(1);
