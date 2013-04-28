@@ -78,6 +78,12 @@ public class GameScreen implements Screen, InputProcessor {
 					{15, 2}
 			};
 
+			int[][] notVisibleContainers = {
+					{ 7, 9 }, { 8, 9 },
+					{ 4, 5 }, { 20, 5 }, { 21, 5 },
+					{16, 1}, {20, 1}
+			};
+
 			Tile[][] tileMap = new Tile[width][height];
 			for (int x = 0; x < width; x++) {
 				for (int y = 0; y < height; y++) {
@@ -94,14 +100,24 @@ public class GameScreen implements Screen, InputProcessor {
 				int x = containtersPosition[i][0];
 				int y = containtersPosition[i][1];
 
-				boolean found = false;
-				for (int j = 0; j < notTransperentContainers.length && !found; j++) {
+				boolean foundT = false;
+				for (int j = 0; j < notTransperentContainers.length && !foundT; j++) {
 					if (notTransperentContainers[j][0] == x && notTransperentContainers[j][1] == y) {
-						found = true;
+						foundT = true;
 					}
 				}
 
-				tileMap[x][y].setContent(new Container(x, y, "", 5, 1, 1, ! found));
+				boolean foundV = false;
+				for (int j = 0; j < notVisibleContainers.length && !foundV; j++) {
+					if (notVisibleContainers[j][0] == x && notVisibleContainers[j][1] == y) {
+						foundV = true;
+					}
+				}
+
+				Container c = new Container(x, y, "", 5, 1, 1, ! foundT);
+				c.setVisible(! foundV);
+
+				tileMap[x][y].setContent(c);
 				tileMap[x][y].addContainer();
 			}
 

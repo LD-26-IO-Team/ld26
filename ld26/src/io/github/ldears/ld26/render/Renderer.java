@@ -141,7 +141,7 @@ public class Renderer {
 				}
 
 
-				if (tile.getContent() != null && tile.getContent().type == ObjectType.CONTAINER) {
+				if (tile.getContent() != null && tile.getContent().type == ObjectType.CONTAINER && ((Container) tile.getContent()).isVisible()) {
 					Container container = (Container) tile.getContent();
 					List<Item> contents = container.getContents();
 
