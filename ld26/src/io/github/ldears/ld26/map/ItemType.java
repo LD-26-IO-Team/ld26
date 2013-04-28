@@ -7,6 +7,11 @@ public enum ItemType {
 
 	BOTTLE("bottle_full", "bottle_packed"),
 	VANTUZ("vantuz", "vantuz"),
+	CAT("cat_full", "cat_packed"),
+	KNIFE("knife_full", "knife_packed"),
+	BOOK("book", "book"),
+	GUITAR("guitar_full", "guitar_packed"),
+	RASTA("rasta", "rasta"),
 	APPLE("apple", "apple");
 
 	public final String fullSprite;

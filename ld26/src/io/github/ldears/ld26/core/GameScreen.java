@@ -14,6 +14,9 @@ import io.github.ldears.ld26.render.TexturedWalls;
 import io.github.ldears.ld26.sound.SoundManager;
 import io.github.ldears.ld26.sound.Sounds;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import static io.github.ldears.ld26.map.TileType.*;
 
 /**
@@ -64,17 +67,16 @@ public class GameScreen implements Screen, InputProcessor {
 			int height = tileTypeMap.length;
 
 			int[][] containtersPosition = {
-					{1, 9}, {2, 9}, {3, 9}, {4, 9}, {5, 10}, {6, 9}, {7, 9}, {8, 9}, {9, 9}, {11, 9}, {12, 9}, {13, 9}, {14, 9}, {15, 9}, {16, 9}, {17, 9}, {18, 9}, {19, 9}, {20, 9}, {21, 9},
-					{1, 5}, {2, 5}, {3, 5}, {4, 5}, {5, 5}, {6, 5}, {7, 5}, {9, 5}, {10, 5}, {11, 5}, {12, 5}, {14, 5}, {15, 5}, {16, 5}, {17, 5}, {18, 5}, {19, 6}, {20, 6}, {21, 6},
+					{1, 9}, {2, 9}, {3, 9}, {4, 9}, {5, 9}, {6, 9}, {7, 9}, {8, 9}, {9, 9}, {11, 9}, {12, 9}, {13, 9}, {14, 9}, {15, 9}, {16, 9}, {17, 9}, {18, 9}, {19, 9}, {20, 9}, {21, 9},
+					{1, 5}, {2, 5}, {3, 5}, {4, 5}, {5, 5}, {6, 5}, {7, 5}, {9, 5}, {10, 5}, {11, 5}, {12, 5}, {14, 5}, {15, 5}, {16, 5}, {17, 5}, {18, 5}, {19, 5}, {20, 5}, {21, 5},
 					{13, 1}, {14, 1}, {15, 1}, {16, 1}, {17, 1}, {18, 1}, {19, 1}, {20, 1}, {21, 1}
 			};
 
-			Array<int[]> notTransperentContainers = new Array();
-			notTransperentContainers.add(new int[] { 5, 10 });
-			notTransperentContainers.add(new int[] { 19, 6 });
-			notTransperentContainers.add(new int[] { 20, 6 });
-			notTransperentContainers.add(new int[] { 21, 6 });
-			notTransperentContainers.add(new int[] { 15, 2 });
+			int[][] notTransperentContainers = {
+					{ 5, 9 },
+					{ 19, 5 }, { 20, 5 }, { 21, 5 },
+					{15, 2}
+			};
 
 			Tile[][] tileMap = new Tile[width][height];
 			for (int x = 0; x < width; x++) {
@@ -92,8 +94,15 @@ public class GameScreen implements Screen, InputProcessor {
 				int x = containtersPosition[i][0];
 				int y = containtersPosition[i][1];
 
-				tileMap[x][y].setContent(new Container(x, y, "", 5, 1, 1,
-						! (notTransperentContainers.contains(containtersPosition[i], true))));
+				boolean found = false;
+				for (int j = 0; j < notTransperentContainers.length && !found; j++) {
+					if (notTransperentContainers[j][0] == x && notTransperentContainers[j][1] == y) {
+						found = true;
+					}
+				}
+
+				tileMap[x][y].setContent(new Container(x, y, "", 5, 1, 1, ! found));
+				tileMap[x][y].addContainer();
 			}
 
 			{
@@ -115,20 +124,14 @@ public class GameScreen implements Screen, InputProcessor {
 			}
 
 			{
-				Item bottle = new Item(8, 1, "bottle");
-				bottle.itemType = ItemType.BOTTLE;
-
-				((Container) (tileMap[15][1].getContent())).add(bottle);
-
-				Item apple = new Item(8, 1, "apple");
-				apple.itemType = ItemType.APPLE;
-
-				((Container) (tileMap[15][1].getContent())).add(apple);
-
-				Item vantuz = new Item(8, 1, "vantuz");
-				vantuz.itemType = ItemType.VANTUZ;
-
-				((Container) (tileMap[15][1].getContent())).add(vantuz);
+				createItemAt(tileMap, ItemType.BOTTLE, 15, 1);
+				createItemAt(tileMap, ItemType.APPLE, 15, 1);
+				createItemAt(tileMap, ItemType.VANTUZ, 15, 1);
+				createItemAt(tileMap, ItemType.KNIFE, 15, 1);
+				createItemAt(tileMap, ItemType.RASTA, 15, 1);
+				createItemAt(tileMap, ItemType.GUITAR, 17, 9);
+				createItemAt(tileMap, ItemType.BOOK, 10, 5);
+				createItemAt(tileMap, ItemType.CAT, 9, 9);
 			}
 
 			TexturedWalls walls = new TexturedWalls(1);
@@ -144,6 +147,13 @@ public class GameScreen implements Screen, InputProcessor {
 			SoundManager.instance.setMuted(false);
 		}
 
+	}
+
+	private void createItemAt(Tile[][] tilemap, ItemType type, int x, int y) {
+		Item item = new Item(x, y, type.name());
+		item.itemType = type;
+
+		((Container) (tilemap[x][y].getContent())).add(item);
 	}
 
 	@Override

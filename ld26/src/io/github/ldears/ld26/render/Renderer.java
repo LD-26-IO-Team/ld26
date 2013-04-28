@@ -145,15 +145,22 @@ public class Renderer {
 					Container container = (Container) tile.getContent();
 					List<Item> contents = container.getContents();
 
-					if (contents.size() > 1) {
-						batch.draw(resLoader.trash, absX + ITEM_PADDING, absY, ITEM_SIZE, ITEM_SIZE);
-					} else {
-						for (Item item : contents) {
-							TextureAtlas.AtlasRegion[] spriteHolder = (container.isTransparent())
-									? resLoader.items
-									: resLoader.itemsPacked;
+					boolean trash = contents.size() > 1;
 
-							batch.draw(spriteHolder[item.itemType.ordinal()], absX + ITEM_PADDING, absY, ITEM_SIZE, ITEM_SIZE);
+					for (Item item : contents) {
+						TextureAtlas.AtlasRegion[] spriteHolder = (container.isTransparent())
+								? resLoader.items
+								: resLoader.itemsPacked;
+
+						if (item.itemType == ItemType.CAT || item.itemType == ItemType.RASTA || item.itemType == ItemType.GUITAR) {
+							batch.draw(spriteHolder[item.itemType.ordinal()], absX, absY, TILE_SIZE,
+									(item.itemType != ItemType.CAT) ? 2*TILE_SIZE : TILE_SIZE);
+						} else {
+							if (trash) {
+								batch.draw(resLoader.trash, absX, absY, TILE_SIZE, TILE_SIZE);
+							} else {
+								batch.draw(spriteHolder[item.itemType.ordinal()], absX, absY, TILE_SIZE, TILE_SIZE);
+							}
 						}
 					}
 				}

@@ -17,7 +17,7 @@ __comp_full
   orig: 32, 32
   offset: 0, 0
   index: -1
-guitar
+guitar_full
   rotate: false
   xy: 35, 221
   size: 16, 32
