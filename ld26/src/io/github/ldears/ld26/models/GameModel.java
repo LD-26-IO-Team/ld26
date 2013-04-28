@@ -52,7 +52,7 @@ public class GameModel implements InputEventHandler {
 
 	public void update(float dt) {
 		time += dt;
-		if ((direction & 3) != 0) player.velocity = Math.min(player.velocity + player.accel*dt, 8*TILE_SIZE);
+		if ((direction & 3) != 0) player.velocity = Math.min(player.velocity + player.accel*dt, 5*TILE_SIZE);
 		else player.velocity = Math.max((player.velocity - player.stopAccel*dt), 3*TILE_SIZE);
 		// System.out.println(getAvailableAction());
 		int tiledX = player.pos.x / TILE_SIZE;
