@@ -31,8 +31,8 @@ public class Renderer {
 	public static final int ITEM_SIZE 			= (int) (TILE_SIZE * 0.75f);
 	public static final int ITEM_PADDING		= (TILE_SIZE - ITEM_SIZE) / 2;
 
-	public static final int INV_ICON_WIDTH	= 16;
-	public static final int INV_ICON_HEIGHT	= 16;
+	public static final int INV_ICON_WIDTH	= TILE_SIZE;
+	public static final int INV_ICON_HEIGHT	= TILE_SIZE;
 
 	private GameModel model;
 
@@ -213,8 +213,13 @@ public class Renderer {
 	private static String TEXT_DROP_ITEM = "Press [x] to drop item";
 	private static String CALL_PHONE_ITEM = "Press [x] to call to Lisa";
 
+	private String text0;
 	private String text;
 	private Action prevAction;
+
+	private static final int BOX0_WIDTH = 277;
+	private static final int BOX0_HEIGHT = 43;
+	private static final int ACTION_BOX_Y = BOX_Y - BOX0_HEIGHT - (2 + 0) * BOX_PADDING - 17;
 
 	private void drawHud() {
 		Action newAction = model.getAvailableAction();
@@ -234,16 +239,22 @@ public class Renderer {
 		hudBatch.begin();
 
 		hudBatch.setColor(1, 1, 1, 0.5f);
-		hudBatch.draw(resLoader.darkBox, BOX_X, BOX_Y - boxHeight, boxWidth, boxHeight);
+		hudBatch.draw(resLoader.darkBox, BOX_X, BOX_Y - BOX0_HEIGHT, BOX0_WIDTH, BOX0_HEIGHT);
+
+		hudBatch.setColor(1, 1, 1, 1);
+		resLoader.font.drawMultiLine(hudBatch, text0, BOX_X + BOX_PADDING, BOX_Y - BOX_PADDING);
 
 		if (bounds.width != 0 ) {
+			hudBatch.setColor(1, 1, 1, 0.5f);
+			hudBatch.draw(resLoader.darkBox, BOX_X, ACTION_BOX_Y, BOX0_WIDTH, 17);
+
 			hudBatch.setColor(1, 1, 1, 1);
-			resLoader.font.drawMultiLine(hudBatch, text, BOX_X + BOX_PADDING, BOX_Y - BOX_PADDING);
+			resLoader.font.drawMultiLine(hudBatch, text, BOX_X + BOX_PADDING, ACTION_BOX_Y - BOX_PADDING + 17);
 		}
 
 		if (itemType != null) {
 			int itemX = BOX_X + BOX_PADDING;
-			int itemY = BOX_Y - boxHeight - BOX_PADDING - INV_ICON_HEIGHT;
+			int itemY = ACTION_BOX_Y - BOX_PADDING - INV_ICON_HEIGHT;
 
 			hudBatch.setColor(1, 1, 1, 0.5f);
 			hudBatch.draw(resLoader.lightBox, itemX - BOX_PADDING, itemY - 2 * BOX_PADDING, INV_ICON_WIDTH + 2 * BOX_PADDING, INV_ICON_HEIGHT + 2 * BOX_PADDING);
@@ -299,8 +310,12 @@ public class Renderer {
 					.append("Press [-]/[+] to change music volume");
 		}
 
+		this.text0 = sb.toString();
+
+		sb = new StringBuilder();
+
 		if (text != null) {
-			sb.append("\n\n");
+//			sb.append("\n\n");
 
 			for (String s : text) {
 				sb.append(s).append("\n");
