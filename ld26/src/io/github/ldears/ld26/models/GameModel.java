@@ -221,7 +221,7 @@ public class GameModel implements InputEventHandler {
 
 				boolean found = false;
 				for (Point sp : winCond.get(type)) {
-					found |= (sp.x == pos.x && sp.y == pos.y);
+					if (sp != null && pos != null) found |= (sp.x == pos.x && sp.y == pos.y);
 				}
 
 				if (! found) failed = true;
