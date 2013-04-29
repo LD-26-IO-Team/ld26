@@ -194,7 +194,7 @@ public class GameScreen implements Screen, InputProcessor {
 				List<Point> w7 = new ArrayList<Point>();
 				w7.add(new Point(1, 5));
 				w7.add(new Point(2, 5));
-				w7.add(new Point(3, 5));
+				w7.add(new Point(3, 6));
 				map.put(ItemType.GUITAR, w7);
 
 				model.setWinConditions(map);
