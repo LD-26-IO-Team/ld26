@@ -1,5 +1,5 @@
 
-backgrounds.png
+background.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
@@ -17,17 +17,17 @@ cloud
   orig: 128, 64
   offset: 0, 0
   index: 2
-roses_wall_texture
-  rotate: false
-  xy: 261, 36
-  size: 64, 64
-  orig: 64, 64
-  offset: 0, 0
-  index: -1
 ground
   rotate: false
   xy: 1, 1
   size: 64, 33
   orig: 64, 33
+  offset: 0, 0
+  index: -1
+roses_wall_texture
+  rotate: false
+  xy: 261, 68
+  size: 32, 32
+  orig: 32, 32
   offset: 0, 0
   index: -1
