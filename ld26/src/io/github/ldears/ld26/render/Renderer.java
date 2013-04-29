@@ -152,7 +152,8 @@ public class Renderer {
 								? resLoader.items
 								: resLoader.itemsPacked;
 
-						if (item.itemType == ItemType.CAT || item.itemType == ItemType.RASTA || item.itemType == ItemType.GUITAR) {
+						if (item.itemType == ItemType.CAT || item.itemType == ItemType.RASTA ||
+								(item.itemType == ItemType.GUITAR && tile.type != TileType.GC_T)) {
 							batch.draw(animation[item.itemType.ordinal()].getKeyFrame(time, true), absX, absY, TILE_SIZE,
 									(item.itemType != ItemType.CAT) ? 2*TILE_SIZE : TILE_SIZE);
 						} else {
