@@ -116,7 +116,7 @@ public class GameScreen implements Screen, InputProcessor {
 					}
 				}
 
-				Container c = new Container(x, y, "", 5, 1, 1, ! foundT);
+				Container c = new Container(x, y, "", 1, 1, 1, ! foundT);
 				c.setVisible(! foundV);
 
 				tileMap[x][y].setContent(c);
