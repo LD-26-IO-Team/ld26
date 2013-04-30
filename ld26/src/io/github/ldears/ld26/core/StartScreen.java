@@ -42,7 +42,7 @@ public class StartScreen implements Screen, InputProcessor {
 		frames[2] = new TextureRegion(tex, 320, 0, 320, 400);
 
 		frameTimes = new float[]{ 2, 2, 2 };
-		framePauseTimes = new float[]{ 1, 1, 1 };
+		framePauseTimes = new float[]{ 1, 1, 2 };
 
 		currentFrameTime = -framePauseTimes[0];
 	}
@@ -113,12 +113,10 @@ public class StartScreen implements Screen, InputProcessor {
 
 	@Override
 	public boolean keyDown(int i) {
-		if (i == Input.Keys.SPACE || i == Input.Keys.ESCAPE) {
-			if (currentFrame < frames.length) {
-				currentFrameTime = frameTimes[currentFrame];
-			} else {
-				game.startGame();
-			}
+		if (currentFrame < frames.length) {
+			currentFrameTime = frameTimes[currentFrame];
+		} else {
+			game.startGame();
 		}
 
 		return true;
