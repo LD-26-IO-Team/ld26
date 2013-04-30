@@ -86,6 +86,10 @@ public class GameScreen implements Screen, InputProcessor {
 					{15, 1}, {16, 1}, {20, 1}
 			};
 
+			/*int[][] oneItemContainer = {
+					{ 5, 9 }
+			};*/
+
 			Tile[][] tileMap = new Tile[width][height];
 			for (int x = 0; x < width; x++) {
 				for (int y = 0; y < height; y++) {
@@ -116,7 +120,14 @@ public class GameScreen implements Screen, InputProcessor {
 					}
 				}
 
-				Container c = new Container(x, y, "", 1, 1, 1, ! foundT);
+				/*boolean foundOI = false;
+				for (int j = 0; j < oneItemContainer.length && !foundOI; j++) {
+					if (oneItemContainer[j][0] == x && oneItemContainer[j][1] == y) {
+						foundOI = true;
+					}
+				}*/
+
+				Container c = new Container(x, y, "", /*(foundOI) ? 1 : */5, 1, 1, ! foundT);
 				c.setVisible(! foundV);
 
 				tileMap[x][y].setContent(c);
