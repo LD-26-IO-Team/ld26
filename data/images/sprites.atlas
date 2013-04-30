@@ -5,910 +5,910 @@ filter: Nearest,Nearest
 repeat: none
 __bookshelf
   rotate: false
-  xy: 1, 205
+  xy: 1, 5
   size: 32, 48
   orig: 32, 48
   offset: 0, 0
   index: -1
 __comp_full
   rotate: false
-  xy: 1, 171
+  xy: 35, 21
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
+__bath
+  rotate: false
+  xy: 35, 3
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: -1
 guitar_full
   rotate: false
-  xy: 35, 221
+  xy: 69, 21
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: -1
+__bed
+  rotate: false
+  xy: 69, 3
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: -1
 player
   rotate: false
-  xy: 1, 137
+  xy: 87, 21
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 0
 player
   rotate: false
-  xy: 1, 137
+  xy: 87, 21
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 1
 player
   rotate: false
-  xy: 1, 137
+  xy: 87, 21
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 2
 player
   rotate: false
-  xy: 1, 137
+  xy: 87, 21
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 3
 player
   rotate: false
-  xy: 1, 137
+  xy: 87, 21
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 4
 player
   rotate: false
-  xy: 1, 137
+  xy: 87, 21
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 5
 player
   rotate: false
-  xy: 1, 137
+  xy: 87, 21
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 6
 player
   rotate: false
-  xy: 1, 137
+  xy: 87, 21
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 7
 player
   rotate: false
-  xy: 1, 137
+  xy: 87, 21
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 8
 player
   rotate: false
-  xy: 1, 137
+  xy: 87, 21
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 9
+__sofa
+  rotate: false
+  xy: 103, 3
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: -1
 player
   rotate: false
-  xy: 35, 187
+  xy: 105, 21
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 10
 player_left
   rotate: false
-  xy: 53, 221
+  xy: 123, 21
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: 0
-player_left
-  rotate: false
-  xy: 1, 103
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: 1
-player_left
-  rotate: false
-  xy: 53, 187
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: 2
-player_left
-  rotate: false
-  xy: 53, 187
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: 4
-player_left
-  rotate: false
-  xy: 71, 221
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: 3
-player_left
-  rotate: false
-  xy: 1, 69
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: 5
-player_left
-  rotate: false
-  xy: 71, 187
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: 6
-player_left
-  rotate: false
-  xy: 89, 221
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: 7
-player_left
-  rotate: false
-  xy: 89, 221
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: 9
-player_left
-  rotate: false
-  xy: 1, 35
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: 8
-player_right
-  rotate: false
-  xy: 89, 187
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: 0
-player_right
-  rotate: false
-  xy: 89, 187
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: 5
-player_right
-  rotate: false
-  xy: 107, 221
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: 1
-player_right
-  rotate: false
-  xy: 1, 1
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: 2
-player_right
-  rotate: false
-  xy: 1, 1
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: 4
-player_right
-  rotate: false
-  xy: 107, 187
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: 3
-player_right
-  rotate: false
-  xy: 125, 221
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: 6
-player_right
-  rotate: false
-  xy: 125, 187
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: 7
-player_right
-  rotate: false
-  xy: 125, 187
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: 9
-player_right
-  rotate: false
-  xy: 143, 221
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: 8
-rasta
-  rotate: false
-  xy: 143, 187
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: -1
-__bath
-  rotate: false
-  xy: 161, 237
-  size: 32, 16
-  orig: 32, 16
-  offset: 0, 0
-  index: -1
-__bed
-  rotate: false
-  xy: 161, 219
-  size: 32, 16
-  orig: 32, 16
-  offset: 0, 0
-  index: -1
-__clock
-  rotate: false
-  xy: 195, 221
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: -1
-__cooker
-  rotate: false
-  xy: 213, 221
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: -1
-__guitar_case
-  rotate: false
-  xy: 231, 221
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: -1
-__sofa
-  rotate: false
-  xy: 161, 201
-  size: 32, 16
-  orig: 32, 16
-  offset: 0, 0
-  index: -1
-__refrigerator
-  rotate: false
-  xy: 19, 137
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: -1
-__toilet
-  rotate: false
-  xy: 19, 103
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: -1
-__tv
-  rotate: false
-  xy: 19, 69
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: -1
-__wardrobe
-  rotate: false
-  xy: 19, 35
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: -1
-~~door
-  rotate: false
-  xy: 19, 1
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: -1
 apple
   rotate: false
-  xy: 195, 203
+  xy: 137, 3
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
+player_left
+  rotate: false
+  xy: 141, 21
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 1
 bath_l
   rotate: false
-  xy: 213, 203
+  xy: 155, 3
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
+player_left
+  rotate: false
+  xy: 159, 21
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 2
+player_left
+  rotate: false
+  xy: 159, 21
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 4
 bath_r
   rotate: false
-  xy: 231, 203
+  xy: 173, 3
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
+player_left
+  rotate: false
+  xy: 177, 21
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 3
 bed_l
   rotate: false
-  xy: 161, 183
+  xy: 191, 3
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
+player_left
+  rotate: false
+  xy: 195, 21
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 5
 bed_r
   rotate: false
-  xy: 179, 183
+  xy: 209, 3
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
+player_left
+  rotate: false
+  xy: 213, 21
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 6
 book
   rotate: false
-  xy: 197, 185
+  xy: 227, 3
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
+player_left
+  rotate: false
+  xy: 231, 21
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 7
+player_left
+  rotate: false
+  xy: 231, 21
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 9
 bookshelf_bl
   rotate: false
-  xy: 215, 185
+  xy: 245, 3
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
+player_left
+  rotate: false
+  xy: 249, 21
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 8
 bookshelf_br
   rotate: false
-  xy: 233, 185
+  xy: 263, 3
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
+player_right
+  rotate: false
+  xy: 267, 21
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 0
+player_right
+  rotate: false
+  xy: 267, 21
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 5
 bookshelf_ml
   rotate: false
-  xy: 37, 169
+  xy: 281, 3
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
+player_right
+  rotate: false
+  xy: 285, 21
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 1
 bookshelf_mr
   rotate: false
-  xy: 37, 151
+  xy: 299, 3
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
+player_right
+  rotate: false
+  xy: 303, 21
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 2
+player_right
+  rotate: false
+  xy: 303, 21
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 4
 bookshelf_tl
   rotate: false
-  xy: 55, 169
+  xy: 317, 3
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
+player_right
+  rotate: false
+  xy: 321, 21
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 3
 bookshelf_tr
   rotate: false
-  xy: 37, 133
+  xy: 335, 3
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
+player_right
+  rotate: false
+  xy: 339, 21
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 6
 bottle_full
   rotate: false
-  xy: 55, 151
+  xy: 353, 3
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
+player_right
+  rotate: false
+  xy: 357, 21
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 7
+player_right
+  rotate: false
+  xy: 357, 21
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 9
 bottle_packed
   rotate: false
-  xy: 73, 169
+  xy: 371, 3
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
+player_right
+  rotate: false
+  xy: 375, 21
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: 8
 bucket
   rotate: false
-  xy: 37, 115
+  xy: 389, 3
   size: 16, 16
   orig: 16, 16
+  offset: 0, 0
+  index: -1
+rasta
+  rotate: false
+  xy: 393, 21
+  size: 16, 32
+  orig: 16, 32
   offset: 0, 0
   index: -1
 car_bl
   rotate: false
-  xy: 55, 133
+  xy: 407, 3
   size: 16, 16
   orig: 16, 16
+  offset: 0, 0
+  index: -1
+__clock
+  rotate: false
+  xy: 411, 21
+  size: 16, 32
+  orig: 16, 32
   offset: 0, 0
   index: -1
 car_bml
   rotate: false
-  xy: 73, 151
+  xy: 425, 3
   size: 16, 16
   orig: 16, 16
+  offset: 0, 0
+  index: -1
+__cooker
+  rotate: false
+  xy: 429, 21
+  size: 16, 32
+  orig: 16, 32
   offset: 0, 0
   index: -1
 car_bmr
   rotate: false
-  xy: 91, 169
+  xy: 443, 3
   size: 16, 16
   orig: 16, 16
+  offset: 0, 0
+  index: -1
+__guitar_case
+  rotate: false
+  xy: 447, 21
+  size: 16, 32
+  orig: 16, 32
   offset: 0, 0
   index: -1
 car_br
   rotate: false
-  xy: 37, 97
+  xy: 461, 3
   size: 16, 16
   orig: 16, 16
+  offset: 0, 0
+  index: -1
+__refrigerator
+  rotate: false
+  xy: 465, 21
+  size: 16, 32
+  orig: 16, 32
   offset: 0, 0
   index: -1
 car_tl
   rotate: false
-  xy: 55, 115
+  xy: 479, 3
   size: 16, 16
   orig: 16, 16
+  offset: 0, 0
+  index: -1
+__toilet
+  rotate: false
+  xy: 483, 21
+  size: 16, 32
+  orig: 16, 32
   offset: 0, 0
   index: -1
 car_tml
   rotate: false
-  xy: 73, 133
+  xy: 497, 3
   size: 16, 16
   orig: 16, 16
+  offset: 0, 0
+  index: -1
+__tv
+  rotate: false
+  xy: 501, 21
+  size: 16, 32
+  orig: 16, 32
   offset: 0, 0
   index: -1
 car_tmr
   rotate: false
-  xy: 91, 151
+  xy: 515, 3
   size: 16, 16
   orig: 16, 16
+  offset: 0, 0
+  index: -1
+__wardrobe
+  rotate: false
+  xy: 519, 21
+  size: 16, 32
+  orig: 16, 32
   offset: 0, 0
   index: -1
 car_tr
   rotate: false
-  xy: 109, 169
+  xy: 533, 3
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
+~~door
+  rotate: false
+  xy: 537, 21
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: -1
 catbox
   rotate: false
-  xy: 37, 79
+  xy: 551, 3
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 cat_full
   rotate: false
-  xy: 55, 97
+  xy: 555, 37
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 0
 cat_full
   rotate: false
-  xy: 55, 97
+  xy: 555, 37
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 1
 cat_full
   rotate: false
-  xy: 55, 97
+  xy: 555, 37
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 2
 cat_full
   rotate: false
-  xy: 55, 97
+  xy: 555, 37
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 3
 cat_full
   rotate: false
-  xy: 55, 97
+  xy: 555, 37
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 4
 cat_full
   rotate: false
-  xy: 55, 97
+  xy: 555, 37
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 5
 cat_full
   rotate: false
-  xy: 55, 97
+  xy: 555, 37
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 6
 cat_full
   rotate: false
-  xy: 73, 115
+  xy: 569, 19
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 7
 cat_packed
   rotate: false
-  xy: 91, 133
+  xy: 573, 37
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 ceil
   rotate: false
-  xy: 109, 151
+  xy: 569, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 clock_b
   rotate: false
-  xy: 127, 169
+  xy: 587, 19
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 0
 clock_b
   rotate: false
-  xy: 37, 61
+  xy: 591, 37
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 1
 clock_b
   rotate: false
-  xy: 37, 61
+  xy: 591, 37
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 3
 clock_b
   rotate: false
-  xy: 55, 79
+  xy: 587, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 2
 clock_t
   rotate: false
-  xy: 73, 97
+  xy: 605, 19
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 0
 clock_t
   rotate: false
-  xy: 91, 115
+  xy: 609, 37
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 1
 clock_t
   rotate: false
-  xy: 91, 115
+  xy: 609, 37
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 3
 clock_t
   rotate: false
-  xy: 109, 133
+  xy: 605, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 2
 comp_bl
   rotate: false
-  xy: 127, 151
+  xy: 623, 19
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 comp_br
   rotate: false
-  xy: 37, 43
+  xy: 627, 37
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 comp_tl
   rotate: false
-  xy: 55, 61
+  xy: 623, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 comp_tr
   rotate: false
-  xy: 73, 79
+  xy: 641, 19
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 coocker_b
   rotate: false
-  xy: 91, 97
+  xy: 645, 37
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 coocker_t
   rotate: false
-  xy: 109, 115
+  xy: 641, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 dark
   rotate: false
-  xy: 127, 133
+  xy: 659, 19
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 door_bottom
   rotate: false
-  xy: 37, 25
+  xy: 663, 37
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 door_top
   rotate: false
-  xy: 55, 43
+  xy: 659, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 guitar_case_b
   rotate: false
-  xy: 73, 61
+  xy: 677, 19
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 guitar_case_t
   rotate: false
-  xy: 91, 79
+  xy: 681, 37
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 guitar_packed
   rotate: false
-  xy: 109, 97
+  xy: 677, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 inner_door_bottom
   rotate: false
-  xy: 127, 115
+  xy: 695, 19
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 inner_door_top
   rotate: false
-  xy: 37, 7
+  xy: 699, 37
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 item_selector
   rotate: false
-  xy: 55, 25
+  xy: 695, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 item_selector_selected
   rotate: false
-  xy: 73, 43
+  xy: 713, 19
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 knife_full
   rotate: false
-  xy: 91, 61
+  xy: 717, 37
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 knife_packed
   rotate: false
-  xy: 109, 79
+  xy: 713, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 light
   rotate: false
-  xy: 127, 97
+  xy: 731, 19
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 microoven
   rotate: false
-  xy: 55, 7
+  xy: 735, 37
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 minitable
   rotate: false
-  xy: 73, 25
+  xy: 731, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 phone
   rotate: false
-  xy: 91, 43
+  xy: 749, 19
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 plant
   rotate: false
-  xy: 109, 61
+  xy: 753, 37
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 refrigerator_b
   rotate: false
-  xy: 127, 79
+  xy: 749, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 refrigerator_t
   rotate: false
-  xy: 73, 7
+  xy: 767, 19
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 sofa_l
   rotate: false
-  xy: 91, 25
+  xy: 771, 37
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 sofa_r
   rotate: false
-  xy: 109, 43
+  xy: 767, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 toilet_b
   rotate: false
-  xy: 127, 61
+  xy: 785, 19
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 toilet_t
   rotate: false
-  xy: 91, 7
+  xy: 789, 37
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 trash
   rotate: false
-  xy: 109, 25
+  xy: 785, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 tv_b
   rotate: false
-  xy: 127, 43
+  xy: 803, 19
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 tv_t
   rotate: false
-  xy: 109, 7
+  xy: 807, 37
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 vantuz
   rotate: false
-  xy: 127, 25
+  xy: 803, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_corner_left_bottom
   rotate: false
-  xy: 127, 7
+  xy: 821, 19
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_corner_right_bottom
   rotate: false
-  xy: 197, 167
+  xy: 825, 37
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_left
   rotate: false
-  xy: 215, 167
+  xy: 821, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_middle
   rotate: false
-  xy: 233, 167
+  xy: 839, 19
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_middle_ceil
   rotate: false
-  xy: 145, 165
+  xy: 843, 37
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_right
   rotate: false
-  xy: 145, 147
+  xy: 839, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall_x
   rotate: false
-  xy: 163, 165
+  xy: 857, 19
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wardrobe_b
   rotate: false
-  xy: 145, 129
+  xy: 861, 37
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wardrobe_t
   rotate: false
-  xy: 163, 147
+  xy: 857, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
